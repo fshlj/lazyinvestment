@@ -195,6 +195,8 @@
 
                         <font color="red">{{fullName()}}</font>
                         <span id="wrx" class=""></span>
+                        <!--<span id="a" style="float: right;margin: 20px"><a class=" " href="/hwj/myCard" rel="nofollow">我的账户</a></span>-->
+
                     </div>
 
 
@@ -202,29 +204,42 @@
                     <script th:inline="javascript">
 
                         //js获取thymeleaf中的变量的值:投资金额
-                        //通过jquery获取年化收益
+                        //通过jquery获取年化收益  project.surplusMoney
                         var revenueMoney = [[${project.revenueMoney}]];
                         //获取项目期限
                         var projectTime = [[${project.projectTime}]];
                         //获取剩余金额
                         var  surplus = [[${project.surplusMoney}]];
+                        //获取账户余额
+                        var  surplus = [[${captail.captailMoney}]];
+
 
                         function lianDong(){
                             var  sp = [[${project.surplusMoney}]];
-                            //alert(sp);
-                            //点击全额投资:点击按钮隐藏
-                            $("#full").hide();
-                            //将马上投资按钮中的禁用class样式属性移除
-                            $("#jinyong").removeClass("g-btn-disabled");
-                            //将剩余的金额添加到输入框里边
-                            $("#amount").val(sp);
-                            var shouyi =""+ (((sp)*revenueMoney/365)*projectTime)/100;
-                            // alert(shouyi);
-                            var shouyi2 = shouyi.substring(shouyi.indexOf("."),shouyi.indexOf(".")+3);
-                            var shouyi3 = shouyi.substring(0,shouyi.indexOf("."));
-                            var shouyi4 =shouyi3+shouyi2;
-                            //alert(shouyi4);
-                            $("#wrx").html("预计收益"+shouyi4+"元").css("color","red");
+                            //如果账户余额小于0或者项目余额小于0,则不让投资
+                            if(surplus<=0||surplus<0){
+                                $("#jinyong").addClass("g-btn-disabled");
+                                $("#wrx").html(".账户余额不足,请到我的账户充值"+" .项目投资完毕").css("color","red");
+
+                            }else{
+
+                                //alert(sp);
+                                //点击全额投资:点击按钮隐藏
+                                $("#full").hide();
+                                //将马上投资按钮中的禁用class样式属性移除
+                                $("#jinyong").removeClass("g-btn-disabled");
+                                //将剩余的金额添加到输入框里边
+                                $("#amount").val(sp);
+                                var shouyi =""+ (((sp)*revenueMoney/365)*projectTime)/100;
+                                // alert(shouyi);
+                                var shouyi2 = shouyi.substring(shouyi.indexOf("."),shouyi.indexOf(".")+3);
+                                var shouyi3 = shouyi.substring(0,shouyi.indexOf("."));
+                                var shouyi4 =shouyi3+shouyi2;
+                                //alert(shouyi4);
+                                $("#wrx").html("预计收益"+shouyi4+"元").css("color","red");
+                            }
+
+
                         }
 
 
@@ -235,15 +250,21 @@
 
                             $scope.fullName = function() {
 
+                                //如果账户余额小于0或者项目余额小于0,则不让投资
+                                if(surplus<=0||surplus<0){
+                                    $("#jinyong").addClass("g-btn-disabled");
+                                    $("#wrx").html(".账户余额不足,请到我的账户充值"+".项目投资完毕").css("color","red");
 
-                                if($scope.name==0){
-                                    //$("#wrx").hide();
-                                    return "";
-                                }
+                                }else{
+
+                                    if($scope.name==0){
+                                        //$("#wrx").hide();
+                                        return "";
+                                    }
                                     //如果改动的数据与余额不同,则将全额投资的按钮显示出来   | number:2
                                     if(surplus!=$scope.name&&$scope.name%100==0&&$scope.name>=100&&surplus>=$scope.name) {
                                         $("#wrx").hide();
-                                    //将马上投资的按钮的禁用属性移除
+                                        //将马上投资的按钮的禁用属性移除
                                         $("#jinyong").removeClass("g-btn-disabled");
                                         $("#full").show();
                                         var shouyi =""+ ((($scope.name)*revenueMoney/365)*projectTime)/100;
@@ -285,6 +306,8 @@
                                         $("#jinyong").addClass("g-btn-disabled");
                                         return "投资金额不能超过项目剩余金额";
                                     }
+                                }
+
                             }
                         });
                     </script>

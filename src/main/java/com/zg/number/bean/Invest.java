@@ -2,6 +2,7 @@ package com.zg.number.bean;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Date;
  * 投资表
  */
 @Data
-public class Invest {
+public class Invest implements Serializable{
     private int investId;
     private int surplusMoney;//剩余金额
     private int projectTime;//项目期限
