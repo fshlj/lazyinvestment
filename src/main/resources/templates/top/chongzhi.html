@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>充值</title>
+    <meta name="keywords" content="懒投资,懒人投资,懒理财,理财">
+    <meta name="description" content="懒投资是国内领先的互联网投行，专注金融产品创新，严格风控，与中国移动、比亚迪、金贵银业等上市公司合作。资金由银行存管、中国互联网金融协会会员，为投资保驾护航。">
+    <meta baidu-gxt-verify-token="8fd06ee5eb68e0def0986730ace33d6e">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>
+        (function () {
+            window.CONFIG = {"ENCRYPT_TIMEOUT": 120000, "SERVER_TIME": 1502422472000};
+            window.CONFIG.BASE_URI = 'https://lantouzi.com';
+            window.CONFIG.SSO_URI = CONFIG.BASE_URI + '/dwjsso';
+            window.CONFIG.LTZ_API = CONFIG.BASE_URI + '/api/uc/';
+            window.ENV = 'online';
+            var isIE = !!window.VBArray;
+            if (isIE && !+[1,] && !document.documentMode) {//less than IE8
+                window.location.href = window.CONFIG.BASE_URI + '/wrong_browser';
+            }
+        })();
+        var _hmt = _hmt || [];
+        (function () { // 防止被iframe
+            try {
+                top.location.hostname;
+                if (top.location.hostname !== window.location.hostname) {
+                    top.location.href = 'https://lantouzi.com';
+                }
+            } catch (e) {
+                top.location.href = 'https://lantouzi.com';
+            }
+        })();
+    </script>
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/common/base.css?_v=e4ea6a1ba6aef6e8783dfacd7b6d7055">
+    <!--[if IE 8 ]>
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/common/base_ie8.css?_v=f37b1ac6b88dd8a3f1be486d1336693c"><![endif]-->
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/common/header.pc.css?_v=34c478f6f2c27c2e298d65416f54fa33">
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/v3/uc/uc.css?_v=b90f23eb6612465eca12a229ff05d52c">
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/v2/user/uc_common.css?_v=14046aeb87e28ca6022a65da87e46b3a">
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/v3/uc/side_menu.css?_v=fe8180f257c91a5b620321b27a121b6b">
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/v3/uc/recharge/index.css?_v=f8cd83bb4a928efae00e1dd3eda937da">
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <!--[if lte IE 9]>
+
+    <![endif]-->
+    <script src="https://lantouzi.com/static/js/config.js?_v=ac0e2d4d0239a90fb8534705ac19027e"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/js/chongzhi.js"></script>
+    <script>
+        $(document).ready(function () {
+            var money = $("#cardYueId").text();
+
+            var num = new Number(money);
+
+            $("#cardYueId").text(num);
+        })
+    </script>
+</head>
+<body>
+<header class="g-topbar">
+    <div class="l-container clearfix">
+        <div class="l-left">
+            <div class="g-service">
+                <div style="display:inline-block;width:280px;">
+                    <span style="vertical-align:top;">客服电话 400-807-8000</span>
+                    <span class="tel">（工作日 9:00-22:00）</span>
+                </div>
+                <span class="iconfont g-topbar-social weibo" id="weibo_account">&#xe601;</span>
+                <span class="iconfont g-topbar-social weixin" id="weixin_account">&#xe619;</span>
+            </div>
+            <div class="g-topbar-social-account weibo" id="weibo_account_info">
+                欢迎关注懒投资官方微博</br>
+                <a href="http://weibo.com/lantouzicom" target="_blank" title="懒投资官方微博" rel="nofollow">@懒投资</a>
+            </div>
+            <div class="g-topbar-social-account weixin" id="weixin_account_info">
+                扫一扫关注懒投资微信
+                <img src="https://s1.lantouzi.com/img/201612/a5e738531668ada69144888e315221ce.png" width="150px"
+                     height="150px" title="微信号:lantouzicom"/>
+                <p>微信号：lantouzicom</p>
+            </div>
+        </div>
+        <div class="l-right">
+            <p class="g-topbar-nav">
+                <a href="#" class="g-topbar-nav-link" rel="nofollow">欢迎，chuanzige</a>
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">[退出]</a>
+                <a href="#" class="g-topbar-nav-link">VIP会员</a>
+                <a href="#" target="_blank" class="g-topbar-nav-link">企业理财</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="#" class="g-topbar-nav-link">手机App</a>
+                <a href="#" class="g-topbar-nav-link">安全保障</a>
+                <a href="#" class="g-topbar-nav-link">信息披露</a>
+                <a href="#" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+    </div>
+</header>
+<header class="g-header">
+    <div class="l-container clearfix">
+        <a href="#" class="g-header-logo" title="懒投资">
+            <img src="https://s1.lantouzi.com/img/201612/53ef617a4124fb2da54ab79c27945889.png" alt="懒投资"/>
+            <h1 class="l-hide">懒投资</h1>
+        </a>
+        <nav class="g-header-nav">
+            <a class="g-header-nav-link " href="/rcy/login">首页</a>
+            <a class="g-header-nav-link " href="/fh/lanRen">懒人计划</a>
+            <a class="g-header-nav-link " href="/lingqian">零钱计划</a>
+            <a class="g-header-nav-link " href="/wrx/selectInvest">变现计划</a>
+            <a class="g-header-nav-link " href="/xiangle">享乐计划
+                <!-- <i class="beta" style="width:24px;">新</i> --></a>
+            <a class="g-header-nav-link " href="/qunxing">群星计划</a>
+            <!-- 	<div class="g-header-nav-link parent g-header-nav-parent ">
+                    <div class="parent-name">群星&amp;斗牛</div>
+                    <div class="g-header-link-sub">
+                        <a class="g-header-nav-link sub" href="https://lantouzi.com/stars">群星计划</a>
+                        <a class="g-header-nav-link sub" href="https://lantouzi.com/douniujihua">斗牛计划</a>
+                    </div>
+                </div> -->
+            <a class="g-header-nav-link on" href="/hwj/myCard" rel="nofollow">我的账户</a>
+        </nav>
+    </div>
+</header>
+<script>
+    require(['widgets/header_nav']);
+</script>
+<div class="g-uc-page clearfix ">
+    <div class="g-uc-main">
+        <div class="uc-page">
+            <div class="g-h3">我要充值<span class="tail">LANTOUZI</span></div>
+            <form method="post" action="/rcy/chongzhi" onsubmit="return checkChongZhiBalance()">
+                <input type="hidden" name="captailMoney" th:value="${session.captail.captailMoney}"/>
+                <div class="recharge-box">
+                    <div class="line">银行卡可用余额：<span class="g-money">
+                    <span th:text="${cardAllYue}" id="cardYueId"></span></span>元
+                    </div>
+                    <div class="line">充值金额：
+                        <div class="g-input-tip-holder">
+                            <input onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)"
+                                   onblur="this.v();" type="text" id="amt" name="addCaptailMoney"
+                                   class="amt g-input-money"
+                                   maxlength="10"
+                            />
+
+                            <div class="tip-holder">
+                                <span class="icon iconfont">&#xe60c;</span>
+                                <span class="tip"></span>
+                            </div>
+                        </div>
+                        元
+                        <em style="color: red">(只能输入数字,并且不能大于银行卡余额)</em><br/>
+                        <p><em id="yuebijiao" style="color: red"> </em></p>
+                    </div>
+                    <div class="line">充值方式：
+                        <ul class="recharge-way">
+                            <li id="fast" class="active">快捷充值</li>
+                            <li id="ebank">网银充值</li>
+                        </ul>
+                        <div class="way-tip">
+                            <p id="fast_tip">邮储限额：单笔5万，单日20万；大额充值建议使用网银充值。</p>
+                            <p id="ebank_tip" style="display:none">
+                                网银支持银行：工商银行、光大银行、建设银行、招商银行、交通银行、邮政储蓄银行、广发银行、兴业银行、平安银行、中信银行、北京银行、华夏银行。</p>
+                        </div>
+                    </div>
+                    <div class="action">
+                        <button class="g-btn g-btn-medium-major  js-btn-recharge" data-category="立即充值"
+                                data-label="recharge" id="myBtn">立即充值
+                        </button>
+                        <!--<div class="final">充值后账户金额：<em id="final_amt">0.<span>00</span></em>元</div>-->
+                    </div>
+                    <div class="taoying-section">
+                        <a href="https://toweringcapital.cn/union/hello" target="_blank"><img
+                                src="https://s1.lantouzi.com/img/201610/aeb0ddaf54406c8540dbdd7dc551fd60.jpg"></a>
+                    </div>
+                </div>
+            </form>
+            <div class="recharge-desc">
+                <a class="recharge-tip" href="#" target="_blank"><span class="iconfont">&#xe602;</span>快捷支付不成功？</a>
+            </div>
+            <div class="uc-rules">
+                <h4>充值说明：</h4>
+                <p><span class="idx">1.</span><span class="cont">快捷支付限额：一般限额为单笔上限5万元，单日上限20万元，单月上限500万元。</span></p>
+                <p><span class="idx">2.</span><span class="cont">懒投资仅可使用储蓄卡进行充值，严禁信用卡充值、套现等行为，一经发现将予以处罚，包括但不限于：限制收款、冻结账户、永久停止服务，并会影响银行征信记录。</span>
+                </p>
+                <p><span class="idx">3.</span><span
+                        class="cont">当日充值金额当日不可提现；正常投资回款（或零钱转出）可随时提现；如充值后未投资，该部分金额每日可提现1万元。</span></p>
+            </div>
+        </div>
+
+        <script type="text/tmpl" id="dialog-tmpl">
+	<div class="dg_wrapper dialog-chongzhi" style="height:auto">
+		<div class="hd">
+			<h3>登录到支付平台充值</h3>
+		</div>
+		<div class="bd">
+			<p>请在新打开的支付页面完成充值后选择：</p>
+			<div class="ret">
+				<p>充值成功：<a class="g-btn g-btn-medium-major tongji" href="https://lantouzi.com/user/trade/datalist?type=1" data-category="确认成功" data-label="recharge">确认成功</a></p>
+				<p>充值失败：<a href="#" class="g-btn g-btn-medium-minor tongji js-close-btn" data-category="重新充值" data-label="recharge">重新充值</a>&nbsp;&nbsp;<span class="help">查看&nbsp;<a href="https://lantouzi.com/about/help" class="tongji" target="_blank" data-category="查看帮助中心" data-label="recharge">帮助中心</a></span></p>
+				<p style="font-size:14px">遇到问题请拨打我们的客服热线：400-807-8000（工作日 9:00-22:00）</p>
+			</div>
+		</div>
+		<a href="javascript:void(0)" class="js-close close tongji" data-category="关闭弹层" data-label="recharge"></a>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+        <script type="text/tmpl" id="taoying-tmpl">
+	<div class="dialog-taoying" style="width: 426px; height: 263px;">
+		<a href="https://toweringcapital.cn/union/hello"><img src="https://s1.lantouzi.com/img/201610/6d2962043ce9259e48ebb11b646cfabe.jpg"></a>
+		<a href="javascript:void(0)" class="js-close close"></a>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+        <script>
+            var IS_TYPE_CORP = false;//是否为企业用户
+            var available_amount = 0;//账户可用余额
+            var notice_pc = "\u90ae\u50a8\u9650\u989d\uff1a\u5355\u7b145\u4e07\uff0c\u5355\u65e520\u4e07\uff1b\u5927\u989d\u5145\u503c\u5efa\u8bae\u4f7f\u7528\u7f51\u94f6\u5145\u503c\u3002"; //pc充值限额提示信息
+            var bid_type = 0;
+            var IS_CMBCHINA = false;
+            var show_taoying_ad = false;
+
+            require(['ltz_util', 'inputTip', 'tipCtrl', 'dialog'], function (Util, InputTip, tipCtrl) {
+                var RECHARGE_MAX = 1000000000;//个人用户最大充值限额1000万
+                var recharge_url = window.CONFIG.BASE_URI + '/user/recharge/route';
+                var $amt = $('#amt'),
+                    $final_amt = $('#final_amt'),
+                    $btn_recharge = $('.js-btn-recharge'),
+                    $recharge_way = $('.recharge-way');
+
+                var it = new InputTip({
+                    el: $amt
+                });
+
+                $amt.on('keyup', function () {
+                    if (!$.trim($amt.val())) {
+                        $final_amt.text(Util.numberFormat(available_amount / 100, 2));
+                        return;
+                    }
+                    if (!ckAmount()) {
+                        return;
+                    }
+                    var total = available_amount + (+$amt.val() || 0) * 100;
+                    $final_amt.text(Util.numberFormat(total / 100, 2));
+                }).focus();
+
+                function ckAmount() {
+                    var amt = $amt.val();
+                    if (!/^\d+(\.\d{1,2})?$/.test(amt)) {
+                        it.showTip('金额格式输入错误');
+                        return false;
+                    }
+                    amt = +amt || 0;
+                    if (amt <= 0) {
+                        it.showTip('充值金额必须大于0');
+                        return false;
+                    }
+                    if (!(IS_TYPE_CORP) && amt * 100 > RECHARGE_MAX) {
+                        it.showTip('您一次最大可充值金额为' + Util.numberFormat(RECHARGE_MAX / 100) + '元');
+                        return false;
+                    }
+                    if (show_taoying_ad && amt >= 300000) {
+                        $('.taoying-section').show();
+                        taoyingAlert();
+                    } else {
+                        $('.taoying-section').hide();
+                    }
+                    var $way = $recharge_way.find('.active'), is_fast = true;
+                    is_fast = $way.is('#fast');
+                    /*
+                     if (IS_CMBCHINA && is_fast && amt <= 2) {
+                     it.showTip('招商银行快捷支付不支持充值2元或以下的金额');
+                     return false;
+                     }
+                     */
+                    it.clearTip();
+                    return true;
+                }
+
+                // 韬映的广告
+                function taoyingAlert() {
+                    var taoying = new $.ui.Dialog(document, {
+                        elem: $('#taoying-tmpl').html(),
+                        drag: false,
+                        fixed: true,
+                        overlay: true,
+                        lock: true,
+                        trigger: 'taoying'
+                    });
+                    $(document).trigger('taoying');
+                }
+
+                var dialogPay = new $.ui.Dialog(document, {
+                    elem: $('#dialog-tmpl').html(),
+                    height: '300px',
+                    drag: false,
+                    fixed: true,
+                    overlay: true,
+                    lock: true,
+                    trigger: 'submit2yeepay'
+                });
+                $(document).on('click', '.ecope_dialog .js-close-btn,.ecope_dialog .js-close', function (e) {
+                    e.preventDefault();
+                    dialogPay.close();
+                });
+
+                $btn_recharge.on('click', function (e) {
+                    e.preventDefault();
+                    go_recharge();
+                });
+
+                function go_recharge() {
+                    var is_net = true, $way;
+                    if (!$.trim($amt.val())) {
+                        return;
+                    }
+                    if (!ckAmount()) {
+                        return;
+                    }
+                    if (!IS_TYPE_CORP) { //渠道用户不能用快捷
+                        $way = $recharge_way.find('.active');
+                        if ($way.length !== 1) return;
+                        if ($way.attr('disabled')) return;
+                        is_net = $way.is('#ebank');
+                    }
+                    var ps = {
+                        recharge_amount: $amt.val(),
+                        bid_type: bid_type,
+                        is_net: +is_net
+                    };
+                    window.open(recharge_url + '?' + $.param(ps));
+                    $(document).trigger('submit2yeepay');
+                }
+
+                //充值方式
+                $recharge_way.find('li').on('click', function () {
+                    var $way = $(this).siblings().removeClass('active')
+                        .end().addClass('active');
+                    if ($way.is('#fast')) {
+                        $('#fast_tip').show();
+                        $('#ebank_tip').hide();
+                    } else {
+                        $('#fast_tip').hide();
+                        $('#ebank_tip').show();
+                    }
+                    if ($way.attr('disabled')) {
+                        $btn_recharge.addClass('g-btn-disabled');
+                    } else {
+                        $btn_recharge.removeClass('g-btn-disabled');
+                    }
+                });
+
+            });
+        </script>
+    </div>
+    <div class="g-uc-side-menu">
+        <div class="user-side-menu">
+            <style>
+                .g-uc-page {
+                    min-height: 800px;
+                }
+            </style>
+            <h5>我的账户</h5>
+            <ul class="menu-list">
+                <li><a href="/hwj/myCard"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe621;</span>账户概览</span></a></li>
+                <li><a href="/findCapital"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe607;</span>资金流水</span></a></li>
+                <li><a href="/rcy/toChongZhi"><span class="uc-menu-item on"><span
+                        class="iconfont">&#xe61c;</span>我要充值</span></a>
+                </li>
+                <li><a href="/rcy/toTiXian"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe61e;</span>我要提现</span></a>
+                </li>
+                <!-- <li><a href="https://lantouzi.com/user/account/bindcard"><span class="uc-menu-item "><span class="iconfont">&#xe631;</span>提现银行卡</span></a></li> -->
+                <li><a href="#"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe615;</span>邀请好友<span
+                        class="tag-award">奖</span></span></a></li>
+            </ul>
+            <h5>我的投资</h5>
+            <ul class="menu-list">
+                <li><a href="#"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe629;</span>懒人计划</span></a></li>
+                <li><a href="#"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe60e;</span>零钱计划</span></a></li>
+                <li><a href="#"><span
+                        class="uc-menu-item "><span class="iconfont">&#xe600;</span>变现计划
+                    <!-- <span class="beta">Beta</span> --></span></a></li>
+                <li><a href="#"><span class="uc-menu-item "><span class="iconfont"
+                                                                  style="font-size:24px;left:32px;">&#xe690;</span>斗牛计划</span></a>
+                </li>
+                <li><a href="#"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe62d;</span>享乐计划</span></a>
+                </li>
+                <li><a href="#"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe646;</span>群星计划</span></a>
+                </li>
+            </ul>
+            <h5>我的红包</h5>
+            <ul class="menu-list">
+                <li><a href="#"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe61a;</span>投资券</span></a></li>
+                <li><a href="#"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe627;</span>体验金</span></a>
+                </li>
+            </ul>
+            <h5>我的信息</h5>
+            <ul class="menu-list">
+                <li><a href="#"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe61f;</span>个人信息</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+<footer class="g-footer">
+    <div class="l-container">
+        <div class="clearfix">
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">关于懒投资</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">公司介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">团队介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">联系我们</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">加入我们</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">产品服务</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">产品介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">安全保障</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">媒体报道</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link">友情链接</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">帮助中心</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link">网站公告</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">常见问题</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">网贷教室</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link">保理业务介绍</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section wide">
+                <h3 class="g-footer-title">联系我们</h3>
+                <section>
+                    <p>客服电话：400-807-8000&nbsp;（工作日 9:00-22:00）</p>
+                    <p>客服邮箱：<a href="mailto:kefu@lantouzi.com" class="g-footer-link"
+                               rel="nofollow">kefu@lantouzi.com</a></p>
+                    <p>公司地址：北京市朝阳区三里屯SOHO 办公B座15层</p>
+                    <p>我要合作：<a href="mailto:bd@lantouzi.com" class="g-footer-link" rel="nofollow">bd@lantouzi.com</a>
+                    </p>
+                </section>
+            </div>
+            <div class="g-footer-wx-qrcode">
+                <div class="img-wrap">
+                    <img src="https://s1.lantouzi.com/img/201612/a5e738531668ada69144888e315221ce.png" width="120px"
+                         height="120px" title="微信号:lantouzicom"/>
+                </div>
+                <p>投资有风险，选择需谨慎</p>
+            </div>
+        </div>
+        <!-- 	<div class="g-footer-links">
+                <section class="container clearfix" id="g-footer-links"></section>
+                <div class="g-footer-links-icon" title="展开/收起">
+                    <i class="iconfont">&#xe67d;</i>
+                </div>
+                <div class="g-footer-links-more">
+                    <a href="https://lantouzi.com/links">全部</a>
+                </div>
+            </div> -->
+        <div class="g-footer-safeguard clearfix">
+            <a href="#" class="safe-yeepay" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-geotrust" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-360" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-sobug" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-trustutn" target="_blank"
+               rel="nofollow"></a>
+        </div>
+        <div class="g-footer-copyright">
+            <p class="g-footer-copyright-line">
+                京ICP备14023229号 京ICP证150240号
+            </p>
+            <p class="g-footer-copyright-line">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502030465">
+                    <span><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAEoUlEQVQ4jX3UW2xTdQDH8e85PT097dq1Xbt2zYoEGBmbXIaA1wm6mAyUTS4JgpooBoPRKPHCg6IRozH6QsAQIiExEcKDigkJTBSXISCLkBgQWGAbY3O0bGztejltT9vT0+OLLuDQ//vvk//D//8V+J9jmoM1uYGe9hM/nnu5oJXkZa1N+3zzFh4WhNmR/9oId4W0Xx7vO975Svex3nZT61duFBxYvB6m+xW0mKPU3DLzSEPbmq8Epenov7fS1FuZSteuF7q2fdrLc0+aLHRaaBVuYVNUUg81cz7mkDZt/nn1h0N9q03TVARBKNy+F+/E4uHC+W0/7TqYYsOmmbwYTuPe20O81yA+YJBa+SVPG5fYsn89+77XMXt3fmeag8pdwYI51DB8dNvA0pWXlnrqgrzmv8TgwTTiNA+GWoRCGaHaQ/frZ1jnOE/wkYU8sbKjbfzXfdfHr+6snwLKuQ7nkV6XfO7mYlYsVslcSCMOpxA8NmwTBvkzt7DO8KFkNGJfn2VNa5Gua40cOG2E3GLSfgcY/+NE2Dh3YkdZsIOUo1K9SXoUrIYOE3mEWQ7kRR7EkSwyZWKDGrVVBRAEEhkRa7W8w9SSMybByPUf1urRaLPXKUPJhhkK4W+uIYOJ+rAPY0MY50dNOLbMR6x2EFjkJ5srgmkSCjggcuHx+MjJlybBigpvQ1rVmVmdB8XH8bMOpJZK4m3TMaIqwsUsuY5b6INJ5K3NVL25gEP7E0AFTfMksgNj5IevhydBY2KkLZ2QmBtWCd8vs+dABSc/i9C0JITb4SLXk6A8ViB/KYErmuTyx318sd9GsMnDvNoUsWiBUuJK8yQoSlmPmhapHO9jXatBSXeiHx3F983viLVWitUWygEJf0uIUNd1Yvsuky1aWNNuxRXvR01LWFwW6+TDtjvu6RTrh9qNYC0bH1DZUVvNnmgD+o0efPF+RLcdrSeBWhcg6g3xrWiHSg8bHxyj5ArjuVfA7g133PZThICZNrk5oDK3YZBP3lnE+1uXclSdB2md9lycKo/IoQ4XGRyAl7deVVhS18/NfiCfw9QzCyZByaMvLrmC6KM6kbErvNFsY01nBV3HclwV57O88Rohe4zSkVqKCY1pcxy8t3yIW91D5HQFxS8jeeU58HccCpmzz8Z++/ygNlqkENMh8iezVjVhCypgxDHiEpkxDfeMKpjug0iMwcO9aC4/zplO7DUOvLM3LLN6nzo1WZtS5sLz8cs7dht5zR07PYpUYVKzrAFjQkPPZREdCkpVBYJsJd49QMmQcC+ehZ4n7ql/bL0zuLbzjtqosXw0P2rXlGDZHWypw0hlMdQ0OGQssgfZDsVkhmwkgTLdhxIOUkjmyEdVM1+bmhoHq3nq3cB9rhqrN0QhVaZsSJQNC/lxFcwyxXiKTP84gsUKgkB+JIbVLhJ8NOS3OTObp4AVtpZVqubZnYtEsrIlSWWghFXIIQs6lkISU9NwzfFTWVeJKGeQ3DKCt2a4JDV94AxMPPOPM6XYvXvf9qfHR1bk9ciy2kZ/o5E2nYpXrLLa7eTS5rA9UJWT/I0X4gOxzvqLxnFh+/by7fu/ALehBVIymXo1AAAAAElFTkSuQmCC"
+                            width="10px" height="10px" style="margin-right: 5px;"></span>京公网安备 11010502030465号
+                </a>
+            </p>
+            <p class="g-footer-copyright-line">北京大家玩科技有限公司&nbsp;&nbsp;版权所有</p>
+            <p class="g-footer-copyright-line">
+                切换至：
+                <a href="#" class="g-footer-link" rel="nofollow">PC版</a>
+                <a href="#" class="g-footer-link" rel="nofollow">手机版</a>
+            </p>
+        </div>
+    </div>
+</footer>
+<script>
+    // 360理财渠道
+    var showLicaiBanner = false;
+    var licaiEndTime = new Date('2016/06/01 00:00:00'.replace(/-/g, "/"));
+    $(document).ready(function (e) {
+        if (showLicaiBanner && window.CONFIG.SERVER_TIME < licaiEndTime && (typeof localStorage !== undefined) && !localStorage.licai360Showed) {
+            var html = '<div style="position: fixed;width: 100%;height: 100px;left: 0;bottom: 0;background:rgba(255,98,67,0.9);z-index:2000;" class="licai360-footer"><div class="l-container"><a class="close-the-licai" style="display: block;width: 4%;position: absolute;left: 9.5%;top: 0;height: 50%;"></a><a href="/zt/licaijie360xinshou" style="display: block;position: absolute;bottom: 0;right: 0;width: 87%;height: 100%;"></a><img src="https://s1.lantouzi.com/uploader/2016527/08234e17a720e010c5ece8d011eab0f31464349675162.png" style="margin: 0 auto;display: block;"></div></div>';
+            $('body').append(html);
+            $('.close-the-licai').on('click', function () {
+                $('.licai360-footer').hide();
+                localStorage.licai360Showed = true;
+            });
+        }
+    });
+</script>
+<script>
+    require(['widgets/topbar_social_contact']);
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?6dea39ac37df9c6f3e7b096755b73949";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+
+        window.bd_track_event = function (category, action, label, value) {
+            value = value || 0;
+            if (category && action && label) {
+                _hmt.push(['_trackEvent', category, action, label, value]);
+            }
+        };
+        // $(document).on('mousedown', '.tongji', function(e){
+        // 	var $el = $(this);
+        // 	var category = $el.attr('data-category') || $.trim($el.text()),
+        // 		action   = $el.attr('data-action') || 'click',
+        // 		label    = $el.attr('data-label') || '',
+        // 		value    = $el.attr('data-value') || '';
+        // 	_hmt.push(['_trackEvent', category, action, label, value]);
+        // });
+
+    })();
+</script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-60788439-1', 'auto', {'allowLinker': true});
+    ga('require', 'linker');
+    ga('linker:autoLink', ['lanlicai.com']);
+    ga('send', 'pageview');
+</script>
+<script>
+    (function ($) {
+        var Track_Obj = {
+            page_name: '',
+            init: function () {
+                Track_Obj.page_name = Track_Obj.getPageName();
+                Track_Obj.bindEvents();
+            },
+            getPageName: function () {
+                var path = window.location.pathname.substring(1);
+                path = path.replace(/^(.*)\/$/g, '$1');
+                while (!!path.match(/^(.*)\/index$/g)) {
+                    path = path.replace(/^(.*)\/index$/g, '$1');
+                }
+                path = path.replace(/\//g, '-');
+                if (!path) {
+                    path = 'index';
+                }
+                return path;
+            },
+            bindEvents: function () {
+                //根据锚点class:track-click绑定mousedown事件，防止click跳转走
+                $(document).on('mousedown', '.track-click', function (e) {
+                    if ($(this).hasClass('g-btn-disabled')) {//禁用按钮不统计点击
+                        return;
+                    }
+                    var data = $(this).data(),
+                        category = data.category,
+                        action = data.action,
+                        label = data.label,
+                        value = data.value || 0,
+                        target = data.target;
+
+                    if (!category || !action || !label) {
+                        return;
+                    }
+                    if (target) {//获取目标对象的val
+                        value = $(target).val() || $(target).text();
+                        //如果设了target但是没有拿到value,记录错误信息
+                        if (!value) {
+                            value = 'NA-' + target;
+                        }
+                    }
+                    Track_Obj.track_event(category, action, label, value);
+                });
+            },
+            track_event: function (category, action, label, value) {
+                if (Track_Obj.page_name) {
+                    label = Track_Obj.page_name + '-' + label;
+                }
+                //统计到bd
+                if (window.bd_track_event) {
+                    window.bd_track_event(category, action, label, value);
+                }
+
+                //TODO 统计到ga
+
+            }
+        };
+
+        Track_Obj.init();
+        window.track_event = Track_Obj.track_event;
+    })(jQuery);
+</script>
+</body>
+</html>

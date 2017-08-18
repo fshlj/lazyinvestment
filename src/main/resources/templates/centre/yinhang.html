@@ -1,0 +1,1154 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="pragma " content="no-cache ">
+    <meta http-equiv="cache-control " content="no-cache ">
+    <meta http-equiv="expires " content="0 ">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>注册</title>
+    <script>
+        $(document).ready(function () {
+
+            initBankInfo(3000000102, 'CARDBIN');
+
+            if ($('#bankcardNo').val()) {
+                BHAFrom.ready = function (form) {
+                    $('#bankcardNo').nextAll('.inpPrompt').remove();
+                    form.check(false, $('#bankcardNo'));
+                };
+            }
+            BHAFrom.config.beforeSubmit = function (curform) {
+                if (BHAFrom.data.agreeUseCard || BHAFrom.data.swiftPay || BHAFrom.data.hasCardNo) {
+                    loading();
+                    return true;
+                } else {
+                    // 需要新线程才生效,奇怪
+                    setTimeout(function () {
+                        showDialogBottom();
+                        if (BHAFrom.data.hasCardNo) {
+                            $("#old-card-tip").show();
+                        } else {
+                            $("#new-card-tip").show();
+                        }
+                    }, 10);
+                    return false;
+                }
+            };
+            $('.agree-use-card').click(function () {
+                BHAFrom.data.agreeUseCard = true;
+                BHAFrom.form.submitForm();
+            })
+            $('.change-card').click(function () {
+                $('#bankcardNo').val('');
+                $('.bank_area').hide();
+                BHAFrom.form.submitForm();
+                $("#alertLayer,.alertLayer").hide();
+                $("#mask").hide();
+            })
+            $(".selectDiv").mouseover(function () {
+                $(".selectUl").show();
+                $(".selectDiv i").addClass("arrow-up");
+            }).mouseout(function () {
+                $(".selectUl").hide();
+                $(".selectDiv i").removeClass("arrow-up");
+            });
+            smsForNewPhone.init($("#sendSmsVerify"), {
+                requestKey: 'e99fd6f874164eb298915991d43c20fc',
+                phoneDom:'#mobile',
+                smsCount: '',
+            });
+
+            BHAFrom.before = function (curform) {
+                $('#smsCount').val(timer.c == 60 ? 0 : timer.c);
+            }
+            $(".protocol").click(function () {
+                showDialogBottom();
+                $(".modelContend").hide();
+                $(".modelContend." + $(this).data('type')).show();
+                $("#alertLayer").show();
+            });
+        });
+    </script>
+
+
+
+    <link rel="icon" href="/bha-neo-app/resource/images/favicon-1.ico" mce_href="/resource/custom/favicon-1.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/bha-neo-app/resource/images/favicon-1.ico" mce_href="/resource/custom/favicon-1.ico" type="image/x-icon">
+    <link type="text/css" href="../css/style_v13.css" rel="stylesheet"/>
+    <link type="text/css" href="../css/jquery.areaopt.css" rel="stylesheet"/>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../js/yinhang.js"></script>
+
+
+  <!--  js正则实现用户输入银行卡号的控制及格式化-->
+    <script language="javascript" type="text/javascript">
+        function formatBankNo (BankNo){
+
+            if (BankNo.value == "") return;
+            var account = new String (BankNo.value);
+            account = account.substring(0,22); /*帐号的总数, 包括空格在内 */
+            if (account.match (".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}") == null){
+                /* 对照格式 */
+                if (account.match (".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" + ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" +
+                        ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" + ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}") == null){
+                    var accountNumeric = accountChar = "", i;
+                    for (i=0;i<account.length;i++){
+                        accountChar = account.substr (i,1);
+                        if (!isNaN (accountChar) && (accountChar != " ")) accountNumeric = accountNumeric + accountChar;
+                    }
+                    account = "";
+                    for (i=0;i<accountNumeric.length;i++){    /* 可将以下空格改为-,效果也不错 */
+                        if (i == 4) account = account + " "; /* 帐号第四位数后加空格 */
+                        if (i == 8) account = account + " "; /* 帐号第八位数后加空格 */
+                        if (i == 12) account = account + " ";/* 帐号第十二位后数后加空格 */
+                        account = account + accountNumeric.substr (i,1)
+                    }
+                }
+            }
+            else
+            {
+                account = " " + account.substring (1,5) + " " + account.substring (6,10) + " " + account.substring (14,18) + "-" + account.substring(18,25);
+            }
+            if (account != BankNo.value) BankNo.value = account;
+
+        }
+    </script>
+
+</head>
+<body>
+
+<div class="header">
+    <div class="div-m">
+
+        <h1 class="logo">
+            <a href="#" class="logoImg"><img src="../images/logo-CBXM.png"></a>
+        </h1>
+    </div>
+</div>
+
+
+
+<!--主体开始-->
+<div class="container">
+    <div class="infoBar">
+        <div class="div-m">
+            <span class="subtitle">注册</span>
+            <ul>
+                <li class="first">平台名称：懒投资</li>
+                <li>平台公司名称：北京大家玩科技有限公司</li>
+            </ul>
+        </div>
+    </div>
+    <div class="div-m">
+            <form id="form" action="/hwj/addcardxinxi" method="post">
+                <input id="serviceType" name="serviceType" type="hidden" value="BANKCARD_AUTH"/>
+                <div class="formBlock">
+                    <div class="titleInfo blue">用户信息：</div>
+                    <ul>
+
+
+                        <li>
+                            <label>客户姓名</label>
+                            <input name="cardName" id="realName" type="text" class="inpText "
+                                   placeholder="请输入客户姓名" datatype="*,cardName" value="" nullmsg="请输入客户姓名！"/>
+
+                        </li>
+
+
+
+
+
+
+                        <li>
+                            <label>证件类型</label>
+                            <span class="phone inpText">中华人民共和国身份证</span>
+                            <input type="hidden" name="credType"  id="newCredType" value="PRC_ID"/>
+                        </li>
+
+
+
+
+                        <li>
+                            <label>证件号</label>
+                            <input name="caerdNum" id="idCardNo" type="text" class="inpText "
+                                   placeholder="请输入证件号"  datatype="*,legalNo"  value="" nullmsg="请您填写证件号"/>
+                                <span id="caerdNumsp" style="color: red"></span>
+
+                        </li>
+
+
+
+
+
+                        <li>
+                            <!-- onkeyup事件:用户输入数字后每隔四位显示一个空格20170309 -->
+                            <label>银行卡</label>
+                            <input name="cardCard" id="bankcardNo" type="text" size="25"  class="inpText "
+                                   placeholder="请输入银行卡" datatype="*,bankCardNo" value="" nullmsg="请您填写银行卡号"
+
+                                   onkeyup="formatBankNo(this)" onkeydown="formatBankNo(this)"
+                            />
+                           <!-- onkeyup="this.value=this.value.replace(/\D/g,'').replace(/....(?!$)/g,'$& ')"-->
+                            <div class="bank_area fl bank_hide">
+                                <span class="bankIcon"><img src=""/></span>
+                            </div>
+
+
+
+
+
+                            <span class="inpTips pa" id="cardsp"><i></i>温馨提示：若银行卡为二类账户，将会影响提现，具体账户类型可咨询发卡行</span>
+
+
+
+                        </li>
+
+
+
+
+                        <li id="branchLi" style="display: none;">
+                            <label>支行信息</label>
+                            <div class="selectDiv pr">
+                                <input id="branchName" name="branchName" value="" class="inpText" datatype="*,branchName" placeholder="请选择支行信息" nullmsg="请选择支行信息"/>
+                                <input type="hidden" id="branchNo" name="branchNo" value=""/>
+
+                                <div class="selectUl pa" style="display: none;" id="selectUl">
+                                    <ul>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="aBank">
+                            <a href="javascript:void(0)" class="blue btnClick-3">支持银行</a>
+                        </li>
+
+
+                        <li>
+                            <label>预留手机号</label>
+                            <input name="cardPhone" id="mobile" type="text" class="inpText "
+                                   placeholder="请输入预留手机号" datatype="*,phone" value="" nullmsg="请您填写手机号"
+                                   maxlength="11"/>
+                            <span id="mobilesp" style="color:red;"></span>
+                        </li>
+
+
+
+
+                        <li>
+                            <label>验证码</label>
+                            <input name="smsCode" id="smsCode" type="text" class="inpText inpCode "
+                                   value="" datatype="*" nullmsg="请您输入验证码"/>
+                            <input type="button" class="codeBtn " id="sendSmsVerify" value="发送验证码"/>
+                            <input type="hidden" name="smsCount" id="smsCount" value="60"/>
+
+
+                        </li>
+
+
+                    </ul>
+                    <div class="titleInfo blue">设置交易密码：</div>
+                    <ul>
+
+                        <li>
+                            <label>创建密码</label>
+                            <input name="password" id="password" type="password" class="inpText" placeholder="输入交易密码"
+                                   clientidmode="Static" datatype="not_blank,password" nullmsg="请您输入交易密码"/>
+
+
+                            <span class="inpTips pa" id="passwordsp"><i></i>6-18位数字、大小写字母和特殊字符组合，不支持空格</span>
+
+
+                        </li>
+
+
+                        <li>
+                            <label>确认密码</label>
+                            <input name="cardPwd" id="confirmPassword" type="password" class="inpText "
+                                   clientidmode="Static"  placeholder="确认交易密码" datatype="*" recheck="password" errormsg="两次输入的密码不一致，请您核对后重新输入"
+                                   nullmsg="请您输入交易密码"/>
+                            <span id="confirmPasswordsp" style="color: red"></span>
+                        </li>
+
+                        <li>
+                            <label>&nbsp;</label>
+                            <input type="submit" class="submitBtn" id="nextButton" value="同意协议确定注册"/>
+
+                        </li>
+
+                        <li class="ruleLi">
+                            <label>&nbsp;</label>
+                            <a href="javascript:void(0);" class="rule blue protocol" data-type="registerProtocol"> 《用户服务协议》 </a><br>
+
+                        </li>
+
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+        </form>
+    </div>
+    <div class="clear"></div>
+
+
+
+    <div class="tips">温馨提示：厦门银行不承担懒投资平台的投融资标的物及投融资人的审核责任，不对懒投资平台业务提供明示或默示的担保或连带责任，懒投资平台的交易风险由投融资人自行承担，与厦门银行无关。</div>
+
+
+</div>
+<!--主体结束-->
+
+<!--弹出层-温馨提示1-->
+<div class="alertLayer" id="new-card-tip" style="display: none; top: 200px;">
+    <div class="alertLayerCon">
+        <h2 class="layerTit blue">温馨提示</h2>
+
+        <div class="layerCtr">
+            <div class="layerCon tc">
+                <span class="user-bank-name"></span>卡<span class="red">仅支持登录PC充值，不支持手机充值</span>，投资不受影响，是否确认使用该银行卡？
+            </div>
+            <div class="layerBtn">
+                <a href="javascript:void(0);" class="codeBtn agree-use-card">确认</a>
+                <a href="javascript:void(0);" class="codeBtn change-card">我要换卡</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹出层-温馨提示2-->
+<div class="alertLayer" id="old-card-tip" style="display: none; top: 200px;">
+    <div class="alertLayerCon">
+        <div class="layerTit blue">温馨提示</div>
+        <div class="layerCtr">
+            <div class="layerCon tc">
+                <span class="user-bank-name"></span>卡<span class="red">仅支持登录PC充值，不支持手机充值</span>，投资不受影响，是否确认使用该银行卡？
+            </div>
+            <div class="layerBtn layerBtn-1">
+                <a href="javascript:void(0);" class="codeBtn submitBtn agree-use-card">确认</a>
+
+                <p class="tc blue">更换银行卡请返回平台页面</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alertLayer" style="display: none; height: 490px; top: 100px;">
+    <div class="alertLayerCon">
+        <a class="btnClosed pa" href="javascript:void(0);"></a>
+
+        <div class="layerTit blue">支持银行</div>
+        <div class="layerCtr">
+            <div class="bankList">
+                <ul>
+                    正在获取支持支持银行信息...
+                </ul>
+            </div>
+            <div class="layerBtn layerBtn-1">
+                <a href="javascript:void(0);" class="codeBtn submitBtn agree">我知道了</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--弹出层-->
+<div id="alertLayer" style="display: none;">
+    <a href="javascript:void(0);" class="btnClosed pa"></a>
+    <div class="modelContend registerProtocol">
+        <div class="layerTit">
+            用户服务协议
+        </div>
+        <div class="layerCtr">
+            <div class="layerRule">
+                <div>
+                    <p class=MsoNormal align=center
+                       style="margin-top:6.0000pt;margin-bottom:5.0000pt;mso-margin-bottom-alt:auto;mso-pagination:widow-orphan;text-align:center;line-height:18.0000pt;"><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:15.0000pt;mso-font-kerning:0.0000pt;">资金存管三方协议</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:13.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal align=right
+                       style="margin-top:0.0000pt;margin-bottom:6.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:right;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">   </span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">甲方：乙方平台的实名注册用户</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+
+
+                    <p class=MsoNormal style="margin-top:0.0000pt;margin-left:24.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">乙方（网络借贷信息中介机构）：北京大家玩科技有限公司</span></b><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></b></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">丙方（商业银行）：厦门银行股份有限公司</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">鉴于：</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">甲方是乙方平台核实的实名注册用户；乙方是在中国境内依法设立、专门从事网络借贷信息中介业务活动的金融信息中介公司；丙方是在中国境内依法设立并取得企业法人资格的商业银行，为网络借贷业务提供资金存管服务。甲方的角色包括但不限于投资人、借款人、担保人、渠道方及其他与本网络借贷项目相关的主体等，甲方在乙方平台完成实名注册后，通过乙方服务平台进行网络借贷资金运作。乙方和丙方对接网络借贷平台技术系统和网络借贷资金存管业务技术系统，为乙方及其用户提供资金存管服务及开立和管理资金存管账户，乙方和丙方已签订编号为【</span>
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">】《网络借贷资金存管服务协议》（以下简称&#8220;《服务协议》&#8221;）。</span>
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">甲、乙、丙三方依据《中华人民共和国商业银行法》、《中华人民共和国合同法》和其他有关法律、法规、规章以及乙方交易规则、丙方账户管理及结算规则等相关规定，就甲方在乙方平台进行网络借贷资金交易，丙方为乙方、甲方交易和结算网络借贷资金提供存管服务，以及其他相关事宜达成《网络借贷资金存管账户开户协议》（以下简称&#8220;本协议&#8221;），供三方共同遵守。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal align=center style="margin-top:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:center;line-height:150%;"><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第一章</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;</span><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">风险提示</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第1条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;投资均存在风险，投资者可能面临多种风险因素，特提供以下风险提示内容，请甲方认真详细阅读。甲方应充分了解和认识到从事网络借贷资金交易和办理资金存管业务包括但不限于以下风险：</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（1）政策风险：有关网络借贷资金业务的法律、法规及相关政策、规则发生变化，可能引起网络借贷资金运作的调整和变动，使甲方存在亏损的可能，甲方将不得不承担由此造成的损失。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（2）技术风险：由于网络借贷资金交易结算的存管业务是通过电子通讯技术和电脑技术来实现的，这些技术存在着被网络黑客和计算机病毒攻击的可能，同时通讯技术、电脑技术和相关软件具有存在缺陷的可能，这些风险可能给甲方带来损失或资金存管业务操作不能即时办理。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（3）不可抗力因素导致的风险：因不可抗力、意外事件、技术故障或其他异常情况，导致部分或者全部借贷资金运作或资金存管业务不能进行的，网络借贷信息中介机构（乙方）、资金存管银行（丙方）可以决定并采取相应暂停措施或补救措施；诸如地震、台风、火灾、水灾、战争、瘟疫、社会动乱等不可抗力因素可能导致网络借贷平台系统或借贷资金存管服务系统瘫痪；网络借贷信息中介机构（乙方）、资金存管银行（丙方）无法控制和不可预测的系统故障、设备故障、通讯故障、电力故障等也可能导致网络借贷平台系统或借贷资金存管服务系统非正常运行甚至瘫痪，这些都可能导致部分或者全部交易运作或业务操作无法进行，甲方将不得不承担由此导致的损失和不便。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（4）其他风险：由于甲方密码失密、数字证书保管不当、网络借贷资金运作决策失误、操作不当等原因可能会使甲方遭受损失；网上平台登陆、资金交易等操作完毕后未及时退出，他人进行恶意操作而造成的损失；网上交易还可能遭遇黑客攻击，从而造成损失；由于甲方疏于防范而轻信非法网络借贷欺诈活动，可能会使甲方遭受损失，上述损失都将由甲方自行承担。在甲方进行网络借贷资金运作时，他人给予甲方的保证获利或不会发生亏损的任何承诺都是没有根据的，类似保证或承诺不会减少甲方发生亏损的可能。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第2条&#160;&#160;</span></b>
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;丙方将根据乙方提供的交易信息数据及有关法律文件，包括但不限于网络借贷信息中介机构当事人信息、交易指令、借贷信息、收费服务信息、借贷合同等，办理相应操作或提供相应存管服务。</span>
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">丙方不承担借款项目及借贷交易信息真实性的审核责任，不对网络借贷信息数据的真实性、准确性和完整性负责。</span>
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">如因甲方故意虚构、隐瞒身份资格信息及其他借贷信息或提供信息错误、不真实、不完整导致的业务风险和损失，由甲方承担该风险和损失。</span>
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第3条&#160;&#160;</span></b>
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;丙方仅提供网络借贷资金存管服务，不应被视为对网络借贷交易及其他相关行为提供保证或其他形式的担保。</span>
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">丙方不对网络借贷资金本金及收益予以保证或承诺，不承担资金运作风险。</span>
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第4条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;乙方、丙方郑重提醒甲方妥善保管其在乙方平台注册的帐号和密码并注意保密。任何使用甲方账号和密码进行的网络借贷资金交易或资金划转均视为甲方本人的有效指令。</span>
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">由于甲方未尽到合理注意并防范风险的义务造成用户帐号和密码失密，将由甲方自行承担以上风险和损失。</span>
+                        <span
+                                style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第5条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;甲方于本协议签署之前与乙方办理的任何交易均与丙方无关，丙方仅根据乙方提供的数据办理存管客户迁移工作，对该行为可能产生的风险和损失，丙方不承担任何责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;mso-outline-level:1;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第6条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;</span><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">在申请办理用户交易结算资金存管业务前，请甲方仔细阅读并理解《网络借贷资金存管账户开户协议》。请确认甲方已充分知悉并理解本协议之含义，完全同意和接受本协议的全部条款和内容，愿意履行和承担本协议中约定的义务和职责。</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+
+
+
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal align=center style="margin-top:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:center;line-height:150%;"><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第二章</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;</span><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;网络借贷资金存管账户</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第7条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;网络借贷资金存管服务系统（以下简称“资金存管系统”）是指丙方针对网络借贷交易资金存管业务开发的系统，主要功能包括账户开立、充值、投资、转账、缴费、提现、还款、查询、对账清算、服务报告等。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">7.1甲方申请办理网络借贷资金存管业务之前，应当先成为乙方平台实名注册用户，并按照相关法律法规规定提供真实、准确、完整的用户信息及其他相关信息。丙方可随时要求甲方提供的其他相关信息包括但不限于融资信息、未偿还借款信息等。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">7.2丙方系统对接乙方系统后，丙方保证为甲方分别单独开立并管理平台用户存管子账户，每日日终交易结束后对用户的交易结算资金进行帐务核对。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第8条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;账户开立是指甲方与乙方、丙方共同签署本协议，签约后丙方通过资金存管系统为甲方开立用户存管子账户。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">8.1实名认证：丙方根据乙方提供的并获得甲方授权的信息（包括但不限于姓名、身份证号、银行卡号、银行预留手机号等信息），提供协助乙方对甲方进行身份验证的服务。乙方负责初步核实以上信息，丙方仅根据乙方指令协助完成形式审查，由乙方单独承担因信息纰漏、瑕疵、错误等原因导致的损害责任。甲方在资金存管系统提供的实名认证页面时输入姓名、身份证号、银行卡号、银行预留手机号等信息，资金存管系统调用实名认证服务接口完成认证，认证后在资金存管系统中建立甲方与银行卡的绑定关系。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">8.2甲方子账户：丙方为甲方开立的用户存管子账户，是用于管理甲方网络借贷交易结算资金的虚拟账户。用户存管子账户记载甲方网络借贷交易结算资金的明细记录，并与甲方在丙方登记的甲方银行结算账户和甲方在乙方平台实名注册的甲方账号建立绑定关系。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">8.3乙方在取得甲方充分授权（授权乙方代理其办理账户开立、提现、借款、还款等）的情况下，乙方可通过批量开户的形式代理甲方在丙方开户。以上情况仅适用于乙方已核实甲方为个人借款用户的前提。甲方授权文件由乙方保留，如丙方需要查阅上述文件，乙方保证无条件予以支持。如因乙方未能取得甲方的充分授权而导致甲方或丙方等相关方损失的，乙方保证承担一切相关责任，与丙方无关。丙方所接收的开户指令视为甲方行为或经过甲方授权的行为。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第9条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;用户银行结算账户是指甲方在丙方或其他商业银行开立的，用于银行资金往来结算的人民币活期账户。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">9.1如甲方为个人用户，该银行结算账户必须为用户同名借记账户。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">9.2如甲方为机构用户，则甲方存管子账户不能与任何自然人储蓄账户建立绑定关系，只能与甲方在丙方或其他商业银行开立的同名银行结算账户（允许是基本结算账户或一般结算账户）之间办理签约转账业务。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">9.3具体账户信息以甲方通过乙方平台服务渠道实际绑定的银行账户信息为准。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第10条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;网络借贷资金存管账户的资金交易结算服务包括充值、转账、提现等资金清算环节。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">10.1甲方通过乙方服务渠道进行充值、转账、提现等各类交易时，必须输入正确的、与事先在丙方处设置相一致的甲方子账户交易密码。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">10.2充值：甲方在乙方平台注册完成后，甲方可通过相关充值通道从其银行账户向用户存管子账户划入资金。如甲方为丙方持卡人则可通过直联支付方式进行充值。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">10.2.1.充值通道：甲方充值时可以选择代扣或网银网关方式，当选择代扣方式进行充值时，甲方应先将交易结算资金存入已绑定的银行结算账户，之后才能从已绑定的银行结算账户充值转入用户存管子账户。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">10.2.2.直联支付：丙方为乙方搭建的为持有丙方银行卡的平台用户所专属的充值通道，该平台用户须通过实名认证。在甲方持有丙方银行卡并通过实名认证的情况下，乙方受理甲方的充值指令后，发送资金划转指令给资金存管系统，资金存管系统按照资金划转指令扣减甲方银行账户的资金，并把指令结果反馈给乙方。丙方于T+1个工作日内将甲方T日扣减的资金结算至乙方资金存管专用账户中。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">10.3转账：投资交易成功后，将资金从甲方（如作为出借人）的存管子账户转到借款人的存管子账户，或是从甲方（如作为还款人）的存管子账户转到出借人的存管子账户，或其他转账行为（包括但不限于除出借人之外的其他项目参与方之间的互转等）。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">10.4提现：甲方从用户存管子账户提取用户交易结算资金，并将资金划回已绑定的银行结算账户。甲方从用户存管子账户提取的交易结算资金，只能通过提现划转方式回到已绑定的银行结算账户。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第11条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;方可在乙方平台查询甲方子账户和存管资金明细记录。如甲方对其交易结算资金的清算明细或余额有异议，应向乙方查询并核实。如乙方认为有必要，可以要求丙方协助、配合进行查询、核实工作。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+
+                    <p class=MsoNormal style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal align=center style="margin-top:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:center;line-height:150%;"><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第三章</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;</span><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">用户信息变更</span></b>
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第12条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;甲方可以通过乙方网站或手机APP等乙方提供的且经丙方确认的渠道（具体以丙方最终确认为准）办理修改用户存管子账户的交易密码。</span>
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第13条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;有下列情形之一的，乙方或丙方有权要求甲方限期纠正，甲方未能按期纠正或拒不纠正的，经乙方和丙方双方认可后，可单方面终止本协议：</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（1）乙方或丙方发现甲方向其提供的资料、证件严重失实；</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（2）甲方有严重损害乙方或丙方合法权益、影响其正常经营秩序的行为；</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（3）甲方的资金来源不合法或存在争议；</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（4）甲方的资金借贷用途不合法或违反约定用途使用借贷资金；</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（5）为非法目的使用资金存管系统；</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（6）利用资金存管系统传输任何骚扰性的、中伤他人的、辱骂性的、恐吓性的、庸俗淫秽的或者其他任何非法的信息资料；</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（7）利用资金存管系统进行任何不利于丙方的行为；</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（8）不遵守所有与系统服务有关的协议、规定和程序；</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（9）监管机构认定的其他情形。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第14条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;乙方和丙方单方面终止本协议时，向甲方发送协议终止通知，并自协议终止通知发布之时起，乙方不再接受甲方的交易指令，丙方不再接受资金划转指令。本协议终止，不影响乙方与丙方依法追究甲方违约责任的权利。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:35.2500pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal align=center style="margin-top:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:center;line-height:150%;"><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第四章</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;</span><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">陈述与保证</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;mso-outline-level:1;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第15条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;</span><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">甲方陈述与保证</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">15.1甲方具有相应合法的投资或借款等资格，不存在法律、法规、规章、其他规范性文件和乙方交易规则禁止或限制其在乙方进行网络借贷交易的情形。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">15.2甲方保证其向乙方、丙方提供的所有证件、资料均合法、真实、准确、完整和有效。甲方资料发生变化时，甲方必须按照协议约定，及时通知乙方和丙方。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">15.3甲方保证其资金来源合法合规，且允许进行投资性交易。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">15.4甲方保证其资金借贷用途合法合规，且按照约定用途使用借贷资金，保证不用于出借等其他目的。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">15.5甲方明确乙方已向其清楚揭示网络借贷资金的交易风险，乙方向其提供的各种信息及资料仅作为投资参考；甲方已明确知悉、了解并愿意自行承担网络借贷交易风险、网络借贷资金的风险。甲方的交易指令一经发出即不可撤销。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">15.6甲方明确乙方已向其清楚提示网络借贷资金的禁止性行为，甲方已明确知悉并同意遵守有关的法律、法规及乙方交易规则。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">15.7甲方已明确知悉丙方仅提供网络借贷交易资金的存管服务，即甲方申请办理账户开立、充值、转账、提现等业务须向乙方发出交易指令或业务授权指令，即甲方授权乙方向丙方存管系统发送前述交易指令。 </span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">15.8甲方不可撤销地承诺并保证，丙方仅根据存管系统收到的划转指令或业务授权指令办理资金划转及其他相应操作，丙方办理的该等操作均视为已取得甲方合法、有效的授权，对甲方具有法律效力。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">15.9甲方已明确知悉并同意：</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（1）丙方不参与甲方与乙方或其他用户之间的交易，丙方对甲方在乙方平台的投资收益和本金回收不做任何保证或担保亦不承担任何责任；</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（2）丙方对甲方在乙方平台所看到的信息真实性不作任何保证或担保亦不承担任何责任；</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（3）丙方对甲方在乙方平台进行的任何操作所产生的投诉或纠纷不承担任何责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">15.10如乙方出现重大财务风险、诉讼风险等重大风险，导致甲方无法收到预期本金及收益的，甲方保证不得追究丙方任何责任、不得通过任何方式（包括但不限于司法、行政、媒体等途径）向丙方主张任何权利。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">15.11甲方已明确知晓在乙方平台注册的甲方帐号和密码的重要性。任何使用甲方账号和密码进行的交易委托或资金划转均视为甲方本人所为和有效的甲方指令。由于甲方未尽到防范风险的义务造成甲方帐号及密码失密及其他非乙方、丙方原因而导致的甲方损失，乙方、丙方不承担任何责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">15.12甲方保证其具备投资风险意识、风险识别能力、拥有非保本类金融产品投资的经历并熟悉互联网。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">15.13甲方明确已详细阅读本协议所有条款，准确理解其含义，特别是其中有关网络借贷风险、资金存管风险等提示内容和乙方、丙方的责任条款，并同意本协议所有条款。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;mso-outline-level:1;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第16条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;</span><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">乙方陈述与保证</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">16.1乙方是依法设立的网络借贷信息中介机构，具有相应的资格开展网络借贷相关业务，并已完成相应备案登记和申请获得相应的增值电信业务经营许可等。乙方保证遵循“诚实履约、勤勉尽责、平等自愿、有偿服务”的原则向甲方提供网络借贷信息中介服务。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">16.2乙方保证依据法律法规及协议约定为出借人与借款人提供直接信息的采集整理、甄别筛选、网上发布，以及资信评估、借贷撮合、融资咨询、在线争议解决等相关服务。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">16.3乙方保证聘请会计师事务所定期对甲方资金存管、信息披露情况、信息科技基础设施安全、经营合规性等重点环节实施审计，并保证聘请有资质的信息安全测评机构定期对信息安全实施测评认证，向甲方等披露审计和测评认证结果。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">16.4乙方保证核实其服务平台实名注册的出借人、借款人的资格条件和借贷项目信息的真实性和合法性，不存在任何虚假借款人和借贷项目，不存在为借款人虚构借贷项目、故意隐瞒借贷项目重大瑕疵等损害出借人合法权益的情形，并保证承担由此而可能引发的经济及法律责任。乙方保证对甲方进行身份识别和资格条件的必要审核，并对甲方资金来源和用途进行合法合规性审核。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">16.5乙方保证其通过自身平台技术系统向资金存管服务系统所提交的任何交易指令（或业务授权指令）和推送的任何数据的真实性、完整性、准确性、合法性，且均为乙方平台的实名注册用户提交（或授权）的指令或提供（或授权）的数据；如因该类指令或数据信息不准确、不真实、不完整、不合法而导致甲方或丙方等相关方损失的，乙方保证承担全部责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">16.6乙方保证不从事或者接受委托从事有关法律、法规、规章以及相关规定对网络借贷信息中介机构的禁止性规定行为。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">16.7乙方保证指定丙方作为其唯一一家网络借贷资金存管机构。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">16.8乙方保证遵守有关的法律、法规及交易和结算规则。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">16.9乙方保证依据国家法律法规负责承担反洗钱的职责，根据人民银行相关规定做好用户身份识别、信息记录和留存、信息安全检查和审计、信息系统定级备案和等级测试及其他相关工作。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">16.10乙方明确已详细阅读本协议所有条款，准确理解其含义，特别是其中有关网络借贷禁止性行为条款和丙方的责任条款，并同意本协议所有条款。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;mso-outline-level:1;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第17条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;</span><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">丙方陈述与保证</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">17.1丙方是依法设立并取得企业法人资格的商业银行，能够根据协议约定履行客户交易结算资金的资金划转和存管职责。丙方仅按照法律法规规定和《服务协议》约定，按照甲方发出的指令或业务授权指令履行资金划转和存管职责。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">17.2丙方具有开展客户交易结算资金存管的必要条件，通过资金存管系统能够为甲方的交易结算资金提供相关的服务。丙方不负责审核乙方所提供甲方的身份信息、资格条件，不负责审核甲方资金来源、用途的合法合规性，不负责审核乙方平台借贷项目信息及借贷交易信息的真实性和合法性，不对网络借贷信息数据的真实性、准确性和完整性承担任何责任，因乙方故意欺诈、伪造数据或数据发生错误导致的业务风险和损失，由乙方承担相应责任。丙方不保证或承诺借款人和借贷项目必然还款，也不保证或承诺甲方能够获得乙方承诺的项目本金和预期收益。丙方仅提供网络借贷资金的存管服务，不对网络借贷交易以及其他相关行为提供任何保证或其他形式的担保，不承担资金运作风险。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">17.3丙方保证严格遵循国家有关法律、法规、规章以及相关规定，办理乙方、甲方的网络借贷资金存管业务。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">17.4丙方保证按照本协议约定执行指令，并确保执行行为的及时、准确、有效。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:35.2500pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal align=center style="margin-top:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:center;line-height:150%;"><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第五章</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;</span><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">违约事件与处理</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第18条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;任意一方如违反本协议的约定，或在本协议中所做的陈述不真实，或违反其在本协议中所做的任何保证，即视为违约。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第19条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;如因乙方未有效履行其在甲方网络借贷业务中所涉义务并导致的甲方交易损失或甲方交易无法正常进行的，由乙方承担全部赔偿责任。丙方并不因上述任何原因向甲方承担任何赔偿责任或补充责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第20条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;如因乙方故意或重大过失导致甲方网络借贷资金存管交易无法正常进行或交易结算资金无法正常转账支取的，由乙方根据有关规定承担相应的责任，与丙方无关。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第21条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;如因乙方未如实执行甲方下达的交易指令，导致甲方损失的，由乙方承担赔偿责任，乙方遇到不可抗力的情况除外。丙方并不因此向甲方承担任何赔偿责任或补充责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第22条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;如因丙方不履行存管义务，未按本协议约定划转资金，造成甲方、乙方损失的，由丙方按其过错承担赔偿责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第23条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;如因甲方交易结算资金存取造成的差错事故，以丙方数据为准，由乙方、丙方负责查明原因并调账。如因甲方投资交易造成的差错事故，以乙方交易数据为准，由乙方负责查明原因并调账。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第24条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;乙方、丙方对甲方的开户资料、交易记录等资料负有保密义务，除法律法规或监管机构（包括丙方上市地监管机构）另有规定；或向政府授权的信用联合征信机构提供；或因审计需要向审计机构提供；或因其他原因向司法机关、法律服务机构提供；或向与丙方签署合作协议的合作机构提供；或经甲方指示外，不得向第三人透露。如因乙方、丙方擅自泄露甲方资料给甲方造成直接损失的，由乙方、丙方承担赔偿责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第25条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;甲方应妥善保管其注册用户信息及个人银行借记账户信息或机构客户银行账户信息，不得向任何其他第三方出售、出租、转让或者其他形式进行有偿或无偿转让或使用。如因甲方滥用以上信息造成乙方、丙方等损失的，由甲方承担赔偿责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第26条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;如甲方遗失注册用户信息、身份证件，应及时向乙方办理挂失，在挂失生效前已经发生的资金账户损失由甲方承担。当甲方为个人投资者时，如遗失个人银行借记账户信息，应及时向其开户银行办理挂失，在挂失生效前已发生的转账业务所产生的损失及其他损失由甲方自行承担；当甲方为机构客户时，如遗失银行预留印鉴或相关支付凭证，应及时向其开户银行办理挂失，在挂失生效前已发生的转账业务所产生的损失及其他损失由甲方自行承担。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第27条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;如因地震、台风、水灾、火灾、战争、瘟疫、社会动乱及其他不可抗力因素导致的甲方损失，乙方、丙方均不承担任何赔偿责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第28条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;如因乙方、丙方不可预测或无法控制的系统故障、设备故障、通讯故障、停电等突发事故，导致的甲方损失，乙方、丙方不承担任何赔偿责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第29条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;如因互联网上传输原因，交易和划转指令出现中断、停顿、延迟、数据错误等情况，以及乙方、丙方不可预测或不可控制因素而导致甲方不能正常交易和划转资金，乙方、丙方不承担任何赔偿责任，但乙方、丙方保证尽快采取措施或采用其他方式恢复运行。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第30条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;甲方为进行网络借贷交易使用的网站或软件必须是乙方指定站点公示或下载的。如因甲方使用其他途径获得的网站或软件，由此导致的甲方损失由甲方自行承担。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第31条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;当第28条、第29条所述事件发生后，乙方、丙方应当及时采取措施防止甲方损失的进一步扩大。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第32条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;乙方不得擅自超越服务范围利用丙方名称或资料（包括但不限于地址及电话等）发布业务信息。除必要的披露和监管要求外，乙方不得利用丙方名义做营销宣传。乙方在任何情况下均不得宣传丙方对乙方开展的业务作出明示或默示的担保或保证或承担法律责任。如因乙方违反约定，造成丙方声誉或其他经济损失的，由乙方承担所有责任，且丙方有权采取相关措施维护自身利益。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第33条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;甲、乙、丙三方各自依照相关法律、法规、规章及其他相关规定与本协议约定承担违约责任，任何一方不对其他方的行为承担补充或连带责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第34条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;如因发生乙丙双方签署的《服务协议》项下的协议解除事宜，丙方有权解除与甲方、乙方的存管服务约定，本协议自动解除，甲、乙双方不得向丙方追究任何责任，丙方不承担任何责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第35条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;如因法律法规变化、监管部门的监管要求等，导致丙方不能履行存管义务的，丙方有权解除本协议，丙方不承担赔偿责任。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第36条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;如因甲方涉嫌进行违法交易或违反本协议约定，丙方将无法保证资金划转操作的顺利进行或者完成，且丙方对此不承担任何责任。如在上述情况下已完成资金划转的，丙方有权收回资金，并有权对甲方子账户进行限额、冻结、停止服务，直至关闭甲方子账户，必要时可移交司法机关处理。如资金已划转至甲方银行账户的，甲方同意丙方有权向甲方事后追索。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:35.2500pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal align=center style="margin-top:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:center;line-height:150%;"><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第六章</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;</span><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">争议解决</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第37条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;本协议的签署、有效性和解释适用中华人民共和国法律。协议双方因本协议引起的或与本协议有关的任何争议，均应首先通过友好协商解决；若协商未果，则应将该争议提交厦门仲裁委员会按该委员会有效之仲裁规则进行仲裁；仲裁裁决是终局性的，对双方均有约束力。提交仲裁时，双方同意选用简易程序进行审理。在争议解决期间，除争议事项外，协议双方应继续遵守本协议项下的其他条款， 履行本协议项下的其他义务。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:35.2500pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal align=center style="margin-top:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:center;line-height:150%;"><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第七章</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;</span><b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">附&nbsp;则</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第38条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;乙方按照有关法律法规及乙方交易规则的规定向甲方收取手续费、交易产生税费由有交易各方自行缴纳。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第39条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;本协议由甲方通过乙方服务渠道在丙方提供的服务界面操作，各方在该服务界面进行的任何形式的确认，包括但不限于数字证书、密码、点击确认等形式均视为各方的可靠电子签名。本协议经（1）甲方通过上述方式确认同意签署本协议，且（2）乙方和丙方提示交易成功后，于系统记录的签约日期之日起发生法律效力。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第40条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;本协议生效后，如有关法律法规、规章制度出台或修订，相关条款按新出台或修订的法律法规、规章制度办理；本协议中如有与未来出台或修订的法律法规、规章制度存在冲突或不一致的条款，自相关法律法规、规章制度生效之日起即可确认此类条款自始无效。但本协议其他条款继续有效。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第41条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;本协议根据法律法规规章和监管机构、乙方或丙方业务规章等规定如需修改或增补，修改或增补的内容将由乙方以公告形式通知甲方，如甲方在五个工作日内不提出异议，公告内容即成为本协议组成部分。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第42条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;本协议所指的通知方式除上述条款中已有约定外，可以是书面送达通知或公告通知。公告通知自公告在乙方、丙方经营场所、各方网站发布之日起生效。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:24.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;text-indent:0.0000pt;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <b><span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-weight:bold;font-size:10.5000pt;mso-font-kerning:0.0000pt;">第43条&#160;&#160;</span></b><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">&#160;&#160;&#160;&#160;&#160;本协议生效后，至下列任一事件发生时终止：</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（1）乙方或丙方根据本协议第十三条的规定终止本协议；</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:21.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（2）乙方、丙方签署的《服务协议》终止。</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+                    <p class=MsoNormal
+                       style="margin-top:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-top:0.0000gd;mso-para-margin-bottom:0.0000gd;mso-pagination:widow-orphan;text-align:left;line-height:150%;">
+                        <span style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;">（以下无正文）</span><span
+                            style="mso-spacerun:'yes';font-family:微软雅黑;color:rgb(80,80,80);font-size:10.5000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="submitBtn agree">同意</a>
+        </div>
+    </div>
+    <div class="modelContend authorizationProtocol">
+        <div class="layerTit">
+            风险提示
+        </div>
+        <div class="layerCtr">
+            <div class="layerRule">
+                <div>
+
+                    <p class="MsoNormal" align="center" style="margin-top:15.6500pt;margin-right:0.0000pt;margin-bottom:15.6500pt;margin-left:0.0000pt;mso-para-margin-top:1.0000gd;mso-para-margin-right:0.0000gd;mso-para-margin-bottom:1.0000gd;mso-para-margin-left:0.0000gd;text-indent:0.0000pt;mso-char-indent-count:0.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:center;">
+                        <span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span></p>
+
+                    <p class="MsoNormal" style="line-height:150%;"><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">尊敬的存管系统用户您好：</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span></p>
+
+                    <p class="MsoNormal" style="line-height:150%;"><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">您已授权您所在的互联网金融平台（以下简称“平台”）</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">代</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">您</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">进行授权投标、授权还款、授权充值、授权提现中的某一项或某几项自动业务操作</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">，具体</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">授权范围</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">以您与平台签署的授权协议为准。您知晓并同意存管系统有权根据平台发起的自动扣划指令，</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">进行</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">相应款项的</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">划扣、支付、冻结</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">及</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">行使其他权利，</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">该指令将</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">视为您的真实意思表示，相关风险由您自行承担，</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">您</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">对此予以接受和认可。</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span></p>
+
+                    <p class="p" style="margin-top:0.0000pt;margin-bottom:0.0000pt;text-indent:24.0000pt;line-height:150%;"><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">您有权随时选择关闭用户授权功能。如您选择关闭的，平台不得再向存管系统发起任何自动扣划指令。因平台违反您的授权范围或授权时间擅自发起自动扣划指令引起的纠纷，由您与平台自行解决。</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span></p>
+
+                    <p class="p" style="margin-top:0.0000pt;margin-bottom:0.0000pt;text-indent:24.0000pt;line-height:150%;"><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;</span><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';line-height:150%;font-size:10.5000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span></p>
+
+                    <p class="p" style="margin-top:0.0000pt;margin-bottom:0.0000pt;"><b><span style="font-family: 仿宋; color: rgb(225, 57, 57); font-size: 10.5pt;  background-position: initial initial; background-repeat: initial initial;">再次</span></b><b><span style="font-family: 仿宋; color: rgb(225, 57, 57); font-size: 10.5pt;  background-position: initial initial; background-repeat: initial initial;">提示：</span></b><span style="mso-spacerun:'yes';font-family:Calibri;mso-fareast-font-family:宋体;mso-bidi-font-family:宋体;color:rgb(225,57,57);font-size:10.5000pt;mso-font-kerning:0.0000pt;background:;mso-shading:;">&nbsp;</span><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;mso-font-kerning:0.0000pt;"><br></span><b><span style="font-family: 仿宋; color: rgb(225, 57, 57); font-size: 10.5pt;  background-position: initial initial; background-repeat: initial initial;">授权功能开启之后，平台将有权根据</span></b><b><span style="font-family: 仿宋; color: rgb(225, 57, 57); font-size: 10.5pt;  background-position: initial initial; background-repeat: initial initial;">与您约定的</span></b><b><span style="font-family: 仿宋; color: rgb(225, 57, 57); font-size: 10.5pt;  background-position: initial initial; background-repeat: initial initial;">授权范围（授权投标、授权还款、授权充值、授权提现）操作您的账户资金进行相关自动业务操作，需要您自行承担相应的资金风险和责任，请您谨慎操作！</span></b><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp;</span><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span></p>
+
+                    <p class="MsoNormal"><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+                    </p>
+
+                    <p class="MsoNormal"><span style="mso-spacerun:'yes';font-family:仿宋;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+                    </p>
+
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="submitBtn agree">我知道了</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="__env__" style="visibility: collapse;">
+    <input type="hidden" id="contextPath" name="contextPath" value='/bha-neo-app'/>
+    <input name='requestKey' id='requestKey' type='hidden' value='e99fd6f874164eb298915991d43c20fc'/>
+</div>
+
+<div class="footer">
+    <p class="tc">
+
+    </p>
+</div>
+<div id="mask" style="display: none;"></div>
+<div id="alertLayer-2" style="display: none; width: 400px; height: 210px;">
+    <div class="layerTit">提 示</div>
+    <div class="layerCtr">
+        <div class="layerCon tc"></div>
+        <a href="javascript:void(0);" class="submitBtn submitBtn-2">我知道了</a>
+    </div>
+</div>
+
+</body>
+</html>

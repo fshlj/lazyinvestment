@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zg.number.mapper.ChongZhiMapper">
+    <select id="selectCardYue" parameterType="java.lang.Integer" resultType="AddCard">
+      select cardId,cardName,cardYue from t_addcard where uid=#{uid}
+    </select>
+
+    <update id="insertCaptailMoney" parameterType="Captail">
+        update t_captail set captailMoney=#{captailMoney} + #{addCaptailMoney} where userId=#{userId};
+    </update>
+
+    <update id="cardReduce" parameterType="Captail">
+        update t_addcard set cardYue=cardYue-#{addCaptailMoney} where uid=#{userId};
+    </update>
+</mapper>

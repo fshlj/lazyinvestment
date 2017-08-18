@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>常见问题 - 懒投资</title>
+    <meta name="keywords" content="常见问题,懒投资">
+    <meta name="description" content="懒投资是国内领先的互联网金融平台,专注于应收账款融资等供应链金融业务,团体核心成员来自360、百度、建设银行等知名企业,懒人投资理财就上懒投资网.">
+    <meta baidu-gxt-verify-token="8fd06ee5eb68e0def0986730ace33d6e">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>
+        (function () {
+            window.CONFIG = {"ENCRYPT_TIMEOUT": 120000, "SERVER_TIME": 1501851094000};
+            window.CONFIG.BASE_URI = 'https://lantouzi.com';
+            window.CONFIG.SSO_URI = CONFIG.BASE_URI + '/dwjsso';
+            window.CONFIG.LTZ_API = CONFIG.BASE_URI + '/api/uc/';
+            window.ENV = 'online';
+            var isIE = !!window.VBArray;
+            if (isIE && !+[1,] && !document.documentMode) {//less than IE8
+                window.location.href = window.CONFIG.BASE_URI + '/wrong_browser';
+            }
+        })();
+        var _hmt = _hmt || [];
+        (function () { // 防止被iframe
+            try {
+                top.location.hostname;
+                if (top.location.hostname !== window.location.hostname) {
+                    top.location.href = 'https://lantouzi.com';
+                }
+            } catch (e) {
+                top.location.href = 'https://lantouzi.com';
+            }
+        })();
+    </script>
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/common/base.css?_v=e4ea6a1ba6aef6e8783dfacd7b6d7055">
+    <!--[if IE 8 ]>
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/common/base_ie8.css?_v=f37b1ac6b88dd8a3f1be486d1336693c"><![endif]-->
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/common/header.pc.css?_v=34c478f6f2c27c2e298d65416f54fa33">
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/v3/about/about.css?_v=f94ce17865b7e171993d24771c3f331b">
+    <!--[if lt IE 9]>
+    <script src="/static/js/lib/html5shiv-2.7.3.min.js"></script>
+    <script src="/static/js/lib/selectivizr.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="/static/js/lib/placeholder.js"></script>
+    <![endif]-->
+    <script src="/static/js/lib/require-2.1.18.min.js"></script>
+    <script src="https://lantouzi.com/static/js/config.js?_v=ac0e2d4d0239a90fb8534705ac19027e"></script>
+    <script src="/static/js/lib/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<header class="g-topbar">
+    <div class="l-container clearfix">
+        <div class="l-left">
+            <div class="g-service">
+                <div style="display:inline-block;width:280px;">
+                    <span style="vertical-align:top;">客服电话 400-807-8000</span>
+                    <span class="tel">（工作日 9:00-22:00）</span>
+                </div>
+                <span class="iconfont g-topbar-social weibo" id="weibo_account">&#xe601;</span>
+                <span class="iconfont g-topbar-social weixin" id="weixin_account">&#xe619;</span>
+            </div>
+            <div class="g-topbar-social-account weibo" id="weibo_account_info">
+                欢迎关注懒投资官方微博</br>
+                <a href="http://weibo.com/lantouzicom" target="_blank" title="懒投资官方微博" rel="nofollow">@懒投资</a>
+            </div>
+            <div class="g-topbar-social-account weixin" id="weixin_account_info">
+                扫一扫关注懒投资微信
+                <img src="https://s1.lantouzi.com/img/201612/a5e738531668ada69144888e315221ce.png" width="150px"
+                     height="150px" title="微信号:lantouzicom"/>
+                <p>微信号：lantouzicom</p>
+            </div>
+        </div>
+        <!--  未登录 -->
+        <div class="l-right" id="meilogin" th:if="${session.loginUser}==null" }>
+            <p class="g-topbar-nav">
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">登录</a>
+                <a href="/hwj/toregister" class="g-topbar-nav-link tongji" data-category="注册" data-label="header"
+                   rel="nofollow">注册</a>
+                <a href="#" class="g-topbar-nav-link">VIP会员</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="#" class="g-topbar-nav-link">安全保障</a>
+                <a href="#" class="g-topbar-nav-link">信息披露</a>
+                <a href="#" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+
+        <!-- 已登录 -->
+        <div class="l-right" th:if="${session.loginUser}!=null">
+            <p class="g-topbar-nav">
+                <a href="#" class="g-topbar-nav-link" rel="nofollow">欢迎，<span th:text="${session.loginUser.userName}"
+                ></span></a>
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">[退出]</a>
+                <a href="#" class="g-topbar-nav-link">VIP会员</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="#" class="g-topbar-nav-link">安全保障</a>
+                <a href="#" class="g-topbar-nav-link">信息披露</a>
+                <a href="#" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+    </div>
+</header>
+<header class="g-header">
+    <div class="l-container clearfix">
+        <a href="/index" class="g-header-logo" title="懒投资">
+            <img src="https://s1.lantouzi.com/img/201612/53ef617a4124fb2da54ab79c27945889.png" alt="懒投资"/>
+            <h1 class="l-hide">懒投资</h1>
+        </a>
+        <nav class="g-header-nav">
+            <a class="g-header-nav-link on">首页</a>
+            <a class="g-header-nav-link " href="/fs/lanRen">懒人计划</a>
+            <a class="g-header-nav-link " href="/lingqian">零钱计划</a>
+            <!--<a class="g-header-nav-link " href="@{/wrx/selectInvest}">变现计划</a>-->
+            <a th:href="@{/wrx/selectInvest}" class="g-header-nav-link ">变现计划</a>
+
+            <a class="g-header-nav-link " href="/xiangle">享乐计划
+                <!-- <i class="beta" style="width:24px;">新</i> --></a>
+            <a class="g-header-nav-link " href="/qunxing">群星计划</a>
+            <a class="g-header-nav-link " href="/hwj/myCard" rel="nofollow">我的账户</a>
+        </nav>
+    </div>
+</header>
+<script>
+    require(['widgets/header_nav']);
+</script>
+<div class="l-container mtb30">
+    <div class="aside l-left">
+        <div class="about-nav" id="navList">
+            <div class="about-nav-1stlevel">
+                <h3>
+                    <hr>
+                    <span>关于我们</span></h3>
+                <ul class="about-nav-2ndlevel-list">
+                    <li class="about-nav-2ndlevel">
+                        <a href="#">公司介绍</a>
+                    </li>
+                    <li class="about-nav-2ndlevel">
+                        <a href="#">团队介绍</a>
+                    </li>
+                    <li class="about-nav-2ndlevel">
+                        <a href="#">联系我们</a>
+                    </li>
+                    <li class="about-nav-2ndlevel">
+                        <a href="#">加入我们</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="about-nav-1stlevel">
+                <h3>
+                    <hr>
+                    <span>信息披露</span></h3>
+                <ul class="about-nav-2ndlevel-list">
+                    <li class="about-nav-2ndlevel">
+                        <a href="https://lantouzi.com/about/information">信息披露</a>
+                    </li>
+                    <li class="about-nav-2ndlevel">
+                        <a href="https://lantouzi.com/about/platform_data">数据披露</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="about-nav-1stlevel">
+                <h3>
+                    <hr>
+                    <span>产品服务</span></h3>
+                <ul class="about-nav-2ndlevel-list">
+                    <li class="about-nav-2ndlevel">
+                        <a href="https://lantouzi.com/about/product">产品介绍</a>
+                    </li>
+                    <li class="about-nav-2ndlevel">
+                        <a href="https://lantouzi.com/about/security">安全保障</a>
+                    </li>
+                    <li class="about-nav-2ndlevel">
+                        <a href="https://lantouzi.com/about/agreement">服务协议</a>
+                    </li>
+                    <li class="about-nav-2ndlevel">
+                        <a href="https://lantouzi.com/about/privacy">隐私条款</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="about-nav-1stlevel">
+                <h3>
+                    <hr>
+                    <span>网贷教室</span></h3>
+                <ul class="about-nav-2ndlevel-list">
+                    <li class="about-nav-2ndlevel">
+                        <a href="https://lantouzi.com/about/risk_reminder">风险提示</a>
+                    </li>
+                    <li class="about-nav-2ndlevel">
+                        <a href="https://lantouzi.com/about/policy">政策法规</a>
+                    </li>
+                    <li class="about-nav-2ndlevel">
+                        <a href="https://lantouzi.com/about/internet_lending_knowledge">网络借贷知识</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="about-nav-1stlevel">
+                <h3>
+                    <hr>
+                    <span>帮助中心</span></h3>
+                <ul class="about-nav-2ndlevel-list">
+                    <li class="about-nav-2ndlevel on">
+                        <a href="https://lantouzi.com/about/help">常见问题</a>
+                    </li>
+                    <li class="about-nav-2ndlevel">
+                        <a href="https://lantouzi.com/about/baoli">保理业务介绍</a>
+                    </li>
+                    <li class="about-nav-2ndlevel">
+                        <a href="https://lantouzi.com/post">网站公告</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <style>
+            .index-nav {
+                width: 660px;
+                color: #5D646E;
+                font-size: 16px;
+                margin: 30px auto;
+                border-bottom: solid 2px #F65F51;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .index-nav > li {
+                position: relative;
+                display: block;
+                float: left;
+                width: 165px;
+                height: 36px;
+                line-height: 36px;
+                cursor: pointer;
+                transition: all 0.2s;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+
+            .index-nav > li:hover {
+                background: #F1F4F7;
+            }
+
+            .index-nav > li.on {
+                background: #F65F51;
+                color: #fff;
+            }
+
+            .index-nav-content li {
+                display: none;
+            }
+
+            .index-nav-content li.on {
+                display: block;
+            }
+
+            .index-nav-content {
+                width: 660px;
+                overflow: hidden;
+                margin: 0 auto;
+            }
+
+            .question-block {
+                margin-bottom: 30px;
+            }
+
+            .question-block .block-tit {
+                position: relative;
+                height: 20px;
+                line-height: 20px;
+                font-size: 14px;
+                color: #5D646E;
+                margin-bottom: 15px;
+                cursor: pointer;
+                padding-left: 25px;
+                transition: all 0.2s;
+            }
+
+            .question-block .block-tit:before {
+                content: 'Q：';
+                position: absolute;
+                display: block;
+                left: 0;
+                top: 0;
+                font-size: 14px;
+            }
+
+            .question-block .block-tit:after {
+                position: absolute;
+                display: block;
+                right: 0;
+                top: 0;
+                font-family: "iconfont" !important;
+                font-size: 20px;
+                line-height: 20px;
+                content: '\e638';
+                color: #5D626E;
+                opacity: 0.7;
+                transition: all 0.2s;
+            }
+
+            .question-block.expand .block-tit {
+                color: #F65F51;
+            }
+
+            .question-block.expand .block-tit:after {
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+
+            .question-block .block-content {
+                color: #5D626E;
+                font-size: 14px;
+                padding-left: 25px;
+                padding-right: 30px;
+                display: none;
+                line-height: 28px;
+            }
+
+            .question-block .block-content img {
+                margin-right: 10px;
+            }
+
+            .question-block.expand .block-content {
+                display: block;
+            }
+        </style>
+        <div class="my-page my-page-about">
+            <div class="my-mod my-about">
+                <div class="hd">
+                    <h2>常见问题</h2>
+                </div>
+                <div class="bd">
+                    <ul class="index-nav clearfix">
+                        <li class="on">认证开户</li>
+                        <li>账户相关</li>
+                        <li>充值提现</li>
+                        <li>投资回款</li>
+                    </ul>
+                    <ul class="index-nav-content">
+                        <li class="on">
+                            <div class="question-block">
+                                <div class="block-tit">注册后是否能修改用户名？</div>
+                                <div class="block-content">
+                                    用户在电脑版完成注册之后，用户名不能修改；如用户在微信版或App中完成注册，首次登录电脑版可进行用户名确认，确认后不能修改。请谨慎确认用户名。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">新用户注册后，无法通过存管银行身份、银行卡、预留手机号认证？</div>
+                                <div class="block-content">
+                                    请您确认您的姓名、身份证号、银行卡号、对应银行卡预留手机号信息正确。如预留手机号近期有修改操作，请与银行验证对应手机号。在懒投资进行认证的用户年龄应满18岁，未满18岁的用户无法通过验证。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">使用护照号、军官证号等是否可以认证？</div>
+                                <div class="block-content">
+                                    目前系统只支持第二代中华人民共和国居民身份证进行认证。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">老用户激活银行存管账户时，认证失败？</div>
+                                <div class="block-content">
+                                    1）如预留手机号近期有修改操作，请与银行验证对应手机号；<br>
+                                    2）如近期有过改名行为，请联系客服进行相关信息提交及姓名修改验证；<br>3）如您确认信息正确无误，请联系客服进行对应信息查询，进行手工验证。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">验证短信无法收到怎么办？</div>
+                                <div class="block-content">
+                                    手机验证环节，如果尝试3次手机仍无法获取短信验证信息，请至客服电话：400-807-8000。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">验证邮箱收不到确认邮件怎么办？</div>
+                                <div class="block-content">
+                                    请您打开注册邮箱，查看确认邮件是否被归类到垃圾邮件中，如果被归类到垃圾邮件中，请点击确认链接，同时将该邮件标注为“不是垃圾邮件”，以便今后正常收发懒投资发出的其他服务邮件。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">注册时获取手机验证码按钮无法点击？</div>
+                                <div class="block-content">
+                                    请尝试刷新页面，如还不行建议使用其他浏览器再次尝试。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">提示“会话已过期请重登录”或“not login in”？</div>
+                                <div class="block-content">
+                                    请首先校对您设备的时间，如多次出现该提示，建议使用其他浏览器再次尝试。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">登录/注册时验证码始终输入错误？</div>
+                                <div class="block-content">
+                                    建议更换浏览器或下载App进行尝试。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">实名认证身份认证无法通过？</div>
+                                <div class="block-content">
+                                    您是否之前在公安身份系统中有变更过身份信息，如若没有，请致电客服400-807-8000。
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="question-block">
+                                <div class="block-tit">如何修改懒投资注册手机号码？</div>
+                                <div class="block-content">
+                                    登录后在「我的账户」-「个人信息」中进行自助修改；<br>
+                                    如若忘记登录密码，原手机号注销停用或更换手机号码无法接收短信验证码，需下载“懒投资修改注册手机号申请表”，完整填写相应资料信息后发送至客服邮箱（kefu@lantouzi.com），人工审核通过后完成修改。<br>
+                                    <a href="https://dn-fawge6kx.qbox.me/67c36165f1bd6f845664.doc"><img
+                                            src="https://s1.lantouzi.com/img/20175/cb5395fa6f9250a8c962977cc9287532.png">懒投资修改注册手机号申请表.doc</a>
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">如何修改绑定银行卡预留手机号码？</div>
+                                <div class="block-content">
+                                    在银行修改预留手机号码完成后，电脑端在懒投资官网「我的账户」-「我要提现」页面右侧“更改预留手机号“进行自助修改预留手机号；APP在「我的账户」-「个人信息」-「我的银行卡」中进行自助修改。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">如何更换绑定银行卡？</div>
+                                <div class="block-content">
+                                    更换银行卡需要在电脑端「我的账户」-「我要提现」-点击银行卡右上角的“点击解绑”或者在APP/微信服务号（lantouzicom）「我的账户」-「个人信息」-「我的银行卡」页面上传您的资料申请解绑卡，解绑卡审核时间3-5个工作日，解绑成功后您再绑定一张新卡即可。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">如何更改懒投资实名认证信息中真实姓名？</div>
+                                <div class="block-content">
+                                    在公安机关及绑定银行卡银行更改完成后，下载“懒投资姓名变更申请表”，完整填写相应资料信息后发送至客服邮箱（kefu@lantouzi.com），人工审核通过后完成更改。<br>
+                                    <a href="https://dn-fawge6kx.qbox.me/d4f0c7d9bc6760f92a0a.doc"><img
+                                            src="https://s1.lantouzi.com/img/20175/cb5395fa6f9250a8c962977cc9287532.png">懒投资姓名变更申请表.doc</a>
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">如何冻结账号？</div>
+                                <div class="block-content">
+                                    目前懒投资账户绑定银行卡需与实名认证信息一致，并仅支持绑定一张银行卡，当手机或账号丢失等情况发生，账户资金是安全无法转移的。<br>
+                                    未防止其他情况发生，需冻结账号时，可联系客服人员进行冻结账号操作。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">如何解冻账号？</div>
+                                <div class="block-content">
+                                    用户自行冻结账号或账号因存在异常行为被冻结时，用户可申请账号解冻，解冻账号需下载“懒投资账户解冻申请表”，完整填写相应资料信息后发送至客服邮箱（kefu@lantouzi.com），人工审核通过后完成解冻。<br>
+                                    <a href="https://dn-fawge6kx.qbox.me/59f4ca7df10e681bcb13.doc"><img
+                                            src="https://s1.lantouzi.com/img/20175/cb5395fa6f9250a8c962977cc9287532.png">懒投资解冻账户申请表.doc</a>
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">如何申请懒投资账户资产证明？</div>
+                                <div class="block-content">
+                                    申请资产证明需下载“懒投资资产证明申请表”，完整填写相应资料信息后发送至客服邮箱（kefu@lantouzi.com），信息确认完成后开具。<br>
+                                    <a href="https://dn-fawge6kx.qbox.me/8b965d9fb9b00ae6624b.doc"><img
+                                            src="https://s1.lantouzi.com/img/20175/cb5395fa6f9250a8c962977cc9287532.png">懒投资资产证明申请表.doc</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="question-block">
+                                <div class="block-tit">为什么充值成功账号里面的余额没有增加？</div>
+                                <div class="block-content">
+                                    在充值过程中会遇到各种问题可能导致充值数据未同步。此时请您稍后片刻进行刷新页面，查看是否充值已到账。如果刷新未能解决问题，请您致电客服
+                                    400-807-8000，或关注懒投资微信号lantouzicom后留言，我们会尽快处理。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">无法充值怎么回事？</div>
+                                <div class="block-content">
+                                    优先推荐您使用快捷充值，以校验短信验证码和交易密码的方式进行充值。首次充值会校验您的银行卡信息。网银充值会受到银行系统兼容性的限制，某些银行的网银充值只能在
+                                    Windows
+                                    操作系统上进行，建议使用特定版本的IE浏览器（一般是IE6以上、IE10以下）尝试一下。同时，请留意银行网上银行页面的提示，如充值数额是否超过银行卡的转账额度限制，或当前网银维护中等。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">提现有哪些注意事项？</div>
+                                <div class="block-content">
+                                    1）最小提现金额为50元。<br>
+                                    2）提现免除手续费，每日仅限提现一笔。 <br>
+                                    3）提现无上限限制（充值未投资的金额，每日最多提现10000元）。 <br>
+                                    4）提现资金T+1工作日到账（遇周末和法定节假日顺延）。邮政储蓄银行T+1到T+3个工作日到账。 <br>
+                                    5）资金仅可提现到您在银行存管认证的银行卡中。 <br>
+                                    6）特殊情况下，如因银行网络异常导致延迟到账的，请及时致电客服热线400-807-8000。2017年3月31日起，如提现资金T+1个工作日（邮储T+3个工作日）未能到账，懒投资将按照延迟期间的零钱计划年化收益率给予补偿。<br>
+                                    7）绑定银行卡为Ⅱ类银行账户，无法完成提现，请更换绑定银行卡后完成提现操作。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">可以用信用卡进行充值吗？</div>
+                                <div class="block-content">
+                                    懒投资严禁信用卡充值、套现等行为，一经发现将予以处罚，包括但不限于：限制收款、冻结账户、永久停止服务，并会影响银行征信记录。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">快捷充值不成功？</div>
+                                <div class="block-content">
+                                    1）快捷支付限额：一般限额为单笔上限5万元，单日上限50万元，单月上限500万。系统会根据您的充值金额选择最优充值通道。<br>
+                                    2）如您遇到充值提示失败，但银行反馈扣款的情况： <br>
+                                    ① 快捷充值存在延时到账情况，30分钟左右会充值进入您的懒投资账户，请您注意短信或账户信息； <br>
+                                    ②
+                                    确认30分钟没有充值成功，请您联系客服，并尽可能的提供银行扣款证明（如网络银行详细流水截图、银行打印流水单等），我们将第一时间为您联系充值通道，进行资金退回。3-10个工作日（一般3个工作日）内原路退回。
+                                    <br>
+                                    3）如提示您“银行扣款失败，建议使用网银充值”，请核对您的充值是否超过限额。如已经超过，请使用电脑版进行网银进行充值。 <br>
+                                    4）夜间23:30至次日4点之间，银行可能出现定时或不定时维护的情况，请错峰充值。 <br>
+                                    5）如您遇到其他错误提示，请尽量截图，同时电话、微信或在线QQ联系客服人员，我们将第一时间为您解决相关问题。
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="question-block">
+                                <div class="block-tit">投资金额有限制吗？</div>
+                                <div class="block-content">
+                                    懒投资提供多种产品线，供用户选择。<br>
+                                    零钱计划1元起投，LPASS会员可享受等级对应的投资额度上限，查看LPASS等级；<br>
+                                    懒人计划100元起投，上限为项目可购余额；<br>
+                                    享乐计划每个商品对应的懒人计划项目份额为固定份额。用户可以选择商品数量，并同时购买对应份额的项目；<br>
+                                    变现计划中，懒人计划的变现项目100元起投，群星计划的变现项目1000元起投。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">投资利息从什么时候开始计算？</div>
+                                <div class="block-content">
+                                    懒人计划：从投标次日开始计息，次日项目未满，由平台贴息。<br>
+                                    零钱计划：投资零钱计划的资金与平台发布的借款项目(包含借款人发布的借款项目及其他投资用户的债权转让项目)撮合匹配完成后，产生收益。<br>
+                                    享乐计划：项目满标后开始计息。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">懒投资定期项目募集期限是多长时间？</div>
+                                <div class="block-content">
+                                    懒人计划项目满标时间1-3个自然日，享乐计划项目满标时间3-5个自然日，所有项目募集期限不会超过20个工作日。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">借款企业未按时还款怎么处理？</div>
+                                <div class="block-content">
+                                    项目均有多个还款保障来源，为用户提供多维度的资产保障，如果借款企业无法还款，相应的其他担保人和或担保机构将会代偿本金和利息，保障投资人的利益。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">投资的本金与利息如何回款？</div>
+                                <div class="block-content">
+                                    投资人无须任何操作。借款人只要在规定的时间内还款，账款就会自动打入您的懒投资账户余额，其实际资金在您对应的存管平台账户中，这时您也可以进行提现操作。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">已进行投资，但突然想撤回投资可以吗？</div>
+                                <div class="block-content">
+                                    投资成功后，无法撤回投资。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">投资券是如何使用的？</div>
+                                <div class="block-content">
+                                    懒投资发放的投资券分为满减券和加息券，使用10000元减50元的满减券，您只需投资9950元即可，即为投资10000元；使用1%的加息券投资年化利率为11.3%的项目，可获得12.3%的年化收益，其中1%的收益为懒投资平台加息。投资券不能叠加使用，每次投资只能使用一张投资券，满减券与加息券不可同时使用。
+                                </div>
+                            </div>
+                            <div class="question-block">
+                                <div class="block-tit">以月为单位的项目期限是如何计算的？</div>
+                                <div class="block-content">
+                                    在首页及项目标题中的以月为单位的项目期限是懒投资为了方便用户更加直观地判断项目期限，而通过项目的实际存续天数除以每月30天得来的近似值。投资真实的计息时间仍将以项目详情里的存续天数为准。
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $('.index-nav > li').on('click', function (e) {
+                    var idx = $('.index-nav > li').index(this);
+                    $('.index-nav li').removeClass('on');
+                    $(this).addClass('on');
+                    var panel = $('.index-nav-content > li').eq(idx);
+                    $('.index-nav-content > li').removeClass('on');
+                    panel.addClass('on');
+                });
+
+                $('.question-block').on('click', '.block-tit', function (e) {
+                    var $question = $(e.delegateTarget);
+                    if ($question.hasClass('expand')) {
+                        $question.removeClass('expand');
+                    } else {
+                        $question.siblings().removeClass('expand');
+                        $question.addClass('expand');
+                    }
+                });
+            });
+        </script>
+    </div>
+</div>
+<footer class="g-footer">
+    <div class="l-container">
+        <div class="clearfix">
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">关于懒投资</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/index" class="g-footer-link" rel="nofollow">公司介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/team" class="g-footer-link" rel="nofollow">团队介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/contact" class="g-footer-link" rel="nofollow">联系我们</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/joinus" class="g-footer-link" rel="nofollow">加入我们</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">产品服务</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/product" class="g-footer-link" rel="nofollow">产品介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/security" class="g-footer-link" rel="nofollow">安全保障</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/news" class="g-footer-link" rel="nofollow">媒体报道</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/links" class="g-footer-link">友情链接</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">帮助中心</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/post" class="g-footer-link">网站公告</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/help" class="g-footer-link" rel="nofollow">常见问题</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/risk_reminder" class="g-footer-link" rel="nofollow">网贷教室</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/baoli" class="g-footer-link">保理业务介绍</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section wide">
+                <h3 class="g-footer-title">联系我们</h3>
+                <section>
+                    <p>客服电话：400-807-8000&nbsp;（工作日 9:00-22:00）</p>
+                    <p>客服邮箱：<a href="mailto:kefu@lantouzi.com" class="g-footer-link"
+                               rel="nofollow">kefu@lantouzi.com</a></p>
+                    <p>公司地址：北京市朝阳区三里屯SOHO 办公B座15层</p>
+                    <p>我要合作：<a href="mailto:bd@lantouzi.com" class="g-footer-link" rel="nofollow">bd@lantouzi.com</a>
+                    </p>
+                </section>
+            </div>
+            <div class="g-footer-wx-qrcode">
+                <div class="img-wrap">
+                    <img src="https://s1.lantouzi.com/img/201612/a5e738531668ada69144888e315221ce.png" width="120px"
+                         height="120px" title="微信号:lantouzicom"/>
+                </div>
+                <p>投资有风险，选择需谨慎</p>
+            </div>
+        </div>
+        <!-- 	<div class="g-footer-links">
+                <section class="container clearfix" id="g-footer-links"></section>
+                <div class="g-footer-links-icon" title="展开/收起">
+                    <i class="iconfont">&#xe67d;</i>
+                </div>
+                <div class="g-footer-links-more">
+                    <a href="https://lantouzi.com/links">全部</a>
+                </div>
+            </div> -->
+        <div class="g-footer-safeguard clearfix">
+            <a href="http://www.xmccb.com" class="safe-yeepay" target="_blank" rel="nofollow"></a>
+            <a href="http://www.geotrust.com/" class="safe-geotrust" target="_blank" rel="nofollow"></a>
+            <a href="http://webscan.360.cn/" class="safe-360" target="_blank" rel="nofollow"></a>
+            <a href="https://www.sobug.com/" class="safe-sobug" target="_blank" rel="nofollow"></a>
+            <a href="http://si.trustutn.org/info?sn=813161019000540855329" class="safe-trustutn" target="_blank"
+               rel="nofollow"></a>
+        </div>
+        <div class="g-footer-copyright">
+            <p class="g-footer-copyright-line">
+                京ICP备14023229号 京ICP证150240号
+            </p>
+            <p class="g-footer-copyright-line">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502030465">
+                    <span><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAEoUlEQVQ4jX3UW2xTdQDH8e85PT097dq1Xbt2zYoEGBmbXIaA1wm6mAyUTS4JgpooBoPRKPHCg6IRozH6QsAQIiExEcKDigkJTBSXISCLkBgQWGAbY3O0bGztejltT9vT0+OLLuDQ//vvk//D//8V+J9jmoM1uYGe9hM/nnu5oJXkZa1N+3zzFh4WhNmR/9oId4W0Xx7vO975Svex3nZT61duFBxYvB6m+xW0mKPU3DLzSEPbmq8Epenov7fS1FuZSteuF7q2fdrLc0+aLHRaaBVuYVNUUg81cz7mkDZt/nn1h0N9q03TVARBKNy+F+/E4uHC+W0/7TqYYsOmmbwYTuPe20O81yA+YJBa+SVPG5fYsn89+77XMXt3fmeag8pdwYI51DB8dNvA0pWXlnrqgrzmv8TgwTTiNA+GWoRCGaHaQ/frZ1jnOE/wkYU8sbKjbfzXfdfHr+6snwLKuQ7nkV6XfO7mYlYsVslcSCMOpxA8NmwTBvkzt7DO8KFkNGJfn2VNa5Gua40cOG2E3GLSfgcY/+NE2Dh3YkdZsIOUo1K9SXoUrIYOE3mEWQ7kRR7EkSwyZWKDGrVVBRAEEhkRa7W8w9SSMybByPUf1urRaLPXKUPJhhkK4W+uIYOJ+rAPY0MY50dNOLbMR6x2EFjkJ5srgmkSCjggcuHx+MjJlybBigpvQ1rVmVmdB8XH8bMOpJZK4m3TMaIqwsUsuY5b6INJ5K3NVL25gEP7E0AFTfMksgNj5IevhydBY2KkLZ2QmBtWCd8vs+dABSc/i9C0JITb4SLXk6A8ViB/KYErmuTyx318sd9GsMnDvNoUsWiBUuJK8yQoSlmPmhapHO9jXatBSXeiHx3F983viLVWitUWygEJf0uIUNd1Yvsuky1aWNNuxRXvR01LWFwW6+TDtjvu6RTrh9qNYC0bH1DZUVvNnmgD+o0efPF+RLcdrSeBWhcg6g3xrWiHSg8bHxyj5ArjuVfA7g133PZThICZNrk5oDK3YZBP3lnE+1uXclSdB2md9lycKo/IoQ4XGRyAl7deVVhS18/NfiCfw9QzCyZByaMvLrmC6KM6kbErvNFsY01nBV3HclwV57O88Rohe4zSkVqKCY1pcxy8t3yIW91D5HQFxS8jeeU58HccCpmzz8Z++/ygNlqkENMh8iezVjVhCypgxDHiEpkxDfeMKpjug0iMwcO9aC4/zplO7DUOvLM3LLN6nzo1WZtS5sLz8cs7dht5zR07PYpUYVKzrAFjQkPPZREdCkpVBYJsJd49QMmQcC+ehZ4n7ql/bL0zuLbzjtqosXw0P2rXlGDZHWypw0hlMdQ0OGQssgfZDsVkhmwkgTLdhxIOUkjmyEdVM1+bmhoHq3nq3cB9rhqrN0QhVaZsSJQNC/lxFcwyxXiKTP84gsUKgkB+JIbVLhJ8NOS3OTObp4AVtpZVqubZnYtEsrIlSWWghFXIIQs6lkISU9NwzfFTWVeJKGeQ3DKCt2a4JDV94AxMPPOPM6XYvXvf9qfHR1bk9ciy2kZ/o5E2nYpXrLLa7eTS5rA9UJWT/I0X4gOxzvqLxnFh+/by7fu/ALehBVIymXo1AAAAAElFTkSuQmCC"
+                            width="10px" height="10px" style="margin-right: 5px;"></span>京公网安备 11010502030465号
+                </a>
+            </p>
+            <p class="g-footer-copyright-line">北京大家玩科技有限公司&nbsp;&nbsp;版权所有</p>
+            <p class="g-footer-copyright-line">
+                切换至：
+                <a href="?ua=pc" class="g-footer-link" rel="nofollow">PC版</a>
+                <a href="?ua=mobile" class="g-footer-link" rel="nofollow">手机版</a>
+            </p>
+        </div>
+    </div>
+</footer>
+<script>
+    // 360理财渠道
+    var showLicaiBanner = false;
+    var licaiEndTime = new Date('2016/06/01 00:00:00'.replace(/-/g, "/"));
+    $(document).ready(function (e) {
+        if (showLicaiBanner && window.CONFIG.SERVER_TIME < licaiEndTime && (typeof localStorage !== undefined) && !localStorage.licai360Showed) {
+            var html = '<div style="position: fixed;width: 100%;height: 100px;left: 0;bottom: 0;background:rgba(255,98,67,0.9);z-index:2000;" class="licai360-footer"><div class="l-container"><a class="close-the-licai" style="display: block;width: 4%;position: absolute;left: 9.5%;top: 0;height: 50%;"></a><a href="/zt/licaijie360xinshou" style="display: block;position: absolute;bottom: 0;right: 0;width: 87%;height: 100%;"></a><img src="https://s1.lantouzi.com/uploader/2016527/08234e17a720e010c5ece8d011eab0f31464349675162.png" style="margin: 0 auto;display: block;"></div></div>';
+            $('body').append(html);
+            $('.close-the-licai').on('click', function () {
+                $('.licai360-footer').hide();
+                localStorage.licai360Showed = true;
+            });
+        }
+    });
+</script>
+<script>
+    require(['widgets/topbar_social_contact']);
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?6dea39ac37df9c6f3e7b096755b73949";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+
+        window.bd_track_event = function (category, action, label, value) {
+            value = value || 0;
+            if (category && action && label) {
+                _hmt.push(['_trackEvent', category, action, label, value]);
+            }
+        };
+        // $(document).on('mousedown', '.tongji', function(e){
+        // 	var $el = $(this);
+        // 	var category = $el.attr('data-category') || $.trim($el.text()),
+        // 		action   = $el.attr('data-action') || 'click',
+        // 		label    = $el.attr('data-label') || '',
+        // 		value    = $el.attr('data-value') || '';
+        // 	_hmt.push(['_trackEvent', category, action, label, value]);
+        // });
+
+    })();
+</script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-60788439-1', 'auto', {'allowLinker': true});
+    ga('require', 'linker');
+    ga('linker:autoLink', ['lanlicai.com']);
+    ga('send', 'pageview');
+</script>
+<script>
+    (function ($) {
+        var Track_Obj = {
+            page_name: '',
+            init: function () {
+                Track_Obj.page_name = Track_Obj.getPageName();
+                Track_Obj.bindEvents();
+            },
+            getPageName: function () {
+                var path = window.location.pathname.substring(1);
+                path = path.replace(/^(.*)\/$/g, '$1');
+                while (!!path.match(/^(.*)\/index$/g)) {
+                    path = path.replace(/^(.*)\/index$/g, '$1');
+                }
+                path = path.replace(/\//g, '-');
+                if (!path) {
+                    path = 'index';
+                }
+                return path;
+            },
+            bindEvents: function () {
+                //根据锚点class:track-click绑定mousedown事件，防止click跳转走
+                $(document).on('mousedown', '.track-click', function (e) {
+                    if ($(this).hasClass('g-btn-disabled')) {//禁用按钮不统计点击
+                        return;
+                    }
+                    var data = $(this).data(),
+                        category = data.category,
+                        action = data.action,
+                        label = data.label,
+                        value = data.value || 0,
+                        target = data.target;
+
+                    if (!category || !action || !label) {
+                        return;
+                    }
+                    if (target) {//获取目标对象的val
+                        value = $(target).val() || $(target).text();
+                        //如果设了target但是没有拿到value,记录错误信息
+                        if (!value) {
+                            value = 'NA-' + target;
+                        }
+                    }
+                    Track_Obj.track_event(category, action, label, value);
+                });
+            },
+            track_event: function (category, action, label, value) {
+                if (Track_Obj.page_name) {
+                    label = Track_Obj.page_name + '-' + label;
+                }
+                //统计到bd
+                if (window.bd_track_event) {
+                    window.bd_track_event(category, action, label, value);
+                }
+
+                //TODO 统计到ga
+
+            }
+        };
+
+        Track_Obj.init();
+        window.track_event = Track_Obj.track_event;
+    })(jQuery);
+</script>
+</body>
+</html>

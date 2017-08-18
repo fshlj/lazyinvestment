@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zg.number.mapper.RegisterMapper">
+
+    <!-- 用户注册-->
+    <insert id="register" parameterType="User">
+        INSERT INTO t_user (username,phone,password) VALUES (#{userName},#{phone},#{password})
+    </insert>
+    <!-- 检测用户注册-->
+    <select id="selectRegister" parameterType="User" resultType="User" >
+        SELECT * FROM t_user WHERE username = #{userName} AND phone = #{phone} AND password = #{password}
+    </select>
+
+    <!-- 用户验证唯一-->
+    <select id="userNameOnly" resultType="User" parameterType="String">
+        SELECT * FROM t_user WHERE username= #{userName}
+    </select>
+
+    <!-- 手机号验证唯一-->
+    <select id="phoneOnly" resultType="User" parameterType="String">
+        SELECT * FROM t_user WHERE phone= #{phone}
+    </select>
+
+    <!-- 注册用户的时候关联余额-->
+    <insert id="addcaptail" parameterType="java.lang.String">
+        INSERT INTO t_captail (captailMoney, userId)
+        VALUES
+        (
+        0.0,
+        (
+        SELECT
+        t_user.userId
+        FROM
+        t_user
+        WHERE
+        t_user.phone = #{phone}
+        )
+        )
+    </insert>
+
+</mapper>

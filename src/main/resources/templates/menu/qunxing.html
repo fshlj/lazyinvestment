@@ -1,0 +1,1155 @@
+
+<!doctype html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>群星计划_结构化理财产品-懒投资</title>
+    <meta name="keywords" content="群星计划,结构化理财产品,懒投资">
+    <meta name="description" content="懒投资群星计划是为了响应政府关于推动多层次资本市场建设的号召，协同资本市场实力伙伴合作推出的结构化理财产品,投资理财就上懒投资网。">
+    <meta baidu-gxt-verify-token="8fd06ee5eb68e0def0986730ace33d6e">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script>
+        (function(){
+            window.CONFIG = {"ENCRYPT_TIMEOUT":120000,"SERVER_TIME":1501853300000};
+            window.CONFIG.BASE_URI = 'https://lantouzi.com';
+            window.CONFIG.SSO_URI  = CONFIG.BASE_URI + '/dwjsso';
+            window.CONFIG.LTZ_API = CONFIG.BASE_URI + '/api/uc/';
+            window.ENV = 'online';
+            var isIE = !!window.VBArray;
+            if (isIE && !+[1,] && !document.documentMode) {//less than IE8
+                window.location.href = window.CONFIG.BASE_URI + '/wrong_browser';
+            }
+        })();
+        var _hmt = _hmt || [];
+        (function () { // 防止被iframe
+            try {
+                top.location.hostname;
+                if (top.location.hostname !== window.location.hostname) {
+                    top.location.href = '#';
+                }
+            } catch(e) {
+                top.location.href = '#';
+            }
+        })();
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/base.css?_v=e4ea6a1ba6aef6e8783dfacd7b6d7055">
+    <!--[if IE 8 ]><link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/base_ie8.css?_v=f37b1ac6b88dd8a3f1be486d1336693c"><![endif]-->
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/header.pc.css?_v=34c478f6f2c27c2e298d65416f54fa33">
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/v3/apollo/index_new.css?_v=a151f902c853fa73aaec6aed19909a39">
+    <!--[if lt IE 9]>
+    <script src="/static/js/lib/html5shiv-2.7.3.min.js"></script>
+    <script src="/static/js/lib/selectivizr.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="/static/js/lib/placeholder.js"></script>
+    <![endif]-->
+    <script src="/static/js/lib/require-2.1.18.min.js"></script>
+    <script src="https://lantouzi.com/static/js/config.js?_v=ac0e2d4d0239a90fb8534705ac19027e"></script>
+    <script src="/static/js/lib/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<header class="g-topbar">
+    <div class="l-container clearfix">
+        <div class="l-left">
+            <div class="g-service">
+                <div style="display:inline-block;width:280px;">
+                    <span style="vertical-align:top;">客服电话 400-807-8000</span>
+                    <span class="tel">（工作日 9:00-22:00）</span>
+                </div>
+                <span class="iconfont g-topbar-social weibo" id="weibo_account">&#xe601;</span>
+                <span class="iconfont g-topbar-social weixin" id="weixin_account">&#xe619;</span>
+            </div>
+            <div class="g-topbar-social-account weibo" id="weibo_account_info">
+                欢迎关注懒投资官方微博</br>
+                <a href="#" target="_blank" title="懒投资官方微博" rel="nofollow">@懒投资</a>
+            </div>
+            <div class="g-topbar-social-account weixin" id="weixin_account_info">
+                扫一扫关注懒投资微信
+                <img src="/images/IMG_0280.JPG" width="150px" height="150px" title="微信号:lantouzicom" />
+                <p>微信号：lantouzicom</p>
+            </div>
+        </div>
+        <!--  未登录 -->
+        <div class="l-right" id="meilogin" th:if="${session.loginUser}==null"}>
+            <p class="g-topbar-nav">
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">登录</a>
+                <a href="/hwj/toregister" class="g-topbar-nav-link tongji" data-category="注册" data-label="header"
+                   rel="nofollow">注册</a>
+                <a href="top/vip.html" class="g-topbar-nav-link">VIP会员</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="top/security.html" class="g-topbar-nav-link">安全保障</a>
+                <a href="top/information.html" class="g-topbar-nav-link">信息披露</a>
+                <a href="top/help.html" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+
+        <!-- 已登录 -->
+        <div class="l-right" th:if="${session.loginUser}!=null">
+            <p class="g-topbar-nav">
+                <a href="#" class="g-topbar-nav-link" rel="nofollow">欢迎，<span th:text="${session.loginUser.userName}"
+                ></span></a>
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">[退出]</a>
+                <a href="top/vip.html" class="g-topbar-nav-link">VIP会员</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="top/security.html" class="g-topbar-nav-link">安全保障</a>
+                <a href="top/information.html" class="g-topbar-nav-link">信息披露</a>
+                <a href="top/help.html" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+    </div>
+</header>
+<header class="g-header">
+    <div class="l-container clearfix">
+        <a href="#" class="g-header-logo" title="懒投资">
+            <img src="/images/IMG_0280.JPG" alt="懒投资" />
+            <h1 class="l-hide">懒投资</h1>
+        </a>
+        <nav class="g-header-nav">
+            <a class="g-header-nav-link " href="../index.html" th:if="${session.loginUser}==null" }>首页</a>
+            <a class="g-header-nav-link " href="/toLoginSuccess" th:if="${session.loginUser}!=null" }>首页</a>
+            <a class="g-header-nav-link " href="/fs/lanRen">懒人计划</a>
+            <a class="g-header-nav-link " href="/lingqinan">零钱计划</a>
+            <a th:href="@{/wrx/selectInvest}" class="g-header-nav-link ">
+                变现计划
+            </a>
+            <a class="g-header-nav-link " href="/xiangle">享乐计划
+                <!-- <i class="beta" style="width:24px;">新</i> --></a>
+            <a class="g-header-nav-link on" href="/qunxing">群星计划</a>
+            <a class="g-header-nav-link " href="/hwj/myCard" rel="nofollow">我的账户</a>
+        </nav>
+    </div>
+</header>
+<script>
+    require(['widgets/header_nav']);
+</script>
+
+<script>
+    require(['widgets/topbar_social_contact']);
+</script>
+
+<script>
+    (function(){
+        var meter = document.createElement('meter');
+    })();
+</script>
+
+<div class="banner">
+    <div class="banner-text">
+        <div class="img-wrap">
+            <img src="https://s1.lantouzi.com/img/apollo/banner_text_v6.png" alt="" />
+        </div>
+        <div class="btn-wrap">
+            <a class="btn-intro iconfont icon-stars" href="#">什么是群星计划</a>
+            <a class="btn-intro iconfont icon-wenti" href="#">群星计划常见问题</a>
+        </div>
+    </div>
+</div>
+
+<div class="bg-white">
+    <div class="l-container">
+        <!-- <div class="what">
+            <h3 class="title"><span class="bracket">[</span>什么是群星计划<span class="bracket">]</span></h3>
+            <div class="what-text">
+                <p>群星计划是懒投资为了响应政府关于推动多层次资本市场建设的号召，协同资本市场实力伙伴合作推出的结构化理财产品。通过挖掘一二级资本市场的价值洼地，为客户提供资产长期稳健增长的稀缺入口。</p>
+            </div>
+        </div> -->
+        <div class="prj-wrap">
+            <a class="prev iconfont" href="javascript:">&#xe665;</a>
+            <a class="next iconfont" href="javascript:">&#xe666;</a>
+            <div class="slide-wrap">
+                <div class="project clearfix">
+                    <div class="prj no-ml">
+                        <div class="prj-title" style="background-image:url(https://s1.lantouzi.com/img/prj/qunxingbanner/qunxing2hao.jpg);">
+                            <h2>群星2号公寓租赁精选</h2>
+                            <p class="raise-time">募集周期：2015.08.27—2015.09.06</p>
+                            <div class="tag img-wrap">
+                                <img src="https://s1.lantouzi.com/img/apollo/state_sell.png" alt="交易期" />
+                            </div>
+                        </div>
+                        <div class="prj-info">
+                            <div class="prj-rate clearfix">
+                                <div class="prj-val">
+                                    8.5<span class="unit">%~</span>35<span class="unit">%</span>								</div>
+                                <div class="prj-field">预计年化收益率</div>
+                            </div>
+                            <ul class="prj-end-list">
+                                <li>
+                                    <span class="prj-val">1.1623</span>当前净值
+                                </li>
+                                <li>
+                                    <span class="prj-val">24~48月</span>项目期限
+                                </li>
+                                <li class="last-child">
+                                    <span class="prj-val">16.23%</span>累计涨幅
+                                </li>
+                            </ul>
+                            <div class="prj-btn">
+                                <p class="g-fco"></p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="g-btn g-btn-medium-major">马上投资</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prj">
+                        <div class="prj-title" style="background-image:url(https://s1.lantouzi.com/img/prj/qunxingbanner/qunxing1hao.jpg);">
+                            <h2>群星1号新能源精选</h2>
+                            <p class="raise-time">募集周期：2015.08.20—2015.08.27</p>
+                            <div class="tag img-wrap">
+                                <img src="https://s1.lantouzi.com/img/apollo/state_sell.png" alt="交易期" />
+                            </div>
+                        </div>
+                        <div class="prj-info">
+                            <div class="prj-rate clearfix">
+                                <div class="prj-val">
+                                    8<span class="unit">%~</span>28<span class="unit">%</span>								</div>
+                                <div class="prj-field">预计年化收益率</div>
+                            </div>
+                            <ul class="prj-end-list">
+                                <li>
+                                    <span class="prj-val">1.1563</span>当前净值
+                                </li>
+                                <li>
+                                    <span class="prj-val">12~24月</span>项目期限
+                                </li>
+                                <li class="last-child">
+                                    <span class="prj-val">15.63%</span>累计涨幅
+                                </li>
+                            </ul>
+                            <div class="prj-btn">
+                                <p class="g-fco"></p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="g-btn g-btn-medium-major">马上投资</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prj">
+                        <div class="prj-title" style="background-image:url(https://s1.lantouzi.com/img/prj/qunxingbanner/qunxing3hao.jpg);">
+                            <h2>群星3号牧业精选</h2>
+                            <p class="raise-time">募集周期：2015.09.20—2015.09.28</p>
+                            <div class="tag img-wrap">
+                                <img src="https://s1.lantouzi.com/img/apollo/state_sell.png" alt="交易期" />
+                            </div>
+                        </div>
+                        <div class="prj-info">
+                            <div class="prj-rate clearfix">
+                                <div class="prj-val">
+                                    8<span class="unit">%~</span>28<span class="unit">%</span>								</div>
+                                <div class="prj-field">预计年化收益率</div>
+                            </div>
+                            <ul class="prj-end-list">
+                                <li>
+                                    <span class="prj-val">1.1497</span>当前净值
+                                </li>
+                                <li>
+                                    <span class="prj-val">12~24月</span>项目期限
+                                </li>
+                                <li class="last-child">
+                                    <span class="prj-val">14.97%</span>累计涨幅
+                                </li>
+                            </ul>
+                            <div class="prj-btn">
+                                <p class="g-fco"></p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="g-btn g-btn-medium-major">马上投资</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prj">
+                        <div class="prj-title" style="background-image:url(https://s1.lantouzi.com/img/QXJH/QXJH07/XM.png);">
+                            <h2>群星7号掘金手游二期</h2>
+                            <p class="raise-time">募集周期：2015.11.30—2015.11.30</p>
+                            <div class="tag img-wrap">
+                                <img src="https://s1.lantouzi.com/img/apollo/state_sell.png" alt="交易期" />
+                            </div>
+                        </div>
+                        <div class="prj-info">
+                            <div class="prj-rate clearfix">
+                                <div class="prj-val">
+                                    8.5<span class="unit">%~</span>28<span class="unit">%</span>								</div>
+                                <div class="prj-field">预计年化收益率</div>
+                            </div>
+                            <ul class="prj-end-list">
+                                <li>
+                                    <span class="prj-val">1.1425</span>当前净值
+                                </li>
+                                <li>
+                                    <span class="prj-val">24~36月</span>项目期限
+                                </li>
+                                <li class="last-child">
+                                    <span class="prj-val">14.25%</span>累计涨幅
+                                </li>
+                            </ul>
+                            <div class="prj-btn">
+                                <p class="g-fco"></p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="g-btn g-btn-medium-major">马上投资</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prj">
+                        <div class="prj-title" style="background-image:url(https://s1.lantouzi.com/img/QXJH/QXJH09/XM.png);">
+                            <h2>群星9号掘金手游三期</h2>
+                            <p class="raise-time">募集周期：2015.12.21—2016.01.04</p>
+                            <div class="tag img-wrap">
+                                <img src="https://s1.lantouzi.com/img/apollo/state_sell.png" alt="交易期" />
+                            </div>
+                        </div>
+                        <div class="prj-info">
+                            <div class="prj-rate clearfix">
+                                <div class="prj-val">
+                                    8.5<span class="unit">%~</span>33<span class="unit">%</span>								</div>
+                                <div class="prj-field">预计年化收益率</div>
+                            </div>
+                            <ul class="prj-end-list">
+                                <li>
+                                    <span class="prj-val">1.1344</span>当前净值
+                                </li>
+                                <li>
+                                    <span class="prj-val">24~36月</span>项目期限
+                                </li>
+                                <li class="last-child">
+                                    <span class="prj-val">13.44%</span>累计涨幅
+                                </li>
+                            </ul>
+                            <div class="prj-btn">
+                                <p class="g-fco"></p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="g-btn g-btn-medium-major">马上投资</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prj">
+                        <div class="prj-title" style="background-image:url(https://s1.lantouzi.com/img/QXJH/QXJH10/XM01.png);">
+                            <h2>群星10号通信细分龙头</h2>
+                            <p class="raise-time">募集周期：2016.01.05—2016.01.24</p>
+                            <div class="tag img-wrap">
+                                <img src="https://s1.lantouzi.com/img/apollo/state_sell.png" alt="交易期" />
+                            </div>
+                        </div>
+                        <div class="prj-info">
+                            <div class="prj-rate clearfix">
+                                <div class="prj-val">
+                                    8.5<span class="unit">%~</span>39<span class="unit">%</span>								</div>
+                                <div class="prj-field">预计年化收益率</div>
+                            </div>
+                            <ul class="prj-end-list">
+                                <li>
+                                    <span class="prj-val">1.1297</span>当前净值
+                                </li>
+                                <li>
+                                    <span class="prj-val">36~48月</span>项目期限
+                                </li>
+                                <li class="last-child">
+                                    <span class="prj-val">12.97%</span>累计涨幅
+                                </li>
+                            </ul>
+                            <div class="prj-btn">
+                                <p class="g-fco"></p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="g-btn g-btn-medium-major">马上投资</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prj">
+                        <div class="prj-title" style="background-image:url(https://s1.lantouzi.com/img/QXJH/QXJH08/XM.png);">
+                            <h2>群星8号资本服务精选</h2>
+                            <p class="raise-time">募集周期：2015.12.11—2015.12.20</p>
+                            <div class="tag img-wrap">
+                                <img src="https://s1.lantouzi.com/img/apollo/state_closed_v2.png" alt="已退出" />
+                            </div>
+                        </div>
+                        <div class="prj-info">
+                            <div class="prj-rate clearfix">
+                                <div class="prj-val">
+                                    12.06<span class="unit">%</span>								</div>
+                                <div class="prj-field">最终年化收益率</div>
+                            </div>
+                            <ul class="prj-end-list">
+                                <li>
+                                    <span class="prj-val">2016-07-30</span>还款时间
+                                </li>
+                                <li>
+                                    <span class="prj-val">1.0753</span>退出净值
+                                </li>
+                                <li class="last-child">
+                                    <span class="prj-val">7.53%</span>最终涨幅
+                                </li>
+                            </ul>
+                            <div class="prj-btn">
+                                <p class="g-fco"></p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="g-btn g-btn-medium-major g-btn-grey">已退出</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prj">
+                        <div class="prj-title" style="background-image:url(https://s1.lantouzi.com/img/prj/qunxingbanner/qunxing5.jpg);">
+                            <h2>群星5号科技公司员工激励</h2>
+                            <p class="raise-time">募集周期：2015.10.30—2015.11.12</p>
+                            <div class="tag img-wrap">
+                                <img src="https://s1.lantouzi.com/img/apollo/state_closed_v2.png" alt="已退出" />
+                            </div>
+                        </div>
+                        <div class="prj-info">
+                            <div class="prj-rate clearfix">
+                                <div class="prj-val">
+                                    22.44<span class="unit">%</span>								</div>
+                                <div class="prj-field">最终年化收益率</div>
+                            </div>
+                            <ul class="prj-end-list">
+                                <li>
+                                    <span class="prj-val">2016-08-05</span>还款时间
+                                </li>
+                                <li>
+                                    <span class="prj-val">1.1635</span>退出净值
+                                </li>
+                                <li class="last-child">
+                                    <span class="prj-val">16.35%</span>最终涨幅
+                                </li>
+                            </ul>
+                            <div class="prj-btn">
+                                <p class="g-fco"></p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="g-btn g-btn-medium-major g-btn-grey">已退出</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prj">
+                        <div class="prj-title" style="background-image:url(https://s1.lantouzi.com/img/QXJH/QXJH06/bjt.png);">
+                            <h2>群星6号掘金手游行业</h2>
+                            <p class="raise-time">募集周期：2015.11.17—2015.12.01</p>
+                            <div class="tag img-wrap">
+                                <img src="https://s1.lantouzi.com/img/apollo/state_closed_v2.png" alt="已退出" />
+                            </div>
+                        </div>
+                        <div class="prj-info">
+                            <div class="prj-rate clearfix">
+                                <div class="prj-val">
+                                    12.26<span class="unit">%</span>								</div>
+                                <div class="prj-field">最终年化收益率</div>
+                            </div>
+                            <ul class="prj-end-list">
+                                <li>
+                                    <span class="prj-val">2017-07-07</span>还款时间
+                                </li>
+                                <li>
+                                    <span class="prj-val">1.1986</span>退出净值
+                                </li>
+                                <li class="last-child">
+                                    <span class="prj-val">19.86%</span>最终涨幅
+                                </li>
+                            </ul>
+                            <div class="prj-btn">
+                                <p class="g-fco"></p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="g-btn g-btn-medium-major g-btn-grey">已退出</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="star-bg">
+    <div class="l-container">
+        <div class="market">
+            <div class="title"><span class="bracket">[</span>交易市场<span class="bracket">]</span></div>
+            <div class="g-h3">项目筛选</div>
+            <div class="sort-num-wrap">
+                <div class="clearfix sort-num">
+                    <div class="l-right">
+                        <a href="javascript:" class="prev iconfont">&#xe665;</a>
+                        <a href="javascript:" class="next iconfont">&#xe666;</a>
+                    </div>
+                    <div class="l-left">群星项目</div>
+                    <div class="l-left recommend"><a href="javascript:" class="active" data-projectid="0">推荐</a></div>
+                    <div class="over">
+                        <ol class="sort-num-list">
+                            <li><a href="javascript:" data-projectid="1">群星1号</a></li>
+                            <li><a href="javascript:" data-projectid="2">群星2号</a></li>
+                            <li><a href="javascript:" data-projectid="3">群星3号</a></li>
+                            <li><a href="javascript:" data-projectid="7">群星7号</a></li>
+                            <li><a href="javascript:" data-projectid="9">群星9号</a></li>
+                            <li><a href="javascript:" data-projectid="10">群星10号</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <table class="market-table">
+                <thead>
+                <tr>
+                    <th class="w130"><a href="javascript:" data-order="2" class="iconfont active  up" id="orderByID">项目ID</a></th>
+                    <th class="w160">预计年化收益</th>
+                    <th class="w150">项目期限</th>
+                    <th class="w230"><a href="javascript:" data-order="0" class="iconfont  up" id="orderByPrice">单价(当前净值)</a></th>
+                    <th class="w130">数量</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody id="market_list">
+                <tr>
+                    <td>
+                        <a href="#">群星1号</a>
+                    </td>
+                    <td class="g-fco">8%~28%</td>
+                    <td>12~24月</td>
+                    <td><span class="g-fco">1.1918</span>(1.1563)</td>
+                    <td>1,000</td>
+                    <td >
+                        <a class="g-btn g-btn-medium-major check-user" href="#">马上投资</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">群星2号</a>
+                    </td>
+                    <td class="g-fco">8.5%~35%</td>
+                    <td>24~48月</td>
+                    <td><span class="g-fco">1.1980</span>(1.1623)</td>
+                    <td>9,000</td>
+                    <td >
+                        <a class="g-btn g-btn-medium-major check-user" href="#">马上投资</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">群星3号</a>
+                    </td>
+                    <td class="g-fco">8%~28%</td>
+                    <td>12~24月</td>
+                    <td><span class="g-fco">1.2000</span>(1.1497)</td>
+                    <td>10,000</td>
+                    <td >
+                        <a class="g-btn g-btn-medium-major check-user" href="#">马上投资</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">群星7号</a>
+                    </td>
+                    <td class="g-fco">8.5%~28%</td>
+                    <td>24~36月</td>
+                    <td><span class="g-fco">1.1790</span>(1.1425)</td>
+                    <td>2,000</td>
+                    <td >
+                        <a class="g-btn g-btn-medium-major check-user" href="#">马上投资</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">群星9号</a>
+                    </td>
+                    <td class="g-fco">8.5%~33%</td>
+                    <td>24~36月</td>
+                    <td><span class="g-fco">1.1425</span>(1.1344)</td>
+                    <td>16,000</td>
+                    <td >
+                        <a class="g-btn g-btn-medium-major check-user" href="#">马上投资</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">群星10号</a>
+                    </td>
+                    <td class="g-fco">8.5%~39%</td>
+                    <td>36~48月</td>
+                    <td><span class="g-fco">1.0990</span>(1.1297)</td>
+                    <td>2,000</td>
+                    <td >
+                        <a class="g-btn g-btn-medium-major check-user" href="#">马上投资</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div id="pager"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/x-template" id="noLogin">
+    <div class="dialog">
+        <div class="dialog-close action-close">&times;</div>
+        <div class="dialog-body no-login">
+            <p>请先登录懒投资账号</p>
+            <div class="btn-wrap">
+                <a class="g-btn g-btn-medium-major" href="#">登录</a>
+                <a class="g-btn btn-cancel action-close" href="javascript:">返回</a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" id="noAuth">
+    <div class="dialog">
+        <div class="dialog-close action-close">&times;</div>
+        <div class="dialog-body no-login">
+            <p>请先开通存管账户</p>
+            <div class="btn-wrap">
+                <a class="g-btn g-btn-medium-major" href="#">立即开通</a>
+                <a class="g-btn btn-cancel action-close" href="javascript:">返回</a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" id="message">
+    <div class="dialog">
+        <div class="dialog-close action-close">&times;</div>
+        <div class="dialog-body message">
+            <p id="mess"></p>
+            <div class="btn-wrap">
+                <a href="javascript:" class="g-btn g-btn-medium-major action-close">确定</a>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-template" id="marketList">
+    {{ if (it.length == 0) { }}
+    <tr>
+        <td colspan="6">
+            <div class="empty">
+                <div class="empty-img"><span class="iconfont">&#xe646;</span></div>
+                <p>项目太好了</p>
+                <p>大家都舍不得卖啦~看看别的项目吧</p>
+            </div>
+        </td>
+    </tr>
+    {{ } else { }}
+    {{~it :$prj}}
+    <tr>
+        {{ if ($prj.lowest_price) { }}
+        <td class="por">
+            <div class="lowest_price">
+                <img src="https://s1.lantouzi.com/img/apollo/tag_price_min.png" alt="最划算" />
+            </div>
+            <a href="{{=$prj.view_url}}">群星{{=$prj.project_id}}号</a>
+        </td>
+        {{ } else { }}
+        <td><a href="{{=$prj.view_url}}">群星{{=$prj.project_id}}号</a></td>
+        {{ } }}
+        <td class="g-fco">{{=$prj.pre_rate}}</td>
+        <td>{{=$prj.expires_mobile}}月</td>
+        <td><span class="g-fco">{{=$prj.price}}</span>({{=$prj.prj_price}})</td>
+        <td>{{=$prj.format_can_sell_amount}}</td>
+
+        {{ if ($prj.user_id == 0) { }}
+        <a class="g-btn btn-blue" href="{{=$prj.url}}">我的项目</a>
+        {{ } else if ($prj.can_sell_amount == 0) { }}
+        <a class="g-btn g-btn-medium-minor has-chance" href="javascript:">还有机会</a>
+        <div class="hd-tips-container">
+            <div class="hd-tips">
+                <b></b>
+                <i></i>
+                <p class="info">有订单未支付，还有机会<br/>多刷新看看~</p>
+            </div>
+        </div>
+        {{ } else { }}
+        <a class="g-btn g-btn-medium-major check-user" href="{{=$prj.url}}">马上投资</a>
+        {{ } }}
+        </td>
+    </tr>
+    {{~}}
+    {{ } }}
+</script>
+
+<script type="text/x-template" id="closePost">
+    <div class="dialog">
+        <div class="dialog-close action-close">&times;</div>
+        <div class="dialog-body close-post">
+            <p>尊敬的投资人：</p>
+            <p>，已于2017年7月6日启动退出机制。</p>
+            <p>详情请查看公告。</p>
+            <div class="btn-wrap">
+            </div>
+        </div>
+    </div>
+</script>
+
+<script>
+    $(function(){
+        function slide ($prjwrap, $prev, $next, size){
+            //项目查看
+            var $prjs = $prjwrap.children(),
+                w = $prjs.eq(0).outerWidth(true),
+                left = 0,
+                group = [],
+                index = 0,
+                l;
+
+            (function init(){
+                //补全
+                if ($prjs.size()%size !== 0) {
+                    var ele = $prjs.first().get(0).tagName;
+                    for (var j = $prjs.size()%size; j < size; j++) {
+                        $prjwrap.append('<'+ele+' class="placeholder"></'+ele+'>');
+                    };
+                }
+                $prjs = $prjwrap.children();
+                for (var i = 0; i < $prjs.size(); i+=size) {
+                    group.push($prjs.slice(i, i+size));
+                };
+                l = group.length;
+                $prjwrap.width(w*l*size).css('visibility', 'visible');
+
+                if ($prjs.size() <= size) $prev.add($next).hide();
+            })();
+
+            function prev() {
+                if (index == 0) index = l-1;
+                else index -= 1;
+                $prjwrap.prepend(group[index]).css('left', -size*w).animate({left: 0}, 600);
+            }
+
+            function next() {
+                $prjwrap.animate({left: '-='+size*w}, 600, function(){
+                    $prjwrap.append(group[index]).css('left', 0);
+                    if (index == l-1) index = 0;
+                    else index += 1;
+                });
+            }
+
+            $prev.on('click', prev);
+            $next.on('click', next);
+        };
+
+        slide($('.project'), $('.prj-wrap').children('.prev'), $('.prj-wrap').children('.next'), 3);
+        slide($('.sort-num-list'), $('.sort-num').find('.prev'), $('.sort-num').find('.next'), 5);
+    });
+
+    $(function(){
+        //是否登录
+        var IS_LOGIN = false;
+        var IS_AUTH = false;
+        var CLOSE_PRJ = []; //退出中的项目
+        //预约
+        require(['dialog'], function(){
+
+            var $Dialog = $({});
+
+            function showMessage(text) {
+                $Dialog.trigger('message');
+                $('#mess').text(text);
+            }
+
+            var login = new $.ui.Dialog($Dialog, {
+                drag : false,
+                fixed : true,
+                overlay : true,
+                lock : true,
+                elem: $('#noLogin').html(),
+                trigger: 'noLogin'
+            });
+
+            var auth = new $.ui.Dialog($Dialog, {
+                drag : false,
+                fixed : true,
+                overlay : true,
+                lock : true,
+                elem: $('#noAuth').html(),
+                trigger: 'noAuth'
+            });
+
+            var message = new $.ui.Dialog($Dialog, {
+                drag : false,
+                fixed : true,
+                overlay : true,
+                lock : true,
+                elem: $('#message').html(),
+                trigger: 'message'
+            });
+
+            var closePost = new $.ui.Dialog($Dialog, {
+                drag : false,
+                fixed : true,
+                overlay : true,
+                lock : true,
+                elem: $('#closePost').html(),
+                trigger: 'closePost'
+            });
+
+            function closeDialog() {
+                login.close();
+                auth.close();
+                message.close();
+                closePost.close();
+            }
+
+            //进入详情页
+            $('.check-user').on('click', function(e){
+                var $that = $(this);
+                if (!IS_LOGIN) {
+                    $Dialog.trigger('noLogin');
+                    e.preventDefault();
+                } else if (!IS_AUTH) {
+                    $Dialog.trigger('noAuth');
+                    e.preventDefault();
+                }
+            });
+
+            var action = {
+                close: function () {
+                    closeDialog();
+                }
+            };
+
+            //有退出项目时显示、只显示一次
+            (function(){
+                if (CLOSE_PRJ.length > 0) {
+                    var already = '';
+                    var ids_obj = {}, ids = [];
+                    try {
+                        already = localStorage.closeprj || '';
+                        already = already.split(',');
+                        check: for (var i = 0; i < CLOSE_PRJ.length; i++) {
+                            for (var j = 0; j < already.length; j++) {
+                                if (already[j] == CLOSE_PRJ[i]) continue check;
+                            }
+                            $.each(already.concat(CLOSE_PRJ), function(i, v){
+                                if (v) ids_obj[v] = 1;
+                            });
+                            for (var n in ids_obj) {
+                                ids.push(n);
+                            }
+                            localStorage.closeprj = ids.join(',');
+                            $Dialog.trigger('closePost');
+                            break;
+                        }
+                    } catch (e){
+                        $Dialog.trigger('closePost');
+                    }
+                }
+            })();
+
+            //所有弹窗行为
+            $(document).on('click', function (e){
+                var $that = $(e.target);
+                for ( var k in action) {
+                    if ( $that.hasClass('action-'+k) ) {
+                        action[k].call(e.target);
+                    }
+                }
+            });
+        });
+
+        //排序分页
+        require(['pagerView', 'widgets/doT.min'], function(PagerView, doT){
+            //查询条件
+            var query = {
+                order: 2,
+                page: 1,
+                dir: 0,
+                project_id: null		};
+            var order_by_id = 2;
+            var order_by_price = 0;
+            var dir_asc = 0;
+            var dir_desc = 1;
+
+            var template = doT.template($('#marketList').html());
+
+            function execQuery(){
+                $.get('/stars/api/get_market_list', query)
+                    .done(function(data){
+                        if (data.code == 1) {
+                            $('#market_list').html(template(data.data.items));
+                            pager.index = query.page;
+                            pager.itemCount = data.data.total;
+                            pager.render();
+                        }
+                    })
+                    .fail(function(){
+                    });
+            }
+
+            var $sortList = $('.market-table thead a').on('click', function(e){
+                var $that = $(this);
+                var corder = $that.data('order');
+                if (corder == query.order) {
+                    if (query.dir == dir_desc) {
+                        $that.addClass('up');
+                        query.dir = dir_asc;
+                    } else {
+                        $that.removeClass('up');
+                        query.dir = dir_desc;
+                    }
+                } else {
+                    query.dir = dir_asc;
+                    $sortList.removeClass('active').addClass('up');
+                    $that.addClass('up');
+                    query.order = corder;
+                }
+                $that.addClass('active');
+                query.page = 1;
+                execQuery();
+            });
+
+            var $recommend = $('.recommend>a');
+            var $orderByID = $('#orderByID');
+            var $orderByPrice = $('#orderByPrice');
+
+            var $prj_ids = $('.sort-num-list').find('a').add($recommend).on('click', function(e){
+                var $that = $(this);
+                if ($that.hasClass('active')) return;
+                query.project_id = $that.data('projectid');
+                $prj_ids.removeClass('active');
+                $that.addClass('active');
+                if (this == $recommend.get(0)) {
+                    $orderByID.show().addClass('up');
+                } else {
+                    $sortList.removeClass('active');
+                    $orderByPrice.addClass('active');
+                    if (query.order==order_by_id)
+                        query.dir = dir_asc;
+                    $orderByID.hide();
+                    query.order = order_by_price;
+                }
+                query.page = 1;
+                execQuery();
+            });
+
+            //分页控件
+            var total = 6;
+            var pager = new PagerView('pager');
+            pager.index = 1;
+            pager.size = 8;
+            pager.itemCount = total;
+            pager.onclick = function(index){
+                query.page = index;
+                execQuery();
+            }
+            pager.render();
+        });
+    });
+</script><footer class="g-footer">
+    <div class="l-container">
+        <div class="clearfix">
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">关于懒投资</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">公司介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">团队介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link"  rel="nofollow">联系我们</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link"  rel="nofollow">加入我们</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">产品服务</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">产品介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">安全保障</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">媒体报道</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link">友情链接</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">帮助中心</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link">网站公告</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">常见问题</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">网贷教室</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link">保理业务介绍</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section wide">
+                <h3 class="g-footer-title">联系我们</h3>
+                <section>
+                    <p>客服电话：400-807-8000&nbsp;（工作日 9:00-22:00）</p>
+                    <p>客服邮箱：<a href="#" class="g-footer-link" rel="nofollow">kefu@lantouzi.com</a></p>
+                    <p>公司地址：北京市朝阳区三里屯SOHO 办公B座15层</p>
+                    <p>我要合作：<a href="#" class="g-footer-link" rel="nofollow">bd@lantouzi.com</a></p>
+                </section>
+            </div>
+            <div class="g-footer-wx-qrcode">
+                <div class="img-wrap">
+                    <img src="https://s1.lantouzi.com/img/201612/a5e738531668ada69144888e315221ce.png" width="120px" height="120px" title="微信号:lantouzicom"/>
+                </div>
+                <p>投资有风险，选择需谨慎</p>
+            </div>
+        </div>
+        <!-- 	<div class="g-footer-links">
+                <section class="container clearfix" id="g-footer-links"></section>
+                <div class="g-footer-links-icon" title="展开/收起">
+                    <i class="iconfont">&#xe67d;</i>
+                </div>
+                <div class="g-footer-links-more">
+                    <a href="https://lantouzi.com/links">全部</a>
+                </div>
+            </div> -->
+        <div class="g-footer-safeguard clearfix">
+            <a href="#" class="safe-yeepay" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-geotrust" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-360" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-sobug" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-trustutn" target="_blank" rel="nofollow"></a>
+        </div>
+        <div class="g-footer-copyright">
+            <p class="g-footer-copyright-line">
+                京ICP备14023229号 京ICP证150240号
+            </p>
+            <p class="g-footer-copyright-line">
+                <a target="_blank" href="#">
+                    <span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAEoUlEQVQ4jX3UW2xTdQDH8e85PT097dq1Xbt2zYoEGBmbXIaA1wm6mAyUTS4JgpooBoPRKPHCg6IRozH6QsAQIiExEcKDigkJTBSXISCLkBgQWGAbY3O0bGztejltT9vT0+OLLuDQ//vvk//D//8V+J9jmoM1uYGe9hM/nnu5oJXkZa1N+3zzFh4WhNmR/9oId4W0Xx7vO975Svex3nZT61duFBxYvB6m+xW0mKPU3DLzSEPbmq8Epenov7fS1FuZSteuF7q2fdrLc0+aLHRaaBVuYVNUUg81cz7mkDZt/nn1h0N9q03TVARBKNy+F+/E4uHC+W0/7TqYYsOmmbwYTuPe20O81yA+YJBa+SVPG5fYsn89+77XMXt3fmeag8pdwYI51DB8dNvA0pWXlnrqgrzmv8TgwTTiNA+GWoRCGaHaQ/frZ1jnOE/wkYU8sbKjbfzXfdfHr+6snwLKuQ7nkV6XfO7mYlYsVslcSCMOpxA8NmwTBvkzt7DO8KFkNGJfn2VNa5Gua40cOG2E3GLSfgcY/+NE2Dh3YkdZsIOUo1K9SXoUrIYOE3mEWQ7kRR7EkSwyZWKDGrVVBRAEEhkRa7W8w9SSMybByPUf1urRaLPXKUPJhhkK4W+uIYOJ+rAPY0MY50dNOLbMR6x2EFjkJ5srgmkSCjggcuHx+MjJlybBigpvQ1rVmVmdB8XH8bMOpJZK4m3TMaIqwsUsuY5b6INJ5K3NVL25gEP7E0AFTfMksgNj5IevhydBY2KkLZ2QmBtWCd8vs+dABSc/i9C0JITb4SLXk6A8ViB/KYErmuTyx318sd9GsMnDvNoUsWiBUuJK8yQoSlmPmhapHO9jXatBSXeiHx3F983viLVWitUWygEJf0uIUNd1Yvsuky1aWNNuxRXvR01LWFwW6+TDtjvu6RTrh9qNYC0bH1DZUVvNnmgD+o0efPF+RLcdrSeBWhcg6g3xrWiHSg8bHxyj5ArjuVfA7g133PZThICZNrk5oDK3YZBP3lnE+1uXclSdB2md9lycKo/IoQ4XGRyAl7deVVhS18/NfiCfw9QzCyZByaMvLrmC6KM6kbErvNFsY01nBV3HclwV57O88Rohe4zSkVqKCY1pcxy8t3yIW91D5HQFxS8jeeU58HccCpmzz8Z++/ygNlqkENMh8iezVjVhCypgxDHiEpkxDfeMKpjug0iMwcO9aC4/zplO7DUOvLM3LLN6nzo1WZtS5sLz8cs7dht5zR07PYpUYVKzrAFjQkPPZREdCkpVBYJsJd49QMmQcC+ehZ4n7ql/bL0zuLbzjtqosXw0P2rXlGDZHWypw0hlMdQ0OGQssgfZDsVkhmwkgTLdhxIOUkjmyEdVM1+bmhoHq3nq3cB9rhqrN0QhVaZsSJQNC/lxFcwyxXiKTP84gsUKgkB+JIbVLhJ8NOS3OTObp4AVtpZVqubZnYtEsrIlSWWghFXIIQs6lkISU9NwzfFTWVeJKGeQ3DKCt2a4JDV94AxMPPOPM6XYvXvf9qfHR1bk9ciy2kZ/o5E2nYpXrLLa7eTS5rA9UJWT/I0X4gOxzvqLxnFh+/by7fu/ALehBVIymXo1AAAAAElFTkSuQmCC" width="10px" height="10px" style="margin-right: 5px;"></span>京公网安备 11010502030465号
+                </a>
+            </p>
+            <p class="g-footer-copyright-line">北京大家玩科技有限公司&nbsp;&nbsp;版权所有</p>
+            <p class="g-footer-copyright-line">
+                切换至：
+                <a href="?ua=pc" class="g-footer-link" rel="nofollow">PC版</a>
+                <a href="?ua=mobile" class="g-footer-link" rel="nofollow">手机版</a>
+            </p>
+        </div>
+    </div>
+</footer>
+<script>
+    // 360理财渠道
+    var showLicaiBanner = false;
+    var licaiEndTime = new Date('2016/06/01 00:00:00'.replace(/-/g, "/"));
+    $(document).ready(function(e){
+        if (showLicaiBanner && window.CONFIG.SERVER_TIME < licaiEndTime && (typeof localStorage !== undefined) && !localStorage.licai360Showed) {
+            var html = '<div style="position: fixed;width: 100%;height: 100px;left: 0;bottom: 0;background:rgba(255,98,67,0.9);z-index:2000;" class="licai360-footer"><div class="l-container"><a class="close-the-licai" style="display: block;width: 4%;position: absolute;left: 9.5%;top: 0;height: 50%;"></a><a href="#" style="display: block;position: absolute;bottom: 0;right: 0;width: 87%;height: 100%;"></a><img src="https://s1.lantouzi.com/uploader/2016527/08234e17a720e010c5ece8d011eab0f31464349675162.png" style="margin: 0 auto;display: block;"></div></div>';
+            $('body').append(html);
+            $('.close-the-licai').on('click', function(){
+                $('.licai360-footer').hide();
+                localStorage.licai360Showed = true;
+            });
+        }
+    });
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?6dea39ac37df9c6f3e7b096755b73949";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+
+        window.bd_track_event =function(category, action, label, value) {
+            value = value || 0;
+            if (category && action && label) {
+                _hmt.push(['_trackEvent', category, action, label, value]);
+            }
+        };
+        // $(document).on('mousedown', '.tongji', function(e){
+        // 	var $el = $(this);
+        // 	var category = $el.attr('data-category') || $.trim($el.text()),
+        // 		action   = $el.attr('data-action') || 'click',
+        // 		label    = $el.attr('data-label') || '',
+        // 		value    = $el.attr('data-value') || '';
+        // 	_hmt.push(['_trackEvent', category, action, label, value]);
+        // });
+
+    })();
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-60788439-1', 'auto', {'allowLinker': true});
+    ga('require', 'linker');
+    ga('linker:autoLink', ['lanlicai.com']);
+    ga('send', 'pageview');
+</script>
+<script>
+    (function($) {
+        var Track_Obj = {
+            page_name: '',
+            init: function() {
+                Track_Obj.page_name = Track_Obj.getPageName();
+                Track_Obj.bindEvents();
+            },
+            getPageName: function() {
+                var path = window.location.pathname.substring(1);
+                path = path.replace(/^(.*)\/$/g, '$1');
+                while (!!path.match(/^(.*)\/index$/g)) {
+                    path = path.replace(/^(.*)\/index$/g, '$1');
+                }
+                path = path.replace(/\//g, '-');
+                if (!path) {
+                    path = 'index';
+                }
+                return path;
+            },
+            bindEvents: function() {
+                //根据锚点class:track-click绑定mousedown事件，防止click跳转走
+                $(document).on('mousedown', '.track-click', function(e) {
+                    if ($(this).hasClass('g-btn-disabled')) {//禁用按钮不统计点击
+                        return;
+                    }
+                    var data = $(this).data(),
+                        category = data.category,
+                        action = data.action,
+                        label = data.label,
+                        value = data.value || 0,
+                        target = data.target;
+
+                    if (!category || !action || !label) {
+                        return;
+                    }
+                    if (target) {//获取目标对象的val
+                        value = $(target).val() || $(target).text();
+                        //如果设了target但是没有拿到value,记录错误信息
+                        if (!value) {
+                            value = 'NA-' + target;
+                        }
+                    }
+                    Track_Obj.track_event(category, action, label, value);
+                });
+            },
+            track_event: function(category, action, label, value) {
+                if (Track_Obj.page_name) {
+                    label = Track_Obj.page_name + '-' + label;
+                }
+                //统计到bd
+                if (window.bd_track_event) {
+                    window.bd_track_event(category, action, label, value);
+                }
+
+                //TODO 统计到ga
+
+            }
+        };
+
+        Track_Obj.init();
+        window.track_event = Track_Obj.track_event;
+    })(jQuery);
+</script></body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zg.number.mapper.IndexMapper">
+
+<select id="findIndexData" resultType="invest">
+    SELECT DISTINCT
+        investId,
+        planName,
+        revenueMoney,
+        projectTime,
+        wanyuanearnings,
+        surplusMoney
+    FROM
+        t_invest
+    WHERE
+        surplusMoney > 0
+        AND revenueMoney = 7.7
+        AND projectTime = 90
+        OR revenueMoney = 8.3
+           AND projectTime = 180
+        OR revenueMoney = 9.3
+           AND projectTime = 365
+       ORDER BY revenueMoney
+</select>
+
+
+<select id="findOneInvestData" resultType="invest" parameterType="java.lang.Integer">
+        SELECT
+            investId,
+            planName,
+            revenueMoney,
+            projectTime,
+            wanyuanearnings,
+            surplusMoney
+        FROM
+            t_invest
+        WHERE
+            investId = #{investId}
+    </select>
+
+
+</mapper>

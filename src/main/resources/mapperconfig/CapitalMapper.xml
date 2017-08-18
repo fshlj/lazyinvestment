@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zg.number.mapper.CapitalMapper">
+
+<select id="findCapital" parameterType="int" resultType="record">
+    SELECT
+        t_record.recordMoney,
+        t_record.irecordTime,
+        t_record.investType
+    FROM
+        t_record
+    WHERE
+        t_record.uid = #{uid}
+</select>
+
+</mapper>

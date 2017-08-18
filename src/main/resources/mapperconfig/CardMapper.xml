@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zg.number.mapper.CardMapper">
+
+    <!--添加银行卡-->
+    <insert id="addcardxinxi" parameterType="AddCard">
+        INSERT INTO t_addcard(cardName,caerdNum,cardCard,cardPhone,cardPwd,uid) VALUES (#{cardName},#{caerdNum},#{cardCard},#{cardPhone},#{cardPwd},#{uid})
+    </insert>
+
+    <!--根据用户名查询用户-->
+    <select id="selectUserAll" resultType="User" parameterType="String">
+        SELECT * FROM t_user WHERE username=#{userName}
+    </select>
+
+
+    <!--根据用户id查询银行卡信息-->
+    <select id="selectAddCard" resultType="AddCard" parameterType="int">
+        SELECT * FROM t_addcard WHERE uid=#{uid}
+    </select>
+
+    <!--查询银行卡是否已注册-->
+    <select id="checkAddCard" resultType="AddCard" parameterType="AddCard">
+        SELECT * FROM t_addcard WHERE cardName = #{cardName} AND caerdNum = #{caerdNum} AND cardCard = #{cardCard} AND cardPhone = #{cardPhone} AND cardPwd = #{cardPwd} AND uid = #{uid}
+    </select>
+
+</mapper>

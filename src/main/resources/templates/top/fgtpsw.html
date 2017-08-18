@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="zh-CN" >
+<head>
+    <meta charset="utf-8">
+    <title>忘记密码</title>
+    <meta name="keywords" content="懒投资,懒人投资,懒理财,理财">
+    <meta name="description" content="懒投资是国内领先的互联网投行，专注金融产品创新，严格风控，与中国移动、比亚迪、金贵银业等上市公司合作。资金由银行存管、中国互联网金融协会会员，为投资保驾护航。">
+    <meta baidu-gxt-verify-token="8fd06ee5eb68e0def0986730ace33d6e">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script>
+        (function(){
+            window.CONFIG = {"ENCRYPT_TIMEOUT":120000,"SERVER_TIME":1501852644000};
+            window.CONFIG.BASE_URI = 'https://lantouzi.com';
+            window.CONFIG.SSO_URI  = CONFIG.BASE_URI + '/dwjsso';
+            window.CONFIG.LTZ_API = CONFIG.BASE_URI + '/api/uc/';
+            window.ENV = 'online';
+            var isIE = !!window.VBArray;
+            if (isIE && !+[1,] && !document.documentMode) {//less than IE8
+                window.location.href = window.CONFIG.BASE_URI + '/wrong_browser';
+            }
+        })();
+        var _hmt = _hmt || [];
+        (function () { // 防止被iframe
+            try {
+                top.location.hostname;
+                if (top.location.hostname !== window.location.hostname) {
+                    top.location.href = 'https://lantouzi.com';
+                }
+            } catch(e) {
+                top.location.href = 'https://lantouzi.com';
+            }
+        })();
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/base.css?_v=e4ea6a1ba6aef6e8783dfacd7b6d7055">
+    <!--[if IE 8 ]><link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/base_ie8.css?_v=f37b1ac6b88dd8a3f1be486d1336693c"><![endif]-->
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/header.pc.css?_v=34c478f6f2c27c2e298d65416f54fa33">
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/v3/passport/fgtpsw.css?_v=4ae8238b3b79c7e957d3bcd74b64629d">
+    <!--[if lt IE 9]>
+    <script src="/static/js/lib/html5shiv-2.7.3.min.js"></script>
+    <script src="/static/js/lib/selectivizr.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="/static/js/lib/placeholder.js"></script>
+    <![endif]-->
+    <script src="/static/js/lib/require-2.1.18.min.js"></script>
+    <script src="https://lantouzi.com/static/js/config.js?_v=ac0e2d4d0239a90fb8534705ac19027e"></script>
+    <script src="/static/js/lib/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<header class="g-topbar">
+    <div class="l-container clearfix">
+        <div class="l-left">
+            <div class="g-service">
+                <div style="display:inline-block;width:280px;">
+                    <span style="vertical-align:top;">客服电话 400-807-8000</span>
+                    <span class="tel">（工作日 9:00-22:00）</span>
+                </div>
+                <span class="iconfont g-topbar-social weibo" id="weibo_account">&#xe601;</span>
+                <span class="iconfont g-topbar-social weixin" id="weixin_account">&#xe619;</span>
+            </div>
+            <div class="g-topbar-social-account weibo" id="weibo_account_info">
+                欢迎关注懒投资官方微博</br>
+                <a href="#" target="_blank" title="懒投资官方微博" rel="nofollow">@懒投资</a>
+            </div>
+            <div class="g-topbar-social-account weixin" id="weixin_account_info">
+                扫一扫关注懒投资微信
+                <img src="https://s1.lantouzi.com/img/201612/a5e738531668ada69144888e315221ce.png" width="150px" height="150px" title="微信号:lantouzicom" />
+                <p>微信号：lantouzicom</p>
+            </div>
+        </div>
+        <div class="l-right">
+            <p class="g-topbar-nav">
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">登录</a>
+                <a href="/hwj/toregister" class="g-topbar-nav-link tongji" data-category="注册" data-label="header" rel="nofollow">注册</a>
+                <a href="#" class="g-topbar-nav-link">VIP会员</a>
+                <a href="#" class="g-topbar-nav-link">安全保障</a>
+                <a href="#" class="g-topbar-nav-link">信息披露</a>
+                <a href="#" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+    </div>
+</header>
+<header class="header-clean">
+    <div class="l-container clearfix">
+        <a href="/index" class="g-header-logo" title="懒投资">
+            <img src="https://s1.lantouzi.com/img/201612/53ef617a4124fb2da54ab79c27945889.png" alt="懒投资" />
+            <h1 class="l-hide">懒投资</h1>
+        </a>
+        <span class="sub-title">忘记密码</span>
+    </div>
+</header>
+<div class="l-container">
+    <div class="content-box">
+        <div class="main">
+            <form class="form" method="post" onsubmit="return false;">
+                <div class="step1">
+                    <div class="line">
+                        <span class="tit">手机号</span>
+                        <input id="mobile" type="text" tabindex="1" maxlength="11" class="g-input-money">
+                    </div>
+                    <div class="line">
+                        <span class="tit">验证码</span>
+                        <input type="text" id="img-verify-code" maxlength="4" class="code g-input-money" tabindex="2">
+                        <span class="img-verify-vcode-area"></span>
+                    </div>
+                    <div class="verify-feedback verify-feedback-step1">
+                        <span class="iconfont">&#xe60c;</span><em></em>
+                    </div>
+                    <button class="g-btn g-btn-large-major btn-next" tabindex="5">发送手机验证码</button>
+                </div>
+                <div class="step2" style="display:none;">
+                    <div class="line">
+                        <span class="tit">验证短信</span>
+                        <input type="text" id="mobile-verify-code" maxlength="6" class="mobile-code g-input-money">
+                        <a class="g-btn g-btn-medium-major btn-resend-code g-btn-disabled">
+                            <span class="a"><span class="countdown">60</span>秒之后重发</span>
+                            <span class="b">发送验证码</span>
+                        </a>
+                        <div class="verify-feedback verify-feedback-mobile-code">
+                            <span class="iconfont">&#xe60c;</span><em>短信验证码格式错误</em>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <span class="tit">输入新密码</span>
+                        <input id="password" type="password" class="g-input-money">
+                    </div>
+                    <div class="line">
+                        <span class="tit">确认密码</span>
+                        <input id="password2" type="password" class="g-input-money">
+                    </div>
+                    <div class="verify-feedback verify-feedback-step2">
+                        <span class="iconfont">&#xe60c;</span><em></em>
+                    </div>
+                    <button class="g-btn g-btn-large-major btn-go">递交修改</button>
+                    <a href="https://lantouzi.com/login" class="g-btn g-btn-large-major btn-login" style="display:none;">马上登录</a>
+                </div>
+            </form>
+            <div class="fgtpsw-explain">
+                找回密码过程中如有问题，请致电小懒客服：400-807-8000 （工作日 9:00-22:00）
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    require(['countdown', 'captcha', 'ltz_passport'], function(Countdown, Captcha, Passport) {
+        var $mobile = $('#mobile'),
+            $img_verify_code = $('#img-verify-code'),
+            $tip_1 = $('.verify-feedback-step1'),
+            $btn_next = $('.btn-next'),
+            $code = $('#mobile-verify-code'),
+            $btn_resend_code = $('.btn-resend-code'),
+            $countdown = $('.countdown'),
+            $password = $('#password'),
+            $password2 = $('#password2'),
+            $tip_2 = $('.verify-feedback-step2'),
+            $tip_mobile_code = $('.verify-feedback-mobile-code'),
+            $btn_go = $('.btn-go'),
+            $btn_login = $('.btn-login'),
+            captcha = new Captcha($('.img-verify-vcode-area').eq(0),{ucenter: true});
+
+        $mobile.on('blur', ckMobile);
+        $img_verify_code.on('blur', ckImgCode);
+        $code.on('blur', ckCode);
+        $password.on('blur', ckPsw);
+        $password2.on('blur', ckPsw2);
+
+        var countdown = new Countdown();
+        $(countdown).on('countdownProcess', function(e, d){
+            $countdown.text(Countdown.format(d).s);
+        }).on('countdownFinished', function(){
+            $btn_resend_code.removeClass('g-btn-disabled').find('.a').hide().end().find('.b').show();
+        });
+
+        $btn_next.on('click', function(e) {
+            e.preventDefault();
+            if(!ckMobile() || !ckImgCode() ){
+                return false;
+            }
+            Passport.resetPswSendCode($.trim($mobile.val()),$.trim($img_verify_code.val()))
+                .then(function(d){
+                    $('.step1').hide();
+                    $('.step2').show();
+                    $btn_go.show();
+                    $btn_login.hide();
+                    $btn_resend_code.addClass('g-btn-disabled').find('.a').show().end().find('.b').hide();
+                    countdown.start(60000, true);
+                })
+                .fail(function(err){
+                    if(err.code !== Passport.ERROR.CAPTCHA_ERROR){
+                        captcha && captcha.refresh();
+                        $img_verify_code.val('');
+                    }
+                    showTip($tip_1, err.msg || '发生错误，请重试！');
+                    setTimeout(function() {
+                        clearTip();
+                    }, 3000);
+                });
+        });
+
+        $btn_resend_code.on('click', function(e){
+            e.preventDefault();
+            if($(this).hasClass('g-btn-disabled')){
+                return;
+            }
+            $('.step1').show();
+            $('.step2').hide();
+            captcha.refresh();
+            clearTip();
+        });
+
+        $btn_go.on('click', function(e) {
+            if( !ckMobile() ||!ckCode() || !ckPsw() || !ckPsw2() ){
+                return false;
+            }
+            Passport.resetPsw($.trim($mobile.val()), $.trim($password.val()), $.trim($code.val()))
+                .then(function(d){
+                    showTip($tip_2, '密码修改成功，3秒之后将跳到登录页面，请使用新密码登录！', true);
+                    $btn_go.hide();
+                    $btn_login.show();
+                    setTimeout(function(){
+                        window.location.href = window.CONFIG.BASE_URI + '/login';
+                    }, 3000);
+                })
+                .fail(function(err){
+                    showTip($tip_2, err.msg || '发生错误，请重试');
+                });
+        });
+
+        function showTip(el, msg, flag){
+            el.show().find('em').text(msg);
+            if (flag) {
+                el.find('.iconfont').html('&#xe617;');
+            }
+        }
+        function clearTip(){
+            $tip_1.hide().find('em').text('');
+            $tip_2.hide().find('em').text('');
+            $tip_mobile_code.hide().find('em').text('');
+        }
+        function ckMobile(){
+            if(/^1\d{10}$/.test($mobile.val())){
+                clearTip();
+                return true;
+            } else {
+                showTip($tip_1, '手机号错误');
+                return false;
+            }
+        }
+        function ckImgCode(){
+            if($img_verify_code.val().length === 4){
+                clearTip();
+                return true;
+            } else {
+                showTip($tip_1, '验证码格式错误');
+                return false;
+            }
+        }
+        function ckCode(){
+            if(/^\d{6}$/.test($code.val())){
+                clearTip();
+                return true;
+            } else {
+                showTip($tip_mobile_code, '短信验证码格式错误');
+                return false;
+            }
+        }
+        function ckPsw(){
+            if($.trim($password.val()).length >= 8){
+                clearTip();
+                return true;
+            } else {
+                showTip($tip_2, '请输入不少于8位字符密码');
+                return false;
+            }
+        }
+        function ckPsw2(){
+            if($.trim($password.val()) === $.trim($password2.val())){
+                clearTip();
+                return true;
+            } else {
+                showTip($tip_2, '两次密码输入不一致');
+                return false;
+            }
+        }
+
+    });
+</script><footer class="g-footer">
+    <div class="l-container">
+        <div class="clearfix">
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">关于懒投资</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">公司介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">团队介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">联系我们</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">加入我们</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">产品服务</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">产品介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">安全保障</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">媒体报道</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link">友情链接</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">帮助中心</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link">网站公告</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">常见问题</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">网贷教室</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link">保理业务介绍</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section wide">
+                <h3 class="g-footer-title">联系我们</h3>
+                <section>
+                    <p>客服电话：400-807-8000&nbsp;（工作日 9:00-22:00）</p>
+                    <p>客服邮箱：<a href="mailto:kefu@lantouzi.com" class="g-footer-link"
+                               rel="nofollow">kefu@lantouzi.com</a></p>
+                    <p>公司地址：北京市朝阳区三里屯SOHO 办公B座15层</p>
+                    <p>我要合作：<a href="mailto:bd@lantouzi.com" class="g-footer-link" rel="nofollow">bd@lantouzi.com</a>
+                    </p>
+                </section>
+            </div>
+            <div class="g-footer-wx-qrcode">
+                <div class="img-wrap">
+                    <img src="https://s1.lantouzi.com/img/201612/a5e738531668ada69144888e315221ce.png" width="120px"
+                         height="120px" title="微信号:lantouzicom"/>
+                </div>
+                <p>投资有风险，选择需谨慎</p>
+            </div>
+        </div>
+        <!-- 	<div class="g-footer-links">
+                <section class="container clearfix" id="g-footer-links"></section>
+                <div class="g-footer-links-icon" title="展开/收起">
+                    <i class="iconfont">&#xe67d;</i>
+                </div>
+                <div class="g-footer-links-more">
+                    <a href="https://lantouzi.com/links">全部</a>
+                </div>
+            </div> -->
+        <div class="g-footer-safeguard clearfix">
+            <a href="#" class="safe-yeepay" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-geotrust" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-360" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-sobug" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-trustutn" target="_blank"
+               rel="nofollow"></a>
+        </div>
+        <div class="g-footer-copyright">
+            <p class="g-footer-copyright-line">
+                京ICP备14023229号 京ICP证150240号
+            </p>
+            <p class="g-footer-copyright-line">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502030465">
+                    <span><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAEoUlEQVQ4jX3UW2xTdQDH8e85PT097dq1Xbt2zYoEGBmbXIaA1wm6mAyUTS4JgpooBoPRKPHCg6IRozH6QsAQIiExEcKDigkJTBSXISCLkBgQWGAbY3O0bGztejltT9vT0+OLLuDQ//vvk//D//8V+J9jmoM1uYGe9hM/nnu5oJXkZa1N+3zzFh4WhNmR/9oId4W0Xx7vO975Svex3nZT61duFBxYvB6m+xW0mKPU3DLzSEPbmq8Epenov7fS1FuZSteuF7q2fdrLc0+aLHRaaBVuYVNUUg81cz7mkDZt/nn1h0N9q03TVARBKNy+F+/E4uHC+W0/7TqYYsOmmbwYTuPe20O81yA+YJBa+SVPG5fYsn89+77XMXt3fmeag8pdwYI51DB8dNvA0pWXlnrqgrzmv8TgwTTiNA+GWoRCGaHaQ/frZ1jnOE/wkYU8sbKjbfzXfdfHr+6snwLKuQ7nkV6XfO7mYlYsVslcSCMOpxA8NmwTBvkzt7DO8KFkNGJfn2VNa5Gua40cOG2E3GLSfgcY/+NE2Dh3YkdZsIOUo1K9SXoUrIYOE3mEWQ7kRR7EkSwyZWKDGrVVBRAEEhkRa7W8w9SSMybByPUf1urRaLPXKUPJhhkK4W+uIYOJ+rAPY0MY50dNOLbMR6x2EFjkJ5srgmkSCjggcuHx+MjJlybBigpvQ1rVmVmdB8XH8bMOpJZK4m3TMaIqwsUsuY5b6INJ5K3NVL25gEP7E0AFTfMksgNj5IevhydBY2KkLZ2QmBtWCd8vs+dABSc/i9C0JITb4SLXk6A8ViB/KYErmuTyx318sd9GsMnDvNoUsWiBUuJK8yQoSlmPmhapHO9jXatBSXeiHx3F983viLVWitUWygEJf0uIUNd1Yvsuky1aWNNuxRXvR01LWFwW6+TDtjvu6RTrh9qNYC0bH1DZUVvNnmgD+o0efPF+RLcdrSeBWhcg6g3xrWiHSg8bHxyj5ArjuVfA7g133PZThICZNrk5oDK3YZBP3lnE+1uXclSdB2md9lycKo/IoQ4XGRyAl7deVVhS18/NfiCfw9QzCyZByaMvLrmC6KM6kbErvNFsY01nBV3HclwV57O88Rohe4zSkVqKCY1pcxy8t3yIW91D5HQFxS8jeeU58HccCpmzz8Z++/ygNlqkENMh8iezVjVhCypgxDHiEpkxDfeMKpjug0iMwcO9aC4/zplO7DUOvLM3LLN6nzo1WZtS5sLz8cs7dht5zR07PYpUYVKzrAFjQkPPZREdCkpVBYJsJd49QMmQcC+ehZ4n7ql/bL0zuLbzjtqosXw0P2rXlGDZHWypw0hlMdQ0OGQssgfZDsVkhmwkgTLdhxIOUkjmyEdVM1+bmhoHq3nq3cB9rhqrN0QhVaZsSJQNC/lxFcwyxXiKTP84gsUKgkB+JIbVLhJ8NOS3OTObp4AVtpZVqubZnYtEsrIlSWWghFXIIQs6lkISU9NwzfFTWVeJKGeQ3DKCt2a4JDV94AxMPPOPM6XYvXvf9qfHR1bk9ciy2kZ/o5E2nYpXrLLa7eTS5rA9UJWT/I0X4gOxzvqLxnFh+/by7fu/ALehBVIymXo1AAAAAElFTkSuQmCC"
+                            width="10px" height="10px" style="margin-right: 5px;"></span>京公网安备 11010502030465号
+                </a>
+            </p>
+            <p class="g-footer-copyright-line">北京大家玩科技有限公司&nbsp;&nbsp;版权所有</p>
+            <p class="g-footer-copyright-line">
+                切换至：
+                <a href="#" class="g-footer-link" rel="nofollow">PC版</a>
+                <a href="#" class="g-footer-link" rel="nofollow">手机版</a>
+            </p>
+        </div>
+    </div>
+</footer>
+<script>
+    // 360理财渠道
+    var showLicaiBanner = false;
+    var licaiEndTime = new Date('2016/06/01 00:00:00'.replace(/-/g, "/"));
+    $(document).ready(function(e){
+        if (showLicaiBanner && window.CONFIG.SERVER_TIME < licaiEndTime && (typeof localStorage !== undefined) && !localStorage.licai360Showed) {
+            var html = '<div style="position: fixed;width: 100%;height: 100px;left: 0;bottom: 0;background:rgba(255,98,67,0.9);z-index:2000;" class="licai360-footer"><div class="l-container"><a class="close-the-licai" style="display: block;width: 4%;position: absolute;left: 9.5%;top: 0;height: 50%;"></a><a href="/zt/licaijie360xinshou" style="display: block;position: absolute;bottom: 0;right: 0;width: 87%;height: 100%;"></a><img src="https://s1.lantouzi.com/uploader/2016527/08234e17a720e010c5ece8d011eab0f31464349675162.png" style="margin: 0 auto;display: block;"></div></div>';
+            $('body').append(html);
+            $('.close-the-licai').on('click', function(){
+                $('.licai360-footer').hide();
+                localStorage.licai360Showed = true;
+            });
+        }
+    });
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?6dea39ac37df9c6f3e7b096755b73949";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+
+        window.bd_track_event =function(category, action, label, value) {
+            value = value || 0;
+            if (category && action && label) {
+                _hmt.push(['_trackEvent', category, action, label, value]);
+            }
+        };
+        // $(document).on('mousedown', '.tongji', function(e){
+        // 	var $el = $(this);
+        // 	var category = $el.attr('data-category') || $.trim($el.text()),
+        // 		action   = $el.attr('data-action') || 'click',
+        // 		label    = $el.attr('data-label') || '',
+        // 		value    = $el.attr('data-value') || '';
+        // 	_hmt.push(['_trackEvent', category, action, label, value]);
+        // });
+
+    })();
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-60788439-1', 'auto', {'allowLinker': true});
+    ga('require', 'linker');
+    ga('linker:autoLink', ['lanlicai.com']);
+    ga('send', 'pageview');
+</script>
+<script>
+    (function($) {
+        var Track_Obj = {
+            page_name: '',
+            init: function() {
+                Track_Obj.page_name = Track_Obj.getPageName();
+                Track_Obj.bindEvents();
+            },
+            getPageName: function() {
+                var path = window.location.pathname.substring(1);
+                path = path.replace(/^(.*)\/$/g, '$1');
+                while (!!path.match(/^(.*)\/index$/g)) {
+                    path = path.replace(/^(.*)\/index$/g, '$1');
+                }
+                path = path.replace(/\//g, '-');
+                if (!path) {
+                    path = 'index';
+                }
+                return path;
+            },
+            bindEvents: function() {
+                //根据锚点class:track-click绑定mousedown事件，防止click跳转走
+                $(document).on('mousedown', '.track-click', function(e) {
+                    if ($(this).hasClass('g-btn-disabled')) {//禁用按钮不统计点击
+                        return;
+                    }
+                    var data = $(this).data(),
+                        category = data.category,
+                        action = data.action,
+                        label = data.label,
+                        value = data.value || 0,
+                        target = data.target;
+
+                    if (!category || !action || !label) {
+                        return;
+                    }
+                    if (target) {//获取目标对象的val
+                        value = $(target).val() || $(target).text();
+                        //如果设了target但是没有拿到value,记录错误信息
+                        if (!value) {
+                            value = 'NA-' + target;
+                        }
+                    }
+                    Track_Obj.track_event(category, action, label, value);
+                });
+            },
+            track_event: function(category, action, label, value) {
+                if (Track_Obj.page_name) {
+                    label = Track_Obj.page_name + '-' + label;
+                }
+                //统计到bd
+                if (window.bd_track_event) {
+                    window.bd_track_event(category, action, label, value);
+                }
+
+                //TODO 统计到ga
+
+            }
+        };
+
+        Track_Obj.init();
+        window.track_event = Track_Obj.track_event;
+    })(jQuery);
+</script></body>
+</html>

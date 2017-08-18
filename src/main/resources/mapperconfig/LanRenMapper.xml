@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zg.number.mapper.LanRenMapper">
+
+    <select id="selectLanRen" resultType="com.zg.number.bean.Invest">
+        SELECT investId,planName,surplusMoney,surplusMoney,projectTime,revenueMoney FROM t_invest
+    </select>
+
+    <!-- 定义数据库字段与实体对象的映射关系  -->
+    <resultMap type="com.zg.number.bean.User" id="userAndRecord">
+        <id column="userId" property="userId" />
+        <result column="username" property="userName" />
+        <!-- 一对一的关系 -->
+        <association property="record" javaType="com.zg.number.bean.Record">
+            <id column="recordId" property="recordId" />
+            <result column="recordMoney" property="recordMoney" />
+        </association>
+    </resultMap>
+    <select id="selectUserAndRecord"  resultMap="userAndRecord">
+        SELECT u.username,r.recordMoney FROM (SELECT t_record.uid,SUM(t_record.recordMoney) recordMoney FROM t_user,t_record WHERE t_user.userId = t_record.uid GROUP BY t_record.uid) r,t_user u WHERE r.uid = u.userId ORDER BY r.recordMoney DESC
+    </select>
+
+    <insert id="insertRecord" parameterType="com.zg.number.bean.Record">
+     INSERT INTO t_record (recordMoney,uid,irecordTime,investType,recordStatus) VALUES (#{recordMoney},#{uid},#{irecordTime},'手动投资','成功')
+    </insert>
+
+    <select id="selectRecordSurplusMoney" resultType="com.zg.number.bean.Invest" parameterType="int">
+        SELECT surplusMoney FROM t_invest WHERE investId = #{uid}
+    </select>
+
+    <update id="updateRecordSurplusMoney" parameterType="com.zg.number.bean.Invest">
+        UPDATE t_invest SET surplusMoney = surplusMoney - #{surplusMoney} WHERE investId = #{investId}
+    </update>
+
+    <select id="selectCaptail" resultType="com.zg.number.bean.Captail" parameterType="int">
+        SELECT captailMoney FROM t_captail WHERE userId = #{id}
+    </select>
+
+    <update id="updateCaptail" parameterType="com.zg.number.bean.Captail">
+        UPDATE t_captail SET captailMoney = captailMoney - #{captailMoney} WHERE userId = #{userId}
+    </update>
+
+</mapper>

@@ -1,0 +1,3217 @@
+<!doctype html>
+<html lang="zh-CN" >
+<head>
+    <meta charset="utf-8">
+    <title>懒投资享乐计划_投资理财享受生活的乐趣-懒投资</title>
+    <meta name="keywords" content="享乐计划,懒投资">
+    <meta name="description" content="懒投资享乐计划,是专为懒人投资理财享受生活的乐趣而精心准备的,懒人投资理财就上懒投资网.">
+    <meta baidu-gxt-verify-token="8fd06ee5eb68e0def0986730ace33d6e">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script>
+        (function(){
+            window.CONFIG = {"ENCRYPT_TIMEOUT":120000,"SERVER_TIME":1501854682000};
+            window.CONFIG.BASE_URI = 'https://lantouzi.com';
+            window.CONFIG.SSO_URI  = CONFIG.BASE_URI + '/dwjsso';
+            window.CONFIG.LTZ_API = CONFIG.BASE_URI + '/api/uc/';
+            window.ENV = 'online';
+            var isIE = !!window.VBArray;
+            if (isIE && !+[1,] && !document.documentMode) {//less than IE8
+                window.location.href = window.CONFIG.BASE_URI + '/wrong_browser';
+            }
+        })();
+        var _hmt = _hmt || [];
+        (function () { // 防止被iframe
+            try {
+                top.location.hostname;
+                if (top.location.hostname !== window.location.hostname) {
+                    top.location.href = 'https://lantouzi.com';
+                }
+            } catch(e) {
+                top.location.href = 'https://lantouzi.com';
+            }
+        })();
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/base.css?_v=e4ea6a1ba6aef6e8783dfacd7b6d7055">
+    <!--[if IE 8 ]><link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/base_ie8.css?_v=f37b1ac6b88dd8a3f1be486d1336693c"><![endif]-->
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/header.pc.css?_v=34c478f6f2c27c2e298d65416f54fa33">
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/v3/enjoy/index.css?_v=3365792edde2132e969675ec17bf50f6">
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/v3/enjoy/free.css?_v=e90263e1595cb2e735a61ac055189ea0">
+    <!--[if lt IE 9]>
+    <script src="/static/js/lib/html5shiv-2.7.3.min.js"></script>
+    <script src="/static/js/lib/selectivizr.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="/static/js/lib/placeholder.js"></script>
+    <![endif]-->
+    <script src="/static/js/lib/require-2.1.18.min.js"></script>
+    <script src="https://lantouzi.com/static/js/config.js?_v=ac0e2d4d0239a90fb8534705ac19027e"></script>
+    <script src="/static/js/lib/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<header class="g-topbar">
+    <div class="l-container clearfix">
+        <div class="l-left">
+            <div class="g-service">
+                <div style="display:inline-block;width:280px;">
+                    <span style="vertical-align:top;">客服电话 400-807-8000</span>
+                    <span class="tel">（工作日 9:00-22:00）</span>
+                </div>
+                <span class="iconfont g-topbar-social weibo" id="weibo_account">&#xe601;</span>
+                <span class="iconfont g-topbar-social weixin" id="weixin_account">&#xe619;</span>
+            </div>
+            <div class="g-topbar-social-account weibo" id="weibo_account_info">
+                欢迎关注懒投资官方微博</br>
+                <a href="http://weibo.com/lantouzicom" target="_blank" title="懒投资官方微博" rel="nofollow">@懒投资</a>
+            </div>
+            <div class="g-topbar-social-account weixin" id="weixin_account_info">
+                扫一扫关注懒投资微信
+                <img src="https://s1.lantouzi.com/img/201612/a5e738531668ada69144888e315221ce.png" width="150px" height="150px" title="微信号:lantouzicom" />
+                <p>微信号：lantouzicom</p>
+            </div>
+        </div>
+        <!--  未登录 -->
+        <div class="l-right" id="meilogin" th:if="${session.loginUser}==null"}>
+            <p class="g-topbar-nav">
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">登录</a>
+                <a href="/hwj/toregister" class="g-topbar-nav-link tongji" data-category="注册" data-label="header"
+                   rel="nofollow">注册</a>
+                <a href="#" class="g-topbar-nav-link">VIP会员</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="#" class="g-topbar-nav-link">安全保障</a>
+                <a href="#" class="g-topbar-nav-link">信息披露</a>
+                <a href="#" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+
+        <!-- 已登录 -->
+        <div class="l-right" th:if="${session.loginUser}!=null">
+            <p class="g-topbar-nav">
+                <a href="#" class="g-topbar-nav-link" rel="nofollow">欢迎，<span th:text="${session.loginUser.userName}"
+                ></span></a>
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">[退出]</a>
+                <a href="#" class="g-topbar-nav-link">VIP会员</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="#" class="g-topbar-nav-link">安全保障</a>
+                <a href="#" class="g-topbar-nav-link">信息披露</a>
+                <a href="#" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+    </div>
+</header>
+<header class="g-header">
+    <div class="l-container clearfix">
+        <a href="#" class="g-header-logo" title="懒投资">
+            <img src="https://s1.lantouzi.com/img/201612/53ef617a4124fb2da54ab79c27945889.png" alt="懒投资" />
+            <h1 class="l-hide">懒投资</h1>
+        </a>
+        <nav class="g-header-nav">
+            <a class="g-header-nav-link " href="../index.html" th:if="${session.loginUser}==null" }>首页</a>
+            <a class="g-header-nav-link " href="/toLoginSuccess" th:if="${session.loginUser}!=null" }>首页</a>
+            <a class="g-header-nav-link " href="/fs/lanRen">懒人计划</a>
+            <a class="g-header-nav-link " href="/lingqinan">零钱计划</a>
+            <a th:href="@{/wrx/selectInvest}" class="g-header-nav-link ">
+                变现计划
+            </a>
+            <a class="g-header-nav-link on" href="/xiangle">享乐计划
+                <!-- <i class="beta" style="width:24px;">新</i> --></a>
+            <a class="g-header-nav-link " href="/qunxing">群星计划</a>
+            <a class="g-header-nav-link " href="/hwj/myCard" rel="nofollow">我的账户</a>
+        </nav>
+    </div>
+</header>
+<script>
+    require(['widgets/header_nav']);
+</script>
+
+<script>
+    require(['widgets/topbar_social_contact']);
+</script>
+<style>
+    .v3-enjoy-slider{
+        height: 380px;
+    }
+    .s_slider {
+        position: relative;
+        margin: 0 auto;
+    }
+    .s_box {
+        height: 380px;
+        font-size: 12px;
+        position: relative;
+        overflow: hidden;
+        left: 50%;
+        margin-left: -840px;
+    }
+    .box {display: inline-block;}
+    .s_tag {
+        position: absolute;
+        bottom: 30px;
+        left: 45%;
+        z-index: 20;
+        min-width: 980px;
+    }
+    .s_tag .tag {
+        margin-left: 20px;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        background: #eee;
+        float: left;
+        overflow: hidden;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000);
+        cursor: pointer;
+    }
+    .s_tag .ymui_ss_tag_on {
+        height: 15px;
+        width: 32px;
+        border-radius: 10px;
+        background: #f24444;
+    }
+    .inner-tag {
+        border-left: none;
+    }
+    .s_tag .tag.outer-tag {
+        border-left: 1px solid rgba(255,255,255,.4);
+    }
+    .preview, .next {
+        display: none;
+        position: absolute;
+        top: 0;
+        width: 150px;
+        height: 100%;
+        z-index: 20;
+        cursor: pointer;
+    }
+    .preview .iconfont, .next .iconfont {
+        line-height: 355px;
+        font-size: 40px;
+        color: #fff;
+    }
+    .preview{
+        left: 50%;
+        margin-left: -650px;
+        text-align: right;
+    }
+    .next{
+        right: 50%;
+        margin-right: -650px;
+        text-align: left;
+    }
+</style>
+<div class="v3-enjoy-slider">
+    <div class="s_slider">
+        <div class="content"></div>
+        <div class="s_box">
+            <a class="box" href="https://lantouzi.com/enjoy/view?id=ltz5d4ca1fe379a0ddb&pcode=um67&from=singlemessage&isappinstalled=1">
+                <img src="https://s1.lantouzi.com/img/xianglejihua/yueliangheliubianshi/pc-banner.jpg" alt="" width="100%"/>
+            </a>
+            <a class="box" href="https://lantouzi.com/enjoy/view?id=ltz9019a8bc86c6f1b0">
+                <img _src="https://s1.lantouzi.com/img/xianglejihua/jiugantangmaiwu/pc-banner.jpg" alt="" width="100%"/>
+            </a>
+            <a class="box" href="https://lantouzi.com/enjoy/view?id=ltz5537f8d218e4c8a1&pcode=um67&from=singlemessage&isappinstalled=1">
+                <img _src="https://s1.lantouzi.com/img/xianglev4/shouyeguanggaotu/jianguo-pro-pc.jpg" alt="" width="100%"/>
+            </a>
+            <a class="box" href="https://lantouzi.com/enjoy/view?id=ltzfc90dd33614463ce&pcode=igxo&from=singlemessage&isappinstalled=1">
+                <img _src="https://s1.lantouzi.com/img/xianglev4/shouyeguanggaotu/7phongbannerpc.jpg" alt="" width="100%"/>
+            </a>
+            <a class="box" href="https://lantouzi.com/enjoy/view?id=ltza0b0f5a7b3b8bbc4">
+                <img _src="https://s1.lantouzi.com/img/xianglejihua/bob-shigeji/pa-banner.jpg" alt="" width="100%"/>
+            </a>
+            <a class="box" href="https://lantouzi.com/enjoy/view?id=ltz70d111b507accd4b">
+                <img _src="https://s1.lantouzi.com/img/xianglev4/shouyeguanggaotu/moleskinpc.jpg" alt="" width="100%"/>
+            </a>
+            <a class="box" href="https://lantouzi.com/enjoy/view?id=ltz253c33074ada82aa">
+                <img _src="https://s1.lantouzi.com/img/xianglev4/shouyeguanggaotu/ipadpro_banner_pc.jpg" alt="" width="100%"/>
+            </a>
+        </div>
+        <div class="s_tag">
+
+            <div class="tag inner-tag"></div>
+
+            <div class="tag inner-tag"></div>
+
+            <div class="tag inner-tag"></div>
+
+            <div class="tag inner-tag"></div>
+
+            <div class="tag inner-tag"></div>
+
+            <div class="tag inner-tag"></div>
+
+            <div class="tag inner-tag"></div>
+        </div>
+    </div>
+</div>
+<script>
+    require(['widgets/slideshow'], function (slideshow) {
+        var winWidth=$(window).width();
+        var home_show = slideshow({
+            tagWrapper : '.s_tag',
+            tagSign : '.tag',
+            boxWrapper : '.s_slider',
+            boxSign : '.box',
+            animate : 3,
+            autoPlay: 4,
+            lazyLoad: 'img',
+            event : 'mouseover'
+        });
+        if(winWidth > 1020){
+            setTimeout(function() {
+                $(".preview,.next").show();
+            }, 100);
+        }
+        $('.preview').click(function () {
+            home_show.preview({
+                animate : 3
+            });
+        });
+        $('.next').click(function () {
+            home_show.next({
+                animate : 3
+            });
+        })
+    });
+</script><section class="main l-container enjoy-main">
+    <div class="zhanwei"></div>
+    <div class="v3-enjoy-nav">
+        <ul class="clearfix">
+            <a class="nav-link active" id="goods_nav_0" data-index="0">
+                推荐			</a>
+            <a class="nav-link " id="goods_nav_1" data-index="1">
+                开学季			</a>
+            <a class="nav-link " id="goods_nav_2" data-index="2">
+                票务			</a>
+            <a class="nav-link " id="goods_nav_3" data-index="3">
+                夏日			</a>
+            <a class="nav-link " id="goods_nav_4" data-index="4">
+                护肤			</a>
+            <a class="nav-link " id="goods_nav_5" data-index="5">
+                育儿			</a>
+            <a class="nav-link " id="goods_nav_6" data-index="6">
+                童书			</a>
+            <a class="nav-link " id="goods_nav_7" data-index="7">
+                杂货			</a>
+            <a class="nav-link " id="goods_nav_8" data-index="8">
+                科技			</a>
+            <a class="nav-link " id="goods_nav_9" data-index="9">
+                生活			</a>
+            <a class="nav-link " id="goods_nav_10" data-index="10">
+                礼物			</a>
+            <a class="nav-link " id="goods_nav_11" data-index="11">
+                男士			</a>
+            <a class="nav-link " id="goods_nav_12" data-index="12">
+                读书			</a>
+            <a class="nav-link " id="goods_nav_13" data-index="13">
+                APPLE			</a>
+            <a class="nav-link " id="goods_nav_14" data-index="14">
+                童心			</a>
+            <a class="nav-link " id="goods_nav_15" data-index="15">
+                抗霾			</a>
+            <a class="nav-link " id="goods_nav_16" data-index="16">
+                定制			</a>
+            <a id="backTop"><i class="iconfont">&#xe660;</i>回顶部</a>
+        </ul>
+    </div>
+    <div class="goods-section v3-enjoy-fashion">
+        <div class="fashion-index">
+            <div class="main-out">
+                <ul class="main-container clearfix v-fashion">
+                    <li class="tit">
+                        <img src="https://s1.lantouzi.com/img/xianglev3/ad_left/xiaolantuijian.png" width="100%"/>
+                    </li>
+                    <li class="short-block ">
+                        <div class="short-img-container">
+                            <img src="https://s1.lantouzi.com/img/xianglejihua/FOREO-LUNA-PLAY-PLUS/1.jpg" width="100%"/>
+                        </div>
+                        <h4>FOREO Luna Play Plus 露娜玩趣增强版洁面仪（预售，2周内发货）</h4>
+                        <p class="short">玩趣升级  洗出桃花肌</p>
+                        <div class="enjoy-mask">
+                            <a href="https://lantouzi.com/enjoy/view?id=ltzb740ebc6f8980c11" class="info" onfocus="this.blur();">
+                                <p class="short">原价：<i class="line">
+                                    399元
+                                </i></p>
+                                <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                                <h5 class="short">仅需存<span>7,300元</span></h5>
+                                <div class="enjoy-free-get">免费拿</div>
+                                <em>还享额外收益 <strong>146.00</strong>元</em>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="short-block ">
+                        <div class="short-img-container">
+                            <img src="https://s1.lantouzi.com/img/xianglejihua/wuxianzhixuan_huodong/1.jpg" width="100%"/>
+                        </div>
+                        <h4>享乐计划&中信无限之选私人定制中式料理盛宴</h4>
+                        <p class="short">胡同深处，四合院里，赴一场中式料理盛宴</p>
+                        <div class="enjoy-mask">
+                            <a href="https://lantouzi.com/enjoy/view?id=ltz2c5f636d263d8e01" class="info" onfocus="this.blur();">
+                                <p class="short">原价：<i class="line">
+                                    1,288元
+                                </i></p>
+                                <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                                <h5 class="short">仅需存<span>5,800元</span></h5>
+                                <div class="enjoy-free-get">缺货预约</div>
+                                <em>还享额外收益 <strong>116.00</strong>元</em>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="short-block ">
+                        <div class="short-img-container">
+                            <img src="https://s1.lantouzi.com/img/xianglejihua/hacci_fengmi/1.jpg" width="100%"/>
+                        </div>
+                        <h4>HACCI 花绮 钻石蜂蜜礼盒</h4>
+                        <p class="short">日本最具人气蜂蜜品牌</p>
+                        <div class="enjoy-mask">
+                            <a href="https://lantouzi.com/enjoy/view?id=ltz1ed354da4d4c55c7" class="info" onfocus="this.blur();">
+                                <p class="short">原价：<i class="line">
+                                    288元
+                                </i></p>
+                                <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                                <h5 class="short">仅需存<span>4,300元</span></h5>
+                                <div class="enjoy-free-get">免费拿</div>
+                                <em>还享额外收益 <strong>86.00</strong>元</em>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="short-block ">
+                        <div class="short-img-container">
+                            <img src="https://s1.lantouzi.com/img/xianglejihuanew/huafeichongzhi/384-2.jpg" width="100%"/>
+                        </div>
+                        <h4>移动联通电信全年话费免费充	 </h4>
+                        <p class="short">全国通用，每月充值100元，限量抢	</p>
+                        <div class="enjoy-mask">
+                            <a href="https://lantouzi.com/enjoy/view?id=ltz585c217cf05f972f" class="info" onfocus="this.blur();">
+                                <p class="short">原价：<i class="line">
+                                    1,200元
+                                </i></p>
+                                <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                                <h5 class="short">仅需存<span>2.10万元</span></h5>
+                                <div class="enjoy-free-get">免费拿</div>
+                                <em>还享额外收益 <strong>420.00</strong>元</em>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="long-block ">
+                        <h3>懒投资&中信出版社 精选阅读计划</h3>
+                        <p class="f">全年24本精品书籍</p>
+                        <div class="long-img-container">
+                            <img src="https://s1.lantouzi.com/img/xianglejihua/zhongxin_jingxuan/1-1.jpg" width="100%"/>
+                        </div>
+                        <div class="enjoy-mask">
+                            <a href="https://lantouzi.com/enjoy/view?id=ltz76149895b4577c95" class="info" onfocus="this.blur();">
+                                <p>原价：<i class="line">
+                                    1,080元
+                                </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                                <h5>仅需存<span>1.60万元</span></h5>
+                                <div class="enjoy-free-get">免费拿</div>
+                                <em>还享额外收益 <strong>320.00</strong>元</em>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="short-block ">
+                        <div class="short-img-container">
+                            <img src="https://s1.lantouzi.com/img/xianglejihua/Moleskine_taozhuang-jiazeng/1.jpg" width="100%"/>
+                        </div>
+                        <h4>Moleskine 智能书写笔记本套装（附赠笔记本）</h4>
+                        <p class="short">点石成金的数字化编辑体验</p>
+                        <div class="enjoy-mask">
+                            <a href="https://lantouzi.com/enjoy/view?id=ltz70d111b507accd4b" class="info" onfocus="this.blur();">
+                                <p class="short">原价：<i class="line">
+                                    2,286元
+                                </i></p>
+                                <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                                <h5 class="short">仅需存<span>3.60万元</span></h5>
+                                <div class="enjoy-free-get">免费拿</div>
+                                <em>还享额外收益 <strong>720.00</strong>元</em>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="short-block ">
+                        <div class="short-img-container">
+                            <img src="https://s1.lantouzi.com/img/xianglejihua/bob-shigeji/1xin.jpg" width="100%"/>
+                        </div>
+                        <h4>聆听鲍勃·迪伦一生的呐喊｜《鲍勃·迪伦诗歌集（1961-2012）》</h4>
+                        <p class="short">诺贝尔文学奖作品</p>
+                        <div class="enjoy-mask">
+                            <a href="https://lantouzi.com/enjoy/view?id=ltza0b0f5a7b3b8bbc4" class="info" onfocus="this.blur();">
+                                <p class="short">原价：<i class="line">
+                                    198元
+                                </i></p>
+                                <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                                <h5 class="short">仅需存<span>3,800元</span></h5>
+                                <div class="enjoy-free-get">免费拿</div>
+                                <em>还享额外收益 <strong>76.00</strong>元</em>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="short-block ">
+                        <div class="short-img-container">
+                            <img src="https://s1.lantouzi.com/img/xianglejihua/aiqiyinianka/4.jpg" width="100%"/>
+                        </div>
+                        <h4>爱奇艺VIP黄金会员【全年】</h4>
+                        <p class="short">万部会员片库免费看，无广告</p>
+                        <div class="enjoy-mask">
+                            <a href="https://lantouzi.com/enjoy/view?id=ltz2eebd4131bb41679" class="info" onfocus="this.blur();">
+                                <p class="short">原价：<i class="line">
+                                    198元
+                                </i></p>
+                                <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                                <h5 class="short">仅需存<span>3,200元</span></h5>
+                                <div class="enjoy-free-get">免费拿</div>
+                                <em>还享额外收益 <strong>64.00</strong>元</em>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="short-block ">
+                        <div class="short-img-container">
+                            <img src="https://s1.lantouzi.com/img/xianglejihua/1000licheng/1.jpg" width="100%"/>
+                        </div>
+                        <h4>航空里程免费充</h4>
+                        <p class="short">提交格式：航空公司、卡号、姓（汉语拼音格式）、名（汉语拼音格式）</p>
+                        <div class="enjoy-mask">
+                            <a href="https://lantouzi.com/enjoy/view?id=ltz8bff2c7f3accc4b9" class="info" onfocus="this.blur();">
+                                <p class="short">原价：<i class="line">
+                                    200元
+                                </i></p>
+                                <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                                <h5 class="short">仅需存<span>2,500元</span></h5>
+                                <div class="enjoy-free-get">免费拿</div>
+                                <em>还享额外收益 <strong>50.00</strong>元</em>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><div class="goods-section v3-enjoy-fashion">
+    <div class="fashion-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-fashion">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/tongquzhuanqu/tongqupcnew.jpg" width="100%"/>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/Skip-hop-laganxiang/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Skip Hop 儿童拉杆书包</h4>
+                    <p class="short">明星书包，潮宝必备</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz3def10898f6becce" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                399元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>5,800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>116.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/feixue-caini/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Fisher 费雪缤纷彩泥</h4>
+                    <p class="short">捏出一个缤纷世界</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz24249bd00ba89879" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                42元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,300元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>26.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/meile_huabi/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Joan Miro 美乐儿童绘画文具礼盒</h4>
+                    <p class="short">我是小画家</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz355143e4a1093003" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                128元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2,500元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>50.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/bolelejiaozhengqi_pink/1.jpg" width="100%"/>
+                    </div>
+                    <h4>啵乐乐铅笔握姿矫正器</h4>
+                    <p class="short">良好习惯，从小养成</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz1ded263736844287" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                68元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,500元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>30.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>Thermos 儿童保温保冷杯 米菲款 600ml</h3>
+                    <p class="f">知冷知热最贴心</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/shanmoshi_mifei/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzc999496afd5ca6bf" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                435元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>5,900元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>118.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/peiqizhenbianshu/1.jpg" width="100%"/>
+                    </div>
+                    <h4>小猪佩奇迷你枕边书|Peppa Pig bedtime little library|1套4册</h4>
+                    <p class="short">最佳英语启蒙读物，陪伴孩子睡前时光</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz4a2a5253f18a01bb" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                58元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,400元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>28.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/Skip-Hop-yusan/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Skip Hop 儿童雨伞 </h4>
+                    <p class="short">下雨天也要有好心情</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz11177aff91a6f125" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                169元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3,300元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>66.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/kulashi/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Crayon Rocks酷蜡石儿童宝宝大豆蜡笔 16色植物环保盒装</h4>
+                    <p class="short">大豆材质不怕啃</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzd17a7e0da1619548" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                158元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3,000元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>60.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/monbentobiandanghe_pink/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Monbento儿童便当盒</h4>
+                    <p class="short">让宝贝爱上吃饭的魔法</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz64cc13244d995cc8" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                138元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2,600元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>52.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-coolPlay">
+    <div class="coolPlay-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-coolPlay">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/piaowuzhuanqu/piaowuzhuanqu_pc.jpg" width="100%"/>
+                </li>
+                <li class="long-block ">
+                    <h3>中国音乐剧教父李盾最新催泪力作《酒干倘卖无》</h3>
+                    <p class="f">中美一流制作团队联袂献作</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/jiugantangmaiwu/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz9019a8bc86c6f1b0" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                399元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>900元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>18.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/201706/liutangdeyueguang/1.jpeg" width="100%"/>
+                    </div>
+                    <h4>“金手指”吴牧野钢琴独奏音乐会《流淌的月光》</h4>
+                    <p class="short">一场极具视听审美和经典浪漫的钢琴音乐会</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz238a50ea7952b7aa" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                80元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>900元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>18.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/201706/liutangdeyueguang/1.jpeg" width="100%"/>
+                    </div>
+                    <h4>“金手指”吴牧野钢琴独奏音乐会《流淌的月光》</h4>
+                    <p class="short">一场极具视听审美和经典浪漫的钢琴音乐会</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzc7b2f57db32b9f2c" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                80元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>600元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>12.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/yueliangheliubianshi/1.jpg" width="100%"/>
+                    </div>
+                    <h4>舞台剧《月亮和六便士》</h4>
+                    <p class="short">文艺青年的梦想圣经</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz5d4ca1fe379a0ddb" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                280元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,200元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>24.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/xiunvyefengkuang/1.jpg" width="100%"/>
+                    </div>
+                    <h4>百老汇原版经典喜剧音乐剧《修女也疯狂》</h4>
+                    <p class="short">坐拥托尼奖5项最佳提名，被纽约时报评为“史上最欢乐”的音乐剧</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltze9aca9de7a455739" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                680元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3,600元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>72.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-fashion">
+    <div class="fashion-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-fashion">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/fangshaizhuanqu/fangshaipc.jpg	" width="100%"/>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/VH_dianshan_bai/1.jpg" width="100%"/>
+                    </div>
+                    <h4>VH羽 智能触控USB桌面风扇</h4>
+                    <p class="short">碰一碰，就有风</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz051a3f9a79842042" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                88元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,900元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>38.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/annaishaijinping2016/2-1.jpg" width="100%"/>
+                    </div>
+                    <h4>ANESSA 资生堂安热沙防晒霜（日版）</h4>
+                    <p class="short">明星防晒，点“金”之作</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzf1efbc7dfe682f80" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                3400円																							</i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3,300元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>66.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/sudashuiji/1.jpg" width="100%"/>
+                    </div>
+                    <h4>nathome 北欧欧慕苏打水机 NSD2000 1L </h4>
+                    <p class="short">自制苏打水，只需30秒</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzf53f73413f371a07" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                399元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>5,800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>116.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/cpbduanguanqingshuangxing/2-1.jpg" width="100%"/>
+                    </div>
+                    <h4>CPB 肌肤之钥遮瑕隔离</h4>
+                    <p class="short">清透零妆感，给你第二层完美肌肤</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzd0574311571fad44" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                580元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>7,800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>156.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>CPB肌肤之钥遮瑕隔离</h3>
+                    <p class="f">清透零妆感，给你第二层完美肌肤</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/cpbchangguanzirunxing/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz0ca922d0bea51276" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                580元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>7,800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>156.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/annaishaijinpinglianbuzhuanyong/1.jpg" width="100%"/>
+                    </div>
+                    <h4>ANESSA 资生堂安热沙防晒霜（日版）</h4>
+                    <p class="short">明星防晒，点“金”之作</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz3534a1cdad0dfe78" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                3400円																							</i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3,300元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>66.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/annaishaiyinpinglianbuzhuanyong/1.jpg" width="100%"/>
+                    </div>
+                    <h4>ANESSA 资生堂安热沙防晒霜（日版）</h4>
+                    <p class="short">明星防晒，点“金”之作</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz5f462d9d4f082c78" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                3400円																							</i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3,300元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>66.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/Sofina_white/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Sofina芯美颜防晒乳液</h4>
+                    <p class="short">防晒小花，貌美有实力	</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz14a424f29dba93af" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                3093円																							</i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4,200元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>84.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/vape-100ri/1.jpg" width="100%"/>
+                    </div>
+                    <h4>VAPE 5倍无味无毒驱蚊手表 100日</h4>
+                    <p class="short">日本销量第一，专为孕妇、婴儿设计</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz46f09e9463ebee9c" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                168元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,900元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>38.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-fashion">
+    <div class="fashion-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-fashion">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/meirongyizhuanqu/meirongyi_pc.jpg" width="100%"/>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/yaman-10t/4.jpg" width="100%"/>
+                    </div>
+                    <h4>YA-MAN 雅萌射频再生美颜机HRF-10T</h4>
+                    <p class="short">岁月荏苒 时光不老</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzaabd2be5d6b6480a" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                2,999元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4.38万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>876.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/whoo_jinlvxiang/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Whoo 后 津率享 红华凝香系列护肤套装 </h4>
+                    <p class="short">扭转肌肤时光的秘诀</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz5d592b5a15af0595" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1,580元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2.26万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>452.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/dysonsupersonic_zihong/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Dyson Supersonic 吹风机</h4>
+                    <p class="short">重新定义吹风机</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz201e3c85fc8f7b8d" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                2,990元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>5.06万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>1012.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/SKII-28day/1.jpg" width="100%"/>
+                    </div>
+                    <h4>SK-II28天极效淡斑胶囊0.5g*28粒</h4>
+                    <p class="short">28天还你净白美肌</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzc110b8b8dab82e4a" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                12580円																							</i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.52万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>304.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>SK-II肌因钻白精华露30ml</h3>
+                    <p class="f">开启曜白时代</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/SKII-danban/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzb87b7bd218b7ccfb" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                16000円																							</i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>1.52万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>304.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/Labserieslangshinanshijiemianru/2-12.jpg" width="100%"/>
+                    </div>
+                    <h4>Lab Series朗仕多功能洁面乳100ml </h4>
+                    <p class="short">雅诗兰黛旗下高端男士品牌</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz6210eb2be92e1a32" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                36.22美元																							</i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4,500元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>90.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/huxi-su/1.jpg" width="100%"/>
+                    </div>
+                    <h4>su:m37o 呼吸时光能量套装</h4>
+                    <p class="short">天然安全配方，孕妇也能放心用</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz4cacd096967e0910" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                923元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.28万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>256.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/mtg-pentou/1.jpg" width="100%"/>
+                    </div>
+                    <h4>MTG 美容液花洒</h4>
+                    <p class="short">用它洗澡越洗越美</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz466f6e323de7e220" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1,599元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2.16万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>432.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/MTG_mianbu_bai/1.jpg" width="100%"/>
+                    </div>
+                    <h4>FACIAL FITNESS PAO 面部锻炼棒</h4>
+                    <p class="short">淡化法令纹，脸部年轻的秘诀</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzdccbca367f64b00f" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                888元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.30万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>260.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-coolPlay">
+    <div class="coolPlay-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-coolPlay">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/yuerzhuanqu/yuer_pc.jpg" width="100%"/>
+                </li>
+                <li class="long-block ">
+                    <h3>Pouch 多功能调档便携可折叠餐椅</h3>
+                    <p class="f">7档调节，专为0-3岁宝宝设计</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/pouch-k05-qiaokelise/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzdcfa26ad3102dd0b" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                599元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>9,300元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>186.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/pouch-sanche/4.png" width="100%"/>
+                    </div>
+                    <h4>Pouch 超轻便可坐可躺便携式折叠伞车</h4>
+                    <p class="short">5点式安全带，赛车级安全保护</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz69d0f1cfc8b6a046" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                599元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>9,300元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>186.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/happysocks-yingerwa/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Happy socks 婴儿短袜礼盒</h4>
+                    <p class="short">给孩子的缤纷礼物</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz27e1c4f63da14523" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                280元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3,700元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>74.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/Btoys-huaban/1.jpg" width="100%"/>
+                    </div>
+                    <h4>B.Toys 图卢兹磁性画板</h4>
+                    <p class="short">小小画家画出来</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzcd759b820237b4e5" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                239元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4,200元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>84.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/Pouch-Q18-hong/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Pouch 婴儿安全座椅0-4岁专用 Q18</h4>
+                    <p class="short">国标与欧标双标认证，五点式安全带赛车级防护</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzb2e9b750d0ea257e" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1,099元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.58万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>316.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-fashion">
+    <div class="fashion-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-fashion">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/pctongshu.jpg" width="100%"/>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/duxiaoku-disiji-0-3sui/1.jpg" width="100%"/>
+                    </div>
+                    <h4>读小库系列读物套装（0-3岁）</h4>
+                    <p class="short">孩子初识世界的美好礼物</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzb99102603e4fd0f1" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                192元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3,800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>76.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/duxiaoku-qiu-3-6/1.jpg" width="100%"/>
+                    </div>
+                    <h4>读小库系列读物套装（3-6岁）</h4>
+                    <p class="short">小朋友的最佳读物</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltze6b63641bc5a0601" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                454元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>8,400元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>168.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/duxiaoku-jintian/1.jpg" width="100%"/>
+                    </div>
+                    <h4>读小库系列读物 《今天》郝广才著</h4>
+                    <p class="short">高分作文利器，滋养心灵的故事宝库</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz283c3b86b5d6d39b" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                128元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2,800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>56.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/shijietouhaowanjuzhuanjia/1.jpg" width="100%"/>
+                    </div>
+                    <h4>《圣诞老人：世界头号玩具专家》圣诞绘本礼包</h4>
+                    <p class="short">荣获10项大奖的儿童绘本</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz76b05954d5f88975" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                108元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,900元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>38.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>读小库系列读物套装（0-3岁）</h3>
+                    <p class="f">孩子初识世界的美好礼物</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/duxiaoku-disiji-3suiyixia/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz2bc6ce0ebab5e877" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                228元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>4,900元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>98.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/duxiaoku-disiji-3-6sui/1.jpg" width="100%"/>
+                    </div>
+                    <h4>读小库系列读物套装（3-6岁）</h4>
+                    <p class="short">小朋友的最佳读物</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz32aa1d52c1a70dce" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                364元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>6,800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>136.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/duxiaoku-qiu-7-9/1.jpg" width="100%"/>
+                    </div>
+                    <h4>读小库系列读物套装（7-9岁）</h4>
+                    <p class="short">亲子共读是最好的时光</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz24a4cd91e5295dc0" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                446元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>8,300元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>166.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/duxiaoku-qiu-10-12/1.jpg" width="100%"/>
+                    </div>
+                    <h4>读小库系列读物套装（10-12岁）</h4>
+                    <p class="short">好书陪伴孩子成长</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz92874cd6c256e486" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                488元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>8,800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>176.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/duxiaoku-disiji-12suiyishang/1.jpg" width="100%"/>
+                    </div>
+                    <h4>读小库系列读物套装（12岁以上）</h4>
+                    <p class="short">世界很大，从这里看</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz75ddf41dc83def6d" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                384元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>6,500元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>130.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-fashion">
+    <div class="fashion-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-fashion">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/zahuozhuanqu/zahuo-pc-1215.jpg" width="100%"/>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xiangle38/yimajin/playtex/1.jpg" width="100%"/>
+                    </div>
+                    <h4>美国进口Playtex棉条</h4>
+                    <p class="short">不是所有棉条都叫playtex</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz9fc53d06f0618b5b" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                69元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,300元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>26.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/xiaolinxiaochouyuan/x.jpg" width="100%"/>
+                    </div>
+                    <h4>小林制药马桶消臭元玫瑰/薄荷20ml*2	</h4>
+                    <p class="short">马桶神物，一滴解决尴尬	</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz8fbce91ebbd4b21c" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                668円																							</i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>16.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/laundress_yinger/1.jpg" width="100%"/>
+                    </div>
+                    <h4>The Laundress 3倍浓缩婴儿洗衣精</h4>
+                    <p class="short">牛奶般温和的洗衣液</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz66e78e00439cf439" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                99元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,900元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>38.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/SmileCosmemeibaiyatie/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Smile Cosmetique美白牙贴6片装</h4>
+                    <p class="short">给牙齿敷个全效美白面膜</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz91d4969b0ce8cd73" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1590円																							</i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2,500元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>50.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>爽健 Qtto 提臀睡眠纤腿袜</h3>
+                    <p class="f">舒适不紧绷 循环减压 穿出好身材</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/shuangjianshoutuiwa/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltze36790d4beac5657" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                263元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>4,500元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>90.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/PILOTxiaoliangangbi_yellow/1.jpg" width="100%"/>
+                    </div>
+                    <h4>PILOT 百乐笑脸钢笔</h4>
+                    <p class="short">用它写字心情更好</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz99386e4ad8ac443e" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                69元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,500元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>30.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/ipluso-chengshigangbi/1.jpg" width="100%"/>
+                    </div>
+                    <h4>ipluso城市钢笔礼盒</h4>
+                    <p class="short">钢笔也要拼颜值</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltze15c86e1da0e92ba" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                296元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>5,900元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>118.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xiangle38/yimajin/younijia2/z2.jpg" width="100%"/>
+                    </div>
+                    <h4>日本尤妮佳棉条</h4>
+                    <p class="short">最好的感觉是无感，以为姨妈没来过</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz4f62c7d2be756012" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1251円																							</i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,500元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>30.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/pearl36l/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Tampax导管式卫生棉条36支</h4>
+                    <p class="short">一支棉条 告别姨妈烦恼</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzfbdf62215ada874c" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                158元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2,600元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>52.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-fashion">
+    <div class="fashion-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-fashion">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev3/ad_left/20160419/haoqixingren.jpg" width="100%"/>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/OAXIS_InkCase_7/1-1.jpg" width="100%"/>
+                    </div>
+                    <h4>OAXIS InkCase 电子墨水屏手机壳</h4>
+                    <p class="short">不仅仅是一个手机壳</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzf8c129e54b84320b" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                898元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.45万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>290.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/bose_qc20_hei/1.jpg" width="100%"/>
+                    </div>
+                    <h4>BOSE QC20有源消噪耳机</h4>
+                    <p class="short">静听世界脉搏</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz6cc710e31f4dd279" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                2,580元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3.58万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>716.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/happyplugs/1.jpg" width="100%"/>
+                    </div>
+                    <h4>happy plugs套装|线控入耳式耳机+iPhone 6/6s数据线</h4>
+                    <p class="short">红遍ins的色彩灵感</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzfe54daaaefc700df" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                498元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>9,500元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>190.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/bose-wuxianxiaozao/4.jpg" width="100%"/>
+                    </div>
+                    <h4>BOSE 无线消噪耳机 QC30 </h4>
+                    <p class="short">无线消噪，置身安静之中</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzc7db8fed280ba8fd" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                2,498元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3.68万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>736.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>坚果Pro 128GB</h3>
+                    <p class="f">漂亮的不像实力派</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/jianguo-pro-tanheise/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzbbc0723d9411fe79" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                2,299元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>3.80万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>760.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/BANG_ziran/1.jpg" width="100%"/>
+                    </div>
+                    <h4>B&O BeoPlay A1 无线蓝牙音箱</h4>
+                    <p class="short">高颜值实力派</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz001e403ea111cd17" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1,898元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2.83万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>566.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/BANG_lv/1.jpg" width="100%"/>
+                    </div>
+                    <h4>B&O BeoPlay A1 无线蓝牙音箱</h4>
+                    <p class="short">高颜值实力派</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz7a8866532040f761" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1,898元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2.83万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>566.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/Bose_qc25_bai/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Bose QuietComfort25有源消噪耳机</h4>
+                    <p class="short">静静聆听 细致心跳</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzc7220f7113087561" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                2,680元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3.80万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>760.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/Luoji_k480_bai/1.jpg" width="100%"/>
+                    </div>
+                    <h4>罗技（Logitech）K480 多功能蓝牙键盘 桌面通用系统</h4>
+                    <p class="short">随时享受舒适的键入体验</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz996a5ced3f4f2f58" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                199元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4,200元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>84.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-fashion">
+    <div class="fashion-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-fashion">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/pcchufang.jpg" width="100%"/>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/feilipu-kongqizhaguo/1.jpg" width="100%"/>
+                    </div>
+                    <h4>PHILIPS 飞利浦空气炸锅升级版 HD9232/30</h4>
+                    <p class="short">一饱口福，健康料理小能手</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz59e1e9e1b7a2847a" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1,299元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.99万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>398.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/staub-falangguo-hong/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Staub 经典圆形珐琅铸铁锅</h4>
+                    <p class="short">入得厅堂上得餐台，米其林大师的选择</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz60d238ce8158ddc0" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1,088元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.60万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>320.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/joseph-9jiantao/1.png" width="100%"/>
+                    </div>
+                    <h4>Joseph Joseph彩虹厨具9件套 （绿色）</h4>
+                    <p class="short">多功能易收纳 烘焙必备</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz7b8a855a9bc664a4" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                674元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>7,600元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>152.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/joseph-zhengguo/1-1.jpg" width="100%"/>
+                    </div>
+                    <h4>Joseph 微波炉层叠锅具4件套 </h4>
+                    <p class="short">用微波炉做出美味大餐</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz61b8259c5e0bef0c" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                413元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4,900元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>98.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>COCO-MAT Sithon I 天然碎乳胶颗粒按摩护颈枕</h3>
+                    <p class="f">阿联酋航空头等舱专用枕头</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/coco-mat/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzff389d22a1f214ef" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                980元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>1.60万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>320.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/Dyson-jiqiren/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Dyson 戴森智能吸尘机器人 360Eye RB01</h4>
+                    <p class="short">强劲吸力，一键起航，清洁无死角</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzfe3c92ddb77114aa" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                6,490元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>10.68万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>2136.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/DysonV8Fluffy/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Dyson V8 Fluffy无线吸尘器</h4>
+                    <p class="short">最强劲的dyson 吸尘器</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz70c8bc3ff643c0e0" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                4,990元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>8.30万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>1660.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/Ergochef_biandanghe/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Ergo Chef 日式双层便当盒</h4>
+                    <p class="short">更多空间，更加实用</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz96d551341a614174" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                199元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2,100元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>42.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/BraavaJet241/1.jpg" width="100%"/>
+                    </div>
+                    <h4>iRobot Braava Jet 喷水擦地机器人 </h4>
+                    <p class="short">厨房清洁好助手</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz2a7b95aeba23045e" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1,999元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2.95万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>590.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-fashion">
+    <div class="fashion-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-fashion">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/liwuzhuanqu/liwupc.jpg" width="100%"/>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/HERMES_sijin/1-1.jpg" width="100%"/>
+                    </div>
+                    <h4>HERMÈS 爱马仕 Paperoles 斜纹真丝印花方巾（专柜包装，含礼盒＋手提袋）</h4>
+                    <p class="short">把明媚春光系身上</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz8349e4162601415e" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                3,400元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>5.35万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>1070.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/Starbucksshoujike_red/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Starbucks 施华洛世奇水晶元素手机壳 红色</h4>
+                    <p class="short">给问候加点闪亮</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz27fad1839c43a7c1" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                288元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>5,800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>116.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/MK_ava_jin/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Michael Kors ava手提单肩包 小号</h4>
+                    <p class="short">优雅甜美一次搞定</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzca2801b9734cb0a9" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                3,800元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4.80万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>960.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/MK_beike_jinse/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Michael Kors 链条贝壳包  </h4>
+                    <p class="short">极简才是最美</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz29579f347a2f5d51" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                2,500元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3.66万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>732.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>野兽派枪炮玫瑰情人节礼盒</h3>
+                    <p class="f">比最爱还要爱</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/shunvshashou/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz95513e20fc0e90b4" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                990元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>1.80万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>360.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/wobatiankongsonggeini/1.jpg" width="100%"/>
+                    </div>
+                    <h4>野兽派枪炮玫瑰礼盒</h4>
+                    <p class="short">送你一片纯净天空</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzefad0905cfa549b9" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                990元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.80万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>360.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/SWAROVSKI-xingxing/1.jpg" width="100%"/>
+                    </div>
+                    <h4>SWAROVSKI 星形耳钉项链套装</h4>
+                    <p class="short">坠入璀璨星河</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzbc23e5063674e849" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1,420元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2.30万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>460.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/jellycat-tuzi-mi/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Jellycat 害羞邦尼兔（现货直发）</h4>
+                    <p class="short">满足你的少女心</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzb3b8397403ebc4e6" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                189元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3,800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>76.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/happysocks-arrowheart/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Happy socks Arrow & Heart 短袜内裤礼盒</h4>
+                    <p class="short">瑞典潮牌，用趣味征服日常</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz2e272b065855c3ec" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                175元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2,800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>56.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-fashion">
+    <div class="fashion-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-fashion">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/nanshizhuanqu/nanshipc.jpg" width="100%"/>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/labquannengruye/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Lab Series 多效全能乳液</h4>
+                    <p class="short">一步到位的男士全能乳液</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz26ed2e0dee25d07f" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                228元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4,700元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>94.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/LABSerieskongyousanbuqu/1.jpg" width="100%"/>
+                    </div>
+                    <h4>LAB Series 控油三部曲经典套装</h4>
+                    <p class="short">雅诗兰黛旗下高端男士品牌</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltza86920e9002801f1" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                870元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.47万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>294.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/boss_qianbao/1.jpg" width="100%"/>
+                    </div>
+                    <h4>HUGO BOSS 男士礼盒套装</h4>
+                    <p class="short">品质之选，低调经典</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzaeda7319c5723512" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1,680元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2.16万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>432.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/MK_yaodai/1.jpg" width="100%"/>
+                    </div>
+                    <h4>MICHAEL KORS 男士腰带礼盒</h4>
+                    <p class="short">男神老爸标配</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzdb7d1eb9f4fb217e" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                2,500元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2.78万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>556.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>飞利浦复古格调版电动剃须刀 S8860</h3>
+                    <p class="f">胡歌同款，格调之选</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/feilipu_s8860_new/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzb22f68ba33403299" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                3,699元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>4.88万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>976.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/feilipu_yanbu/1.jpg" width="100%"/>
+                    </div>
+                    <h4>飞利浦男士眼部能量仪MS3020</h4>
+                    <p class="short">缓解疲劳，焕能双眼</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzf04a4925a6724e51" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                999元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.65万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>330.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/bally_yaodai/1.jpg" width="100%"/>
+                    </div>
+                    <h4>BALLY 巴利 男士钱包+皮带礼盒</h4>
+                    <p class="short">精湛工艺打造奢华质感</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzb268baabe982bfde" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                3,800元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4.80万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>960.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/Biothermshuidongli/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Biotherm 碧欧泉男士水动力护肤套装</h4>
+                    <p class="short">泉力以赴，澎湃滋润</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz2dbdc1d772da13ba" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                850元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.45万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>290.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/PHILIPSdiandongtixudaoPT786/1.jpg" width="100%"/>
+                    </div>
+                    <h4>PHILIPS 飞利浦电动剃须刀 PT786	 </h4>
+                    <p class="short">送男朋友不出错系列	</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzae079fdc62e36f6b" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                599元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>8,900元</span></h5>
+                            <div class="enjoy-free-get">缺货预约</div>
+                            <em>还享额外收益 <strong>178.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-fashion">
+    <div class="fashion-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-fashion">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/dushuzhuanqu/dushupc.jpg" width="100%"/>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/heikeshizhan/2.jpg" width="100%"/>
+                    </div>
+                    <h4>范冰亲笔签名新书《增长黑客实战》</h4>
+                    <p class="short">众大佬联合力荐 创业型公司搭建增长团队的实践指南</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz6ebf67bb382dabe0" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                59元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,700元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>34.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/caoyuandongwuyuan/1.jpg" width="100%"/>
+                    </div>
+                    <h4>《草原动物园》</h4>
+                    <p class="short">中国版《少年Pi的奇幻漂流》</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzefccda75735d4e89" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                48元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,500元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>30.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/201610/kpw1.jpg" width="100%"/>
+                    </div>
+                    <h4>Kindle Paperwhite 3</h4>
+                    <p class="short">让阅读更有魅力</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz3a01c82b61742dd8" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                958元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.58万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>316.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/newkindle/1.jpg" width="100%"/>
+                    </div>
+                    <h4>全新Kindle电子书阅读器 (入门版) </h4>
+                    <p class="short">升级外观设计，运行内存翻倍</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzabc26f6729ecb6f7" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                558元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>9,500元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>190.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>懒投资&中信出版社 精品阅读计划</h3>
+                    <p class="f">全年12本精品书籍</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/zhongxin_jingpin/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz86f906d3dae8857a" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                728元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>1.10万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>220.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/shijue006muke004/1.jpg	" width="100%"/>
+                    </div>
+                    <h4>视觉006+目客004</h4>
+                    <p class="short">不可不读的猫奴契约书</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz020b8aed5cd01583" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                116元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2,000元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>40.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/shishangtongshi/1.jpg" width="100%"/>
+                    </div>
+                    <h4>《时尚通史》</h4>
+                    <p class="short">囊括人类历史中最重要时尚元素</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltze47baa88e11633f7" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                198元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2,300元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>46.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/shengeryouya/1.jpg" width="100%"/>
+                    </div>
+                    <h4>优雅系列｜女主人礼仪+淑媛礼仪+优雅太太教我的事（套装共3册）</h4>
+                    <p class="short">抵达优雅生活的终身指南</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz8a706ab3680d1fae" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                139元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2,800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>56.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/caizhizhongmanhua/1.jpg" width="100%"/>
+                    </div>
+                    <h4>蔡志忠漫画古籍典藏系列02辑（全7册） </h4>
+                    <p class="short">国学启蒙书，中国文化走向世界的经典符号</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz4576018f42beb22a" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                256元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>3,500元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>70.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-fashion">
+    <div class="fashion-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-fashion">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev3/ad_left/pingguo1103.jpg" width="100%"/>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/new_ipadpro_huixiao/1.jpg" width="100%"/>
+                    </div>
+                    <h4>新款 iPad Pro WLAN版</h4>
+                    <p class="short">不只能做到， 还能做到更好</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz253c33074ada82aa" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                5,188元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>8.58万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>1716.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/new_ipadpro_anxiao/1.jpg" width="100%"/>
+                    </div>
+                    <h4>iPad Pro 皮革保护套</h4>
+                    <p class="short">给iPad Pro 最周全的保护</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz01c4159d4da48002" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1,148元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.99万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>398.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/SmartKeyboard_xiao/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Smart Keyboard（为 iPad Pro 而来）</h4>
+                    <p class="short">iPad Pro 完美搭档</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz903be7db079f7ded" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1,288元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2.20万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>440.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/ApplePencil/2.jpg" width="100%"/>
+                    </div>
+                    <h4>Apple Pencil（为 iPad Pro 而来）</h4>
+                    <p class="short">它，就是一支魔法棒</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzfe2ccf66787bbafd" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                788元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1.42万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>284.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>AirPods（预计5-6周发货）</h3>
+                    <p class="f">无线，无繁琐，妙不可言</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/AirPods/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzbc461405fd687ea7" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                1,288元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>2.39万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>478.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/watch_bai_38/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Apple Watch 铝金属表壳运动型 Series 2  </h4>
+                    <p class="short">随时候命，随时应你所需</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz0396644efac1fe61" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                2,888元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4.75万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>950.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/iPhone7_meiguijin/1.jpg" width="100%"/>
+                    </div>
+                    <h4>iPhone 7    </h4>
+                    <p class="short">引得起火热目光，更经得起水花洗礼</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz3c492f4d20ec14f1" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                5,388元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>8.30万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>1660.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/macpro_15_yin_bar/1.jpg" width="100%"/>
+                    </div>
+                    <h4>新款 MacBook Pro 15英寸</h4>
+                    <p class="short">一身才华，一触，即发</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz9ea371d6ddca7e91" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1.89万元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>30.70万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>6140.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/macpro_15_hui_bar/1.jpg" width="100%"/>
+                    </div>
+                    <h4>新款 MacBook Pro 15英寸</h4>
+                    <p class="short">一身才华，一触，即发</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz6454090169c61262" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1.89万元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>30.70万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>6140.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-apple">
+    <div class="">
+        <div class="main-out">
+            <ul class="main-container clearfix v-science">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/legaozhuanqu/pc.jpeg" width="100%"/>
+                </li>
+                <li class="long-block ">
+                    <h3>LEGO 乐高加勒比海盗系列 71042沉默玛丽号</h3>
+                    <p class="f">跟随船长去冒险</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/lego-jialebihaidao/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzbb80f78be341b7fa" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                2,299元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>3.08万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>616.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/LEGO-75159/1.jpg" width="100%"/>
+                    </div>
+                    <h4>LEGO 乐高星球大战系列75159 Star Wars死星</h4>
+                    <p class="short">重现经典场景，粉丝珍藏款</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz45364af2c3bd58e9" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                4,999元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>6.89万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>1378.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/Nintendo3DS_white/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Nintendo 任天堂掌上游戏机 New 3DS（日版）</h4>
+                    <p class="short">一起重回童年</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz93fdbae66045fabe" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                1,388元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>2.38万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>476.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>《去飘流》华语原创绘本</h3>
+                    <p class="f">他用十四年画出这本书</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/qupiaoliu/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz0dd682dbf8150d11" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                38元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>1,200元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>24.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>LEGO乐高创意百变高手系列10243 巴黎人餐厅</h3>
+                    <p class="f">大师级拼砌 限量收藏款</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/LEGObaliren/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz27c0e15029600436" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                1,799元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>2.66万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>532.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/moshoushijie-xin/1.jpg" width="100%"/>
+                    </div>
+                    <h4>《魔兽世界》艺术设定集套装</h4>
+                    <p class="short">二十年执念建造的魔兽世界</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltze5cdb78ffae219e7" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                296元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>5,200元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>104.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/LEGO-21013/1.jpg" width="100%"/>
+                    </div>
+                    <h4>LEGO 乐高建筑系列21013 大本钟</h4>
+                    <p class="short">将经典建筑随手变换</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz2fd41cb02d1464d3" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                349元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>6,400元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>128.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-fashion">
+    <div class="fashion-index">
+        <div class="main-out">
+            <ul class="main-container clearfix v-fashion">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/wumaipc.jpg" width="100%"/>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/blueair203slim/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Blueair 空气净化器</h4>
+                    <p class="short">专业净化方案，美国驻华大使馆也在用</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz0965dfad2021b04c" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                2,980元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4.38万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>876.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/vagmask0-2/1new.jpg" width="100%"/>
+                    </div>
+                    <h4>VOGMASK 防雾霾口罩 </h4>
+                    <p class="short">为孩子定做设计的口罩，儿科医生推荐</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzfd8829287642b841" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                198元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4,000元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>80.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/pureplus3Dkouzhao_taluo/1.jpg" width="100%"/>
+                    </div>
+                    <h4>PUREPLUS 个性3D防霾口罩</h4>
+                    <p class="short">潮人别担心，口罩也时尚</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzbd7ab944776c43b5" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                269元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4,900元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>98.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/vagmask3-7/1.jpg" width="100%"/>
+                    </div>
+                    <h4>VOGMASK 防雾霾口罩 </h4>
+                    <p class="short">专业抗雾霾，过滤效果达99%</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz85c8101191cc8199" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                225元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4,600元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>92.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>PHILIPS Smartair 330车载空气净化器</h3>
+                    <p class="f">上车即享洁净空气</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/smartair330/1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz82ca8e662fe0639e" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                1,999元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>3.26万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>652.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/totobobo_L/1.jpg" width="100%"/>
+                    </div>
+                    <h4>totobobo 透明防雾霾口罩</h4>
+                    <p class="short">新加坡专业品牌，实力强颜值高</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz20ce577257d1a953" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                218元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>4,000元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>80.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/yinxingkouzhao/2.jpg" width="100%"/>
+                    </div>
+                    <h4>Fumakira 离子喷雾隐形口罩</h4>
+                    <p class="short">喷一喷，防雾霾，不晕妆</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzacd85ea3485f8c52" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                113元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>1,700元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>34.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/RESPRO_kouzhao/1.jpg" width="100%"/>
+                    </div>
+                    <h4>RESPRO 运动型防雾霾口罩</h4>
+                    <p class="short">钢铁森林中的深呼吸</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz82c85ace9272c79c" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                450元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>7,500元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>150.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/DysonHP01/1.jpg" width="100%"/>
+                    </div>
+                    <h4>Dyson pure hot+cool ™ 空气净化暖风器HP00</h4>
+                    <p class="short">净化99.95%小至PM0.1的有害颗粒物</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz15192ac77b75ef0a" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                5,190元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>8.60万元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>1720.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><div class="goods-section v3-enjoy-vip">
+    <div class="">
+        <div class="main-out">
+            <ul class="main-container clearfix v-science">
+                <li class="tit">
+                    <img src="https://s1.lantouzi.com/img/xianglev4/leimupeizhi/2zhounnian/2zhounian_pc.jpg" width="100%"/>
+                </li>
+                <li class="long-block ">
+                    <h3>「独家特供」莫斯卡托阿斯蒂低泡葡萄酒 | 懒投资特供款</h3>
+                    <p class="f">小粒白麝香融合花果气息，低酒精度轻松入口</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/2zhounian_baipu/1-1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzfd1a82142a92b666" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                420元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>5,200元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>104.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/2zhounian_hongjiu/1-1.jpg" width="100%"/>
+                    </div>
+                    <h4>「独家特供」经典基昂蒂干红葡萄酒 | 懒投资特供款</h4>
+                    <p class="short">顶级葡萄园中的贵族葡萄，带来最醇厚的味道</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltz999b0d78b6f316bf" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                598元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>6,900元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>138.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="short-block ">
+                    <div class="short-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/2zhounian_niupiuzhiben/1-1.jpg" width="100%"/>
+                    </div>
+                    <h4>「限量套装」手工牛皮纸笔记本+签字笔 | 懒投资2周年定制版</h4>
+                    <p class="short">限量200册，献给一路陪伴的你</p>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzf0e7643cc1c9468f" class="info" onfocus="this.blur();">
+                            <p class="short">原价：<i class="line">
+                                98元
+                            </i></p>
+                            <em class="spc">享乐价：<i>0</i><i class="spc">元</i></em>
+                            <h5 class="short">仅需存<span>800元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>16.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+                <li class="long-block ">
+                    <h3>「限量套装」相对论主题笔记本+小懒钥匙扣 | 懒投资2周年定制版</h3>
+                    <p class="f">限量200册，献给一路陪伴的你</p>
+                    <div class="long-img-container">
+                        <img src="https://s1.lantouzi.com/img/xianglejihua/2zhounian_heibenzi/1-1.jpg" width="100%"/>
+                    </div>
+                    <div class="enjoy-mask">
+                        <a href="https://lantouzi.com/enjoy/view?id=ltzc54425e7aaf7d36d" class="info" onfocus="this.blur();">
+                            <p>原价：<i class="line">
+                                98元
+                            </i> <span>享乐价：<i>0</i><i class="spc">元</i></span></p>
+                            <h5>仅需存<span>1,300元</span></h5>
+                            <div class="enjoy-free-get">免费拿</div>
+                            <em>还享额外收益 <strong>26.00</strong>元</em>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div></section>
+<aside class="list-option">
+    <a class="list" id="picView" title="图片视图"><i class="iconfont">&#xe687;</i></a>
+    <a class="list" id="listView" title="列表视图"><i class="iconfont">&#xe688;</i></a>
+</aside>
+<section class="ugc" id="ugc">
+    <div class="l-container">
+        <h3 class="title">没有你想要的？要什么，你来定</h3>
+        <div class="goods-submit">
+            <input type="text" class="goods-input" id="goodsLink" placeholder="请粘贴天猫、京东、苏宁商城的商品链接如：http://item.jd.com/1856588.html">
+            <input type="text" class="goods-input" id="goodsMsg" placeholder="备注：型号、颜色、内存等，如：64GB，玫瑰金">
+        </div>
+        <div class="checklist">
+            <span class="check-title">我想要：</span>
+            <ul>
+                <li data-type="1" class="list active">
+                    <span class="checkbox"></span>6月期，额外年化收益2%				</li>
+                <li data-type="3" class="list">
+                    <span class="checkbox"></span>12月期，额外年化收益2%				</li>
+            </ul>
+        </div>
+        <p><a id="goodsLinkBtn" class="g-btn g-btn-medium-major check-btn">提交</a></p>
+    </div>
+    <div class="alert" id="alert">
+        <div class="l-container">
+            <div class="box" id="box">
+                <p class="msg" id="msg"></p>
+                <a class="g-btn g-btn-medium-minor close">好的</a>
+            </div>
+        </div>
+    </div>
+    <div class="alert" id="alert1">
+        <div class="box1" id="box1">
+            <div class="l-container">
+                <p class="haswx"><strong>提交成功。</strong>请关注懒投资微信服务号，<br>我们会尽快将购买链接推送至您绑定的微信。</p>
+                <a class="close"></a>
+            </div>
+        </div>
+    </div>
+    <div class="alert" id="alert2">
+        <div class="box2" id="box2">
+            <div class="l-container">
+                <p class="nowx"><strong>您尚未绑定懒投资微信</strong>绑定后才能接收<br>购买链接，扫描下方二维码绑定噢</p>
+                <a class="close"></a>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="right-fix animated bounceInDown"><img src="https://s1.lantouzi.com/img/201512/ltz/xl-right.png"></div>
+<script>
+    var isLogin = false;  //登录状态
+    var haveBindWx = false; //是否绑定了微信
+    require(['/static/js/v3/enjoy/free.js']);
+</script><script>
+    require(['v3/enjoy/index']);
+</script><footer class="g-footer">
+    <div class="l-container">
+        <div class="clearfix">
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">关于懒投资</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/index" class="g-footer-link" rel="nofollow">公司介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/team" class="g-footer-link" rel="nofollow">团队介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/contact" class="g-footer-link"  rel="nofollow">联系我们</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/joinus" class="g-footer-link"  rel="nofollow">加入我们</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">产品服务</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/product" class="g-footer-link" rel="nofollow">产品介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/security" class="g-footer-link" rel="nofollow">安全保障</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/news" class="g-footer-link" rel="nofollow">媒体报道</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/links" class="g-footer-link">友情链接</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">帮助中心</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/post" class="g-footer-link">网站公告</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/help" class="g-footer-link" rel="nofollow">常见问题</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/risk_reminder" class="g-footer-link" rel="nofollow">网贷教室</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/baoli" class="g-footer-link">保理业务介绍</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section wide">
+                <h3 class="g-footer-title">联系我们</h3>
+                <section>
+                    <p>客服电话：400-807-8000&nbsp;（工作日 9:00-22:00）</p>
+                    <p>客服邮箱：<a href="mailto:kefu@lantouzi.com" class="g-footer-link" rel="nofollow">kefu@lantouzi.com</a></p>
+                    <p>公司地址：北京市朝阳区三里屯SOHO 办公B座15层</p>
+                    <p>我要合作：<a href="mailto:bd@lantouzi.com" class="g-footer-link" rel="nofollow">bd@lantouzi.com</a></p>
+                </section>
+            </div>
+            <div class="g-footer-wx-qrcode">
+                <div class="img-wrap">
+                    <img src="https://s1.lantouzi.com/img/201612/a5e738531668ada69144888e315221ce.png" width="120px" height="120px" title="微信号:lantouzicom"/>
+                </div>
+                <p>投资有风险，选择需谨慎</p>
+            </div>
+        </div>
+        <!-- 	<div class="g-footer-links">
+			<section class="container clearfix" id="g-footer-links"></section>
+			<div class="g-footer-links-icon" title="展开/收起">
+				<i class="iconfont">&#xe67d;</i>
+			</div>
+			<div class="g-footer-links-more">
+				<a href="https://lantouzi.com/links">全部</a>
+			</div>
+		</div> -->
+        <div class="g-footer-safeguard clearfix">
+            <a href="http://www.xmccb.com" class="safe-yeepay" target="_blank" rel="nofollow"></a>
+            <a href="http://www.geotrust.com/" class="safe-geotrust" target="_blank" rel="nofollow"></a>
+            <a href="http://webscan.360.cn/" class="safe-360" target="_blank" rel="nofollow"></a>
+            <a href="https://www.sobug.com/" class="safe-sobug" target="_blank" rel="nofollow"></a>
+            <a href="http://si.trustutn.org/info?sn=813161019000540855329" class="safe-trustutn" target="_blank" rel="nofollow"></a>
+        </div>
+        <div class="g-footer-copyright">
+            <p class="g-footer-copyright-line">
+                京ICP备14023229号 京ICP证150240号
+            </p>
+            <p class="g-footer-copyright-line">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502030465">
+                    <span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAEoUlEQVQ4jX3UW2xTdQDH8e85PT097dq1Xbt2zYoEGBmbXIaA1wm6mAyUTS4JgpooBoPRKPHCg6IRozH6QsAQIiExEcKDigkJTBSXISCLkBgQWGAbY3O0bGztejltT9vT0+OLLuDQ//vvk//D//8V+J9jmoM1uYGe9hM/nnu5oJXkZa1N+3zzFh4WhNmR/9oId4W0Xx7vO975Svex3nZT61duFBxYvB6m+xW0mKPU3DLzSEPbmq8Epenov7fS1FuZSteuF7q2fdrLc0+aLHRaaBVuYVNUUg81cz7mkDZt/nn1h0N9q03TVARBKNy+F+/E4uHC+W0/7TqYYsOmmbwYTuPe20O81yA+YJBa+SVPG5fYsn89+77XMXt3fmeag8pdwYI51DB8dNvA0pWXlnrqgrzmv8TgwTTiNA+GWoRCGaHaQ/frZ1jnOE/wkYU8sbKjbfzXfdfHr+6snwLKuQ7nkV6XfO7mYlYsVslcSCMOpxA8NmwTBvkzt7DO8KFkNGJfn2VNa5Gua40cOG2E3GLSfgcY/+NE2Dh3YkdZsIOUo1K9SXoUrIYOE3mEWQ7kRR7EkSwyZWKDGrVVBRAEEhkRa7W8w9SSMybByPUf1urRaLPXKUPJhhkK4W+uIYOJ+rAPY0MY50dNOLbMR6x2EFjkJ5srgmkSCjggcuHx+MjJlybBigpvQ1rVmVmdB8XH8bMOpJZK4m3TMaIqwsUsuY5b6INJ5K3NVL25gEP7E0AFTfMksgNj5IevhydBY2KkLZ2QmBtWCd8vs+dABSc/i9C0JITb4SLXk6A8ViB/KYErmuTyx318sd9GsMnDvNoUsWiBUuJK8yQoSlmPmhapHO9jXatBSXeiHx3F983viLVWitUWygEJf0uIUNd1Yvsuky1aWNNuxRXvR01LWFwW6+TDtjvu6RTrh9qNYC0bH1DZUVvNnmgD+o0efPF+RLcdrSeBWhcg6g3xrWiHSg8bHxyj5ArjuVfA7g133PZThICZNrk5oDK3YZBP3lnE+1uXclSdB2md9lycKo/IoQ4XGRyAl7deVVhS18/NfiCfw9QzCyZByaMvLrmC6KM6kbErvNFsY01nBV3HclwV57O88Rohe4zSkVqKCY1pcxy8t3yIW91D5HQFxS8jeeU58HccCpmzz8Z++/ygNlqkENMh8iezVjVhCypgxDHiEpkxDfeMKpjug0iMwcO9aC4/zplO7DUOvLM3LLN6nzo1WZtS5sLz8cs7dht5zR07PYpUYVKzrAFjQkPPZREdCkpVBYJsJd49QMmQcC+ehZ4n7ql/bL0zuLbzjtqosXw0P2rXlGDZHWypw0hlMdQ0OGQssgfZDsVkhmwkgTLdhxIOUkjmyEdVM1+bmhoHq3nq3cB9rhqrN0QhVaZsSJQNC/lxFcwyxXiKTP84gsUKgkB+JIbVLhJ8NOS3OTObp4AVtpZVqubZnYtEsrIlSWWghFXIIQs6lkISU9NwzfFTWVeJKGeQ3DKCt2a4JDV94AxMPPOPM6XYvXvf9qfHR1bk9ciy2kZ/o5E2nYpXrLLa7eTS5rA9UJWT/I0X4gOxzvqLxnFh+/by7fu/ALehBVIymXo1AAAAAElFTkSuQmCC" width="10px" height="10px" style="margin-right: 5px;"></span>京公网安备 11010502030465号
+                </a>
+            </p>
+            <p class="g-footer-copyright-line">北京大家玩科技有限公司&nbsp;&nbsp;版权所有</p>
+            <p class="g-footer-copyright-line">
+                切换至：
+                <a href="?ua=pc" class="g-footer-link" rel="nofollow">PC版</a>
+                <a href="?ua=mobile" class="g-footer-link" rel="nofollow">手机版</a>
+            </p>
+        </div>
+    </div>
+</footer>
+<script>
+    // 360理财渠道
+    var showLicaiBanner = false;
+    var licaiEndTime = new Date('2016/06/01 00:00:00'.replace(/-/g, "/"));
+    $(document).ready(function(e){
+        if (showLicaiBanner && window.CONFIG.SERVER_TIME < licaiEndTime && (typeof localStorage !== undefined) && !localStorage.licai360Showed) {
+            var html = '<div style="position: fixed;width: 100%;height: 100px;left: 0;bottom: 0;background:rgba(255,98,67,0.9);z-index:2000;" class="licai360-footer"><div class="l-container"><a class="close-the-licai" style="display: block;width: 4%;position: absolute;left: 9.5%;top: 0;height: 50%;"></a><a href="/zt/licaijie360xinshou" style="display: block;position: absolute;bottom: 0;right: 0;width: 87%;height: 100%;"></a><img src="https://s1.lantouzi.com/uploader/2016527/08234e17a720e010c5ece8d011eab0f31464349675162.png" style="margin: 0 auto;display: block;"></div></div>';
+            $('body').append(html);
+            $('.close-the-licai').on('click', function(){
+                $('.licai360-footer').hide();
+                localStorage.licai360Showed = true;
+            });
+        }
+    });
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?6dea39ac37df9c6f3e7b096755b73949";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+
+        window.bd_track_event =function(category, action, label, value) {
+            value = value || 0;
+            if (category && action && label) {
+                _hmt.push(['_trackEvent', category, action, label, value]);
+            }
+        };
+        // $(document).on('mousedown', '.tongji', function(e){
+        // 	var $el = $(this);
+        // 	var category = $el.attr('data-category') || $.trim($el.text()),
+        // 		action   = $el.attr('data-action') || 'click',
+        // 		label    = $el.attr('data-label') || '',
+        // 		value    = $el.attr('data-value') || '';
+        // 	_hmt.push(['_trackEvent', category, action, label, value]);
+        // });
+
+    })();
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-60788439-1', 'auto', {'allowLinker': true});
+    ga('require', 'linker');
+    ga('linker:autoLink', ['lanlicai.com']);
+    ga('send', 'pageview');
+</script>
+<script>
+    (function($) {
+        var Track_Obj = {
+            page_name: '',
+            init: function() {
+                Track_Obj.page_name = Track_Obj.getPageName();
+                Track_Obj.bindEvents();
+            },
+            getPageName: function() {
+                var path = window.location.pathname.substring(1);
+                path = path.replace(/^(.*)\/$/g, '$1');
+                while (!!path.match(/^(.*)\/index$/g)) {
+                    path = path.replace(/^(.*)\/index$/g, '$1');
+                }
+                path = path.replace(/\//g, '-');
+                if (!path) {
+                    path = 'index';
+                }
+                return path;
+            },
+            bindEvents: function() {
+                //根据锚点class:track-click绑定mousedown事件，防止click跳转走
+                $(document).on('mousedown', '.track-click', function(e) {
+                    if ($(this).hasClass('g-btn-disabled')) {//禁用按钮不统计点击
+                        return;
+                    }
+                    var data = $(this).data(),
+                        category = data.category,
+                        action = data.action,
+                        label = data.label,
+                        value = data.value || 0,
+                        target = data.target;
+
+                    if (!category || !action || !label) {
+                        return;
+                    }
+                    if (target) {//获取目标对象的val
+                        value = $(target).val() || $(target).text();
+                        //如果设了target但是没有拿到value,记录错误信息
+                        if (!value) {
+                            value = 'NA-' + target;
+                        }
+                    }
+                    Track_Obj.track_event(category, action, label, value);
+                });
+            },
+            track_event: function(category, action, label, value) {
+                if (Track_Obj.page_name) {
+                    label = Track_Obj.page_name + '-' + label;
+                }
+                //统计到bd
+                if (window.bd_track_event) {
+                    window.bd_track_event(category, action, label, value);
+                }
+
+                //TODO 统计到ga
+
+            }
+        };
+
+        Track_Obj.init();
+        window.track_event = Track_Obj.track_event;
+    })(jQuery);
+</script></body>
+</html>

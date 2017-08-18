@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zg.number.mapper.LoginMapper">
+    <select id="login" parameterType="User" resultType="User">
+        SELECT userId,username,balance FROM  t_user WHERE  (phone=#{phone} or userName=#{phone}) AND  password=#{password}
+    </select>
+
+    <select id="findcurrentbalance" resultType="Captail" parameterType="java.lang.Integer">
+        SELECT t_captail.captailMoney from t_captail where t_captail.userId = #{userId}
+    </select>
+</mapper>

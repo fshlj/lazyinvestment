@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zg.number.mapper.RealizeMapper">
+
+    <!--查询一锤定音表-->
+    <select id="selectInvest" resultType="com.zg.number.bean.Invest" >
+       select t.investId,t.planName,t.projectTime,t.surplusMoney,t.revenueMoney,t.planMoney from t_invest t
+   </select>
+
+    <!--马上投资:根据项目的id查询项目详情-->
+    <select id="projectstail" parameterType="int" resultType="com.zg.number.bean.Invest">
+        select t.investId,t.planName,t.projectTime,t.surplusMoney,t.revenueMoney,t.planMoney,t.endtime from t_invest t where t.investId=#{investId}
+    </select>
+
+    <!--余额查询-->
+    <select id="selectYvE" parameterType="int" resultType="com.zg.number.bean.Captail">
+        select * from t_captail where userId = #{userid}
+    </select>
+
+    <!--将投资信息注入到投资记录表-->
+    <insert id="addRecord" parameterType="com.zg.number.bean.Record" >
+        insert into t_record(recordMoney,irecordTime,uid) value(#{recordMoney},#{irecordTime},#{uid})
+    </insert>
+
+    <!--修改资产表的账户余额-->
+    <update id="updateCaptail" parameterType="com.zg.number.bean.Captail" >
+      update t_captail set captailMoney = #{captailMoney} where userId = #{userId};
+    </update>
+
+    <!--修改一锤定音表的剩余金额-->
+    <update id="updateSurplusMoney" parameterType="com.zg.number.bean.Invest" >
+        update t_invest set surplusMoney=#{surplusMoney} where userId=#{userId}
+    </update>
+
+   <!--根据月份模糊查询项目的信息,传递多个参数进行查询 #{0}代表第一个参数,#{1}代表第二个参数-->
+    <!--通过_parameter.containsKey('变量名') 来判断map中是否包含有些变量 -->
+   <select id="selectProjectByTime" parameterType="Map"  resultType="com.zg.number.bean.Invest">
+       SELECT * from t_invest
+       <where>
+           1=1
+       </where>
+        <if test="_parameter.containsKey('one')">
+            and projectTime &gt;=#{one}
+        </if>
+       <if test="_parameter.containsKey('one')">
+           and  projectTime &lt;=#{two}
+       </if>
+   </select>
+
+    <!--根据年化收益降序-->
+    <select id="descBySurplusMoney" resultType="com.zg.number.bean.Invest">
+        select t.investId,t.planName,t.projectTime,t.surplusMoney,t.revenueMoney,t.planMoney from t_invest t order by  planMoney desc
+    </select>
+
+    <!--根据项目期限升序-->
+    <select id="descByProjectTime" resultType="com.zg.number.bean.Invest">
+        select t.investId,t.planName,t.projectTime,t.surplusMoney,t.revenueMoney,t.planMoney from t_invest t order by  projectTime DESC
+    </select>
+
+    <!--获取用户的id,对该项目的投资人进行添加-->
+    <insert id="addTouZiRen" parameterType="com.zg.number.bean.Invest" >
+        insert into t_invest(planName,surplusMoney,projectTime,revenueMoney,planMoney,endtime,userId)
+        value(#{planName},#{surplusMoney},#{projectTime},#{revenueMoney},#{planMoney},#{endtime},#{userId})
+    </insert>
+
+    <!--马上投资:根据用户的id来查询他投资的项目详情-->
+    <select id="projectstailByUserId" parameterType="int" resultType="com.zg.number.bean.Invest">
+        select t.investId,t.planName,t.projectTime,t.surplusMoney,t.revenueMoney,t.planMoney,t.endtime,t.userId from t_invest t where t.userId=#{investId}
+    </select>
+
+
+
+</mapper>
+
+

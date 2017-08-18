@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>资金流水</title>
+    <meta name="keywords" content="懒投资,懒人投资,懒理财,理财">
+    <meta name="description" content="懒投资是国内领先的互联网投行，专注金融产品创新，严格风控，与中国移动、比亚迪、金贵银业等上市公司合作。资金由银行存管、中国互联网金融协会会员，为投资保驾护航。">
+    <meta baidu-gxt-verify-token="8fd06ee5eb68e0def0986730ace33d6e">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/common/base.css?_v=e4ea6a1ba6aef6e8783dfacd7b6d7055">
+    <!--[if IE 8 ]>
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/common/base_ie8.css?_v=f37b1ac6b88dd8a3f1be486d1336693c"><![endif]-->
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/common/header.pc.css?_v=34c478f6f2c27c2e298d65416f54fa33">
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/v3/uc/uc.css?_v=b90f23eb6612465eca12a229ff05d52c">
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/v2/user/uc_common.css?_v=14046aeb87e28ca6022a65da87e46b3a">
+    <link rel="stylesheet" type="text/css"
+          href="https://lantouzi.com/static/css/v3/uc/side_menu.css?_v=fe8180f257c91a5b620321b27a121b6b">
+</head>
+<body>
+<header class="g-topbar">
+    <div class="l-container clearfix">
+        <div class="l-left">
+            <div class="g-service">
+                <div style="display:inline-block;width:280px;">
+                    <span style="vertical-align:top;">客服电话 400-807-8000</span>
+                    <span class="tel">（工作日 9:00-22:00）</span>
+                </div>
+                <span class="iconfont g-topbar-social weibo" id="weibo_account">&#xe601;</span>
+                <span class="iconfont g-topbar-social weixin" id="weixin_account">&#xe619;</span>
+            </div>
+            <div class="g-topbar-social-account weibo" id="weibo_account_info">
+                欢迎关注懒投资官方微博</br>
+                <a href="#" target="_blank" title="懒投资官方微博" rel="nofollow">@懒投资</a>
+            </div>
+            <div class="g-topbar-social-account weixin" id="weixin_account_info">
+                扫一扫关注懒投资微信
+                <img src="/images/IMG_0280.JPG" width="150px" height="150px" title="微信号:lantouzicom"/>
+                <p>微信号：lantouzicom</p>
+            </div>
+        </div>
+        <!--  未登录 -->
+        <div class="l-right" id="meilogin" th:if="${session.loginUser}==null" }>
+            <p class="g-topbar-nav">
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">登录</a>
+                <a href="/hwj/toregister" class="g-topbar-nav-link tongji" data-category="注册" data-label="header"
+                   rel="nofollow">注册</a>
+                <a href="#" class="g-topbar-nav-link">VIP会员</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="#" class="g-topbar-nav-link">安全保障</a>
+                <a href="#" class="g-topbar-nav-link">信息披露</a>
+                <a href="#" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+
+        <!-- 已登录 -->
+        <div class="l-right" th:if="${session.loginUser}!=null">
+            <p class="g-topbar-nav">
+                <a href="#" class="g-topbar-nav-link" rel="nofollow">欢迎，<span th:text="${session.loginUser.userName}"
+                ></span></a>
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">[退出]</a>
+                <a href="top/vip.html" class="g-topbar-nav-link">VIP会员</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="top/security.html" class="g-topbar-nav-link">安全保障</a>
+                <a href="top/information.html" class="g-topbar-nav-link">信息披露</a>
+                <a href="top/help.html" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+    </div>
+</header>
+<header class="g-header">
+    <div class="l-container clearfix">
+        <a href="#" class="g-header-logo" title="懒投资">
+            <img src="/images/IMG_0280.JPG" alt="懒投资"/>
+            <h1 class="l-hide">懒投资</h1>
+        </a>
+        <nav class="g-header-nav">
+            <a class="g-header-nav-link " href="../index.html" th:if="${session.loginUser}==null" }>首页</a>
+            <a class="g-header-nav-link " href="/toLoginSuccess" th:if="${session.loginUser}!=null" }>首页</a>
+            <a class="g-header-nav-link ">懒人计划</a>
+            <a class="g-header-nav-link " href="/lingqian">零钱计划</a>
+            <a class="g-header-nav-link " href="/wrx/selectInvest">变现计划</a>
+            <a class="g-header-nav-link " href="/xiangle">享乐计划<!-- <i class="beta" style="width:24px;">新</i> --></a>
+            <a class="g-header-nav-link " href="/qunxing">群星计划</a>
+            <a class="g-header-nav-link on" href="/hwj/myCard" rel="nofollow">我的账户</a>
+        </nav>
+    </div>
+</header>
+
+<div class="g-uc-page clearfix ">
+    <div class="g-uc-main">
+        <style>
+            .tab-title, .my-tabs {
+                height: 24px;
+                line-height: 24px;
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 0 15px;
+            }
+
+            .flow-table {
+                margin-top: 20px;
+            }
+
+            .my-page .my-tabs {
+                height: 24px;
+                border: none;
+            }
+
+            .my-page .my-tabs a {
+                height: 24px;
+                line-height: 24px;
+                padding: 0 10px;
+                border-radius: 20px;
+                color: #666;
+            }
+
+            .my-page .my-tabs a.on {
+
+                background: #FF9A66;
+            }
+
+            .my-page .table .add {
+                color: #f75f52;
+            }
+
+            .my-page .table .minus {
+                color: #69A824;
+            }
+        </style>
+        <div class="uc-page my-page">
+            <div class="g-h3">资金流水<span class="tail">LANTOUZI</span></div>
+            <div class="bd">
+
+                <div style="clear: left;">
+                    <table class="g-table flow-table">
+                        <tr>
+                            <th width="33%">交易金额（元）</th>
+                            <th width="38%">说明</th>
+                            <th width="33%">交易时间</th>
+                        </tr>
+                        <tr th:each="recordlist:${recordlist}">
+                            <td width="33%" th:text="${recordlist.recordMoney}">
+                            <td width="38%" th:text="${recordlist.investType}">
+                            <td width="33%" th:text="${recordlist.irecordTime}">
+                        </tr>
+                    </table>
+                    <div id="pager"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="g-uc-side-menu">
+        <div class="user-side-menu">
+            <style>
+                .g-uc-page {
+                    min-height: 800px;
+                }
+            </style>
+            <h5>我的账户</h5>
+            <ul class="menu-list">
+
+
+                <li><a href="/hwj/myCard"><span class="uc-menu-item "><span class="iconfont">&#xe621;</span>账户概览</span></a>
+                </li>
+                <li><a href="/findCapital"><span class="uc-menu-item on"><span
+                        class="iconfont">&#xe607;</span>资金流水</span></a></li>
+                <li><a href="/rcy/toChongZhi"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe61c;</span>我要充值</span></a></li>
+                <li><a href="/rcy/toTiXian"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe61e;</span>我要提现</span></a></li>
+
+                <!-- <li><a href="https://lantouzi.com/user/account/bindcard"><span class="uc-menu-item "><span class="iconfont">&#xe631;</span>提现银行卡</span></a></li> -->
+                <li><a href="#"><span class="uc-menu-item "><span class="iconfont">&#xe615;</span>邀请好友<span
+                        class="tag-award">奖</span></span></a></li>
+            </ul>
+            <h5>我的投资</h5>
+            <ul class="menu-list">
+                <li><a href="/fs/lanRen"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe629;</span>懒人计划</span></a></li>
+                <li><a href="/lingqian"><span class="uc-menu-item "><span
+                        class="iconfont">&#xe60e;</span>零钱计划</span></a></li>
+                <li><a href="/wrx/selectInvest"><span class="uc-menu-item "><span class="iconfont">&#xe600;</span>变现计划
+                    <!-- <span class="beta">Beta</span> --></span></a></li>
+                <li><a href="#"><span class="iconfont" style="font-size:24px;left:32px;">&#xe690;</span>斗牛计划</span></a>
+                </li>
+                <li><a href="/xiangle"><span class="iconfont">&#xe62d;</span>享乐计划</span></a></li>
+                <li><a href="/qunxing"><span class="uc-menu-item "><span class="iconfont">&#xe646;</span>群星计划</span></a>
+                </li>
+            </ul>
+            <h5>我的红包</h5>
+            <ul class="menu-list">
+                <li><a href="#"><span class="uc-menu-item "><span class="iconfont">&#xe61a;</span>投资券</span></a></li>
+                <li><a href="#"><span class="uc-menu-item "><span class="iconfont">&#xe627;</span>体验金</span></a></li>
+            </ul>
+            <h5>我的信息</h5>
+            <ul class="menu-list">
+                <li><a href="#"><span class="uc-menu-item "><span class="iconfont">&#xe61f;</span>个人信息</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+<footer class="g-footer">
+    <div class="l-container">
+        <div class="clearfix">
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">关于懒投资</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">公司介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">团队介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">联系我们</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">加入我们</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">产品服务</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">产品介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">安全保障</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">媒体报道</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link">友情链接</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">帮助中心</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link">网站公告</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">常见问题</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link" rel="nofollow">网贷教室</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="#" class="g-footer-link">保理业务介绍</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section wide">
+                <h3 class="g-footer-title">联系我们</h3>
+                <section>
+                    <p>客服电话：400-807-8000&nbsp;（工作日 9:00-22:00）</p>
+                    <p>客服邮箱：<a href="#" class="g-footer-link" rel="nofollow">kefu@lantouzi.com</a></p>
+                    <p>公司地址：北京市朝阳区三里屯SOHO 办公B座15层</p>
+                    <p>我要合作：<a href="#" class="g-footer-link" rel="nofollow">bd@lantouzi.com</a></p>
+                </section>
+            </div>
+            <div class="g-footer-wx-qrcode">
+                <div class="img-wrap">
+                    <img src="/images/IMG_0280.JPG" width="120px" height="120px" title="微信号:lantouzicom"/>
+                </div>
+                <p>投资有风险，选择需谨慎</p>
+            </div>
+        </div>
+
+        <div class="g-footer-safeguard clearfix">
+            <a href="#" class="safe-yeepay" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-geotrust" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-360" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-sobug" target="_blank" rel="nofollow"></a>
+            <a href="#" class="safe-trustutn" target="_blank" rel="nofollow"></a>
+        </div>
+        <div class="g-footer-copyright">
+            <p class="g-footer-copyright-line">
+                京ICP备14023229号 京ICP证150240号
+            </p>
+            <p class="g-footer-copyright-line">
+                <a target="_blank" href="#">
+                    <span><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAEoUlEQVQ4jX3UW2xTdQDH8e85PT097dq1Xbt2zYoEGBmbXIaA1wm6mAyUTS4JgpooBoPRKPHCg6IRozH6QsAQIiExEcKDigkJTBSXISCLkBgQWGAbY3O0bGztejltT9vT0+OLLuDQ//vvk//D//8V+J9jmoM1uYGe9hM/nnu5oJXkZa1N+3zzFh4WhNmR/9oId4W0Xx7vO975Svex3nZT61duFBxYvB6m+xW0mKPU3DLzSEPbmq8Epenov7fS1FuZSteuF7q2fdrLc0+aLHRaaBVuYVNUUg81cz7mkDZt/nn1h0N9q03TVARBKNy+F+/E4uHC+W0/7TqYYsOmmbwYTuPe20O81yA+YJBa+SVPG5fYsn89+77XMXt3fmeag8pdwYI51DB8dNvA0pWXlnrqgrzmv8TgwTTiNA+GWoRCGaHaQ/frZ1jnOE/wkYU8sbKjbfzXfdfHr+6snwLKuQ7nkV6XfO7mYlYsVslcSCMOpxA8NmwTBvkzt7DO8KFkNGJfn2VNa5Gua40cOG2E3GLSfgcY/+NE2Dh3YkdZsIOUo1K9SXoUrIYOE3mEWQ7kRR7EkSwyZWKDGrVVBRAEEhkRa7W8w9SSMybByPUf1urRaLPXKUPJhhkK4W+uIYOJ+rAPY0MY50dNOLbMR6x2EFjkJ5srgmkSCjggcuHx+MjJlybBigpvQ1rVmVmdB8XH8bMOpJZK4m3TMaIqwsUsuY5b6INJ5K3NVL25gEP7E0AFTfMksgNj5IevhydBY2KkLZ2QmBtWCd8vs+dABSc/i9C0JITb4SLXk6A8ViB/KYErmuTyx318sd9GsMnDvNoUsWiBUuJK8yQoSlmPmhapHO9jXatBSXeiHx3F983viLVWitUWygEJf0uIUNd1Yvsuky1aWNNuxRXvR01LWFwW6+TDtjvu6RTrh9qNYC0bH1DZUVvNnmgD+o0efPF+RLcdrSeBWhcg6g3xrWiHSg8bHxyj5ArjuVfA7g133PZThICZNrk5oDK3YZBP3lnE+1uXclSdB2md9lycKo/IoQ4XGRyAl7deVVhS18/NfiCfw9QzCyZByaMvLrmC6KM6kbErvNFsY01nBV3HclwV57O88Rohe4zSkVqKCY1pcxy8t3yIW91D5HQFxS8jeeU58HccCpmzz8Z++/ygNlqkENMh8iezVjVhCypgxDHiEpkxDfeMKpjug0iMwcO9aC4/zplO7DUOvLM3LLN6nzo1WZtS5sLz8cs7dht5zR07PYpUYVKzrAFjQkPPZREdCkpVBYJsJd49QMmQcC+ehZ4n7ql/bL0zuLbzjtqosXw0P2rXlGDZHWypw0hlMdQ0OGQssgfZDsVkhmwkgTLdhxIOUkjmyEdVM1+bmhoHq3nq3cB9rhqrN0QhVaZsSJQNC/lxFcwyxXiKTP84gsUKgkB+JIbVLhJ8NOS3OTObp4AVtpZVqubZnYtEsrIlSWWghFXIIQs6lkISU9NwzfFTWVeJKGeQ3DKCt2a4JDV94AxMPPOPM6XYvXvf9qfHR1bk9ciy2kZ/o5E2nYpXrLLa7eTS5rA9UJWT/I0X4gOxzvqLxnFh+/by7fu/ALehBVIymXo1AAAAAElFTkSuQmCC"
+                            width="10px" height="10px" style="margin-right: 5px;"></span>京公网安备 11010502030465号
+                </a>
+            </p>
+            <p class="g-footer-copyright-line">北京大家玩科技有限公司&nbsp;&nbsp;版权所有</p>
+            <p class="g-footer-copyright-line">
+                切换至：
+                <a href="?ua=pc" class="g-footer-link" rel="nofollow">PC版</a>
+                <a href="?ua=mobile" class="g-footer-link" rel="nofollow">手机版</a>
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

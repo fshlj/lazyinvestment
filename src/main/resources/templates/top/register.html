@@ -1,0 +1,169 @@
+
+<!doctype html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>注册 - 懒投资</title>
+    <meta name="keywords" content="懒投资,懒人投资,懒理财,理财">
+    <meta name="description" content="懒投资是国内领先的互联网投行，专注金融产品创新，严格风控，与中国移动、比亚迪、金贵银业等上市公司合作。资金由银行存管、中国互联网金融协会会员，为投资保驾护航。">
+    <meta baidu-gxt-verify-token="8fd06ee5eb68e0def0986730ace33d6e">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/base.css?_v=e4ea6a1ba6aef6e8783dfacd7b6d7055">
+    <!--[if IE 8 ]><link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/base_ie8.css?_v=f37b1ac6b88dd8a3f1be486d1336693c"><![endif]-->
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/header.pc.css?_v=34c478f6f2c27c2e298d65416f54fa33">
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/v3/passport/register.css?_v=4008c77b66409a39cde996b53e909101">
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../js/register.js"></script>
+    <!--<script src="../js/tuxingyanzheng.js"></script>-->
+    <!--<script src="js/jquery-2.1.4.js"></script>-->
+
+    <style>
+        .code
+        {
+
+            font-family:Arial;
+            font-style:italic;
+            color:blue;
+            font-size:30px;
+            border:0;
+            padding:2px 3px;
+            letter-spacing:3px;
+            font-weight:bolder;
+            float:left;
+            cursor:pointer;
+            width:150px;
+            height:50px;
+            line-height:40px;
+            text-align:center;
+            vertical-align:middle;
+
+        }
+        a
+        {
+            text-decoration:none;
+            font-size:12px;
+            color:#288bc4;
+        }
+        a:hover
+        {
+            text-decoration:underline;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+<header class="g-topbar">
+    <div class="l-container clearfix">
+        <div class="l-left">
+            <div class="g-service">
+                <div style="display:inline-block;width:280px;">
+                    <span style="vertical-align:top;">客服电话 400-807-8000</span>
+                    <span class="tel">（工作日 9:00-22:00）</span>
+                </div>
+                <span class="iconfont g-topbar-social weibo" id="weibo_account">&#xe601;</span>
+                <span class="iconfont g-topbar-social weixin" id="weixin_account">&#xe619;</span>
+            </div>
+            <div class="g-topbar-social-account weibo" id="weibo_account_info">
+                欢迎关注懒投资官方微博</br>
+                <a href="#" target="_blank" title="懒投资官方微博" rel="nofollow">@懒投资</a>
+            </div>
+            <div class="g-topbar-social-account weixin" id="weixin_account_info">
+                扫一扫关注懒投资微信
+                <img src="https://s1.lantouzi.com/img/201612/a5e738531668ada69144888e315221ce.png" width="150px" height="150px" title="微信号:lantouzicom" />
+                <p>微信号：lantouzicom</p>
+            </div>
+        </div>
+        <div class="l-right">
+            <p class="g-topbar-nav">
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">登录</a>
+                <a href="/hwj/toregister" class="g-topbar-nav-link tongji" data-category="注册" data-label="header" rel="nofollow">注册</a>
+                <a href="#" class="g-topbar-nav-link">VIP会员</a>
+                <a href="#" class="g-topbar-nav-link">安全保障</a>
+                <a href="#" class="g-topbar-nav-link">信息披露</a>
+                <a href="#" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+    </div>
+</header>
+<header class="header-clean">
+    <div class="l-container clearfix">
+        <a href="/index" class="g-header-logo" title="懒投资">
+            <img src="https://s1.lantouzi.com/img/201612/53ef617a4124fb2da54ab79c27945889.png" alt="懒投资" />
+            <h1 class="l-hide">懒投资</h1>
+        </a>
+        <span class="sub-title">注册 - 懒投资</span>
+        <a class="other-option" href="/rcy/toLogin"><span class="iconfont">&#xe741;</span>立即登录</a>
+    </div>
+</header>
+<div class="l-container">
+    <div class="page-register">
+        <div class="ad-pic">
+            <img src="https://s1.lantouzi.com/img/201612/36fd124f53ea3d9d58e1129d7731f8d6.png">
+        </div>
+        <div class="main">
+            <form id="regForm" class="form" method="post" action="/hwj/register" >
+                <div class="line">
+                    <span class="tit">用户名：</span>
+                    <input type="text" id="username" name="userName" maxlength="16" placeholder="字母开头/四位及以上"/>
+                    <span class="err-area" ><em class="err-tips" id="namesp"></em></span>
+                </div>
+                <div class="line">
+                    <span class="tit">手机号：</span>
+                    <input type="text" maxlength="11" name="phone" id="phone" placeholder="手机号"/>
+                    <span class="err-area"><em class="err-tips" id="phonesp"></em></span>
+                </div>
+                <div class="line line-short">
+                <span class="tit">图形验证：</span>
+                <input type="text" id="checkCod" maxlength="6" onblur="validateCode()"
+                       border="0" cellspacing="5" cellpadding="5"  placeholder="下面验证码" />
+                  <!--  <a onclick="createCode()" style="float: right">看不清换一张</a>-->
+                <span id="sp" style="float: right; margin-right: 125px;color: red"></span>
+                <span class="err-area"><em class="err-tips"></em></span>
+            </div>
+            <div class="line line-short">
+                <div class="code" id="checkCode"  style="margin-left: 200px" onclick="createCode()" ></div>
+            </div>
+
+                <div class="line line-short">
+                    <span class="tit">手机验证：</span>
+                    <input type="text"  id="phoneVerfiyCode" name="validate" maxlength="6" style="width: 200px" placeholder="短信验证码"/>
+                    <!--<a class="send-sms">
+                        &lt;!&ndash;<span class="btn" id="validate"  onclick="settime(this)" th:value="获取验证码" ></span>&ndash;&gt;
+                        <input  class="btn btn-success btn-lg active"  value="获取验证码" onclick="settime(this)" />
+                    </a>-->
+                    <input  class="btn btn-default btn-sm active"  value="获取验证码" id="yanzheng" onclick="settime(this)" style=" width: 100px; height: 40px"  />
+                    <span class="err-area"><em class="err-tips"></em></span>
+                </div>
+                <div class="line">
+                    <span class="tit">密码：</span>
+                    <input type="password" id="password" name="password" placeholder="登录密码" />
+                    <span class="err-area"><em class="err-tips"></em></span>
+                </div>
+                <div class="line">
+                    <span class="tit"></span>
+                    <label for="agreement" class="lbl-agreement">
+                        <input type="checkbox" checked="checked" id="agreement">我已阅读并同意懒投资的<a href="https://lantouzi.com/about/agreement" target="_blank" class="tongji" data-category="服务协议" data-label="register">《服务协议》</a>及<a href="https://lantouzi.com/about/privacy" target="_blank" class="tongji" data-category="隐私条款" data-label="register">《隐私条款》</a>
+                    </label>
+                </div>
+                <div class="line">
+                    <span class="tit"></span>
+                    <div class="actions">
+                        <button type="submit" id="button" class="g-btn g-btn-large-major btn-reg tongji" disabled="disabled" data-category="立即注册" data-label="register">注册</button>
+                        <span class="err-area"><em class="err-tips" th:text="${session.say}"></em></span>
+                    </div>
+                    <div class="textmsg-notice">注册成功后将会收到懒投资发送的相关通知短信。</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

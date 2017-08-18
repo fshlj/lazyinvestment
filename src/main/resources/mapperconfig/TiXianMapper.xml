@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zg.number.mapper.TiXianMapper">
+
+    <update id="tiXianAddCard" parameterType="Captail">
+        update t_addcard set cardYue=cardYue+#{tiXianMoney} where uid=#{userId};
+    </update>
+    <update id="balanceReduce" parameterType="Captail">
+        update t_captail set captailMoney=captailMoney - #{tiXianMoney} where userid=#{userId};
+    </update>
+
+</mapper>

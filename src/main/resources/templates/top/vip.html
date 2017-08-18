@@ -1,0 +1,752 @@
+
+<!doctype html>
+<html lang="zh-CN" >
+<head>
+    <meta charset="utf-8">
+    <title>会员俱乐部</title>
+    <meta name="keywords" content="vip会员,懒投资">
+    <meta name="description" content="懒投资vip会员俱乐部,会员可免费领取投资劵、零钱份额提升、积分加速等VIP权益,选择投资理财就上懒投资网。">
+    <meta baidu-gxt-verify-token="8fd06ee5eb68e0def0986730ace33d6e">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/base.css?_v=e4ea6a1ba6aef6e8783dfacd7b6d7055">
+    <!--[if IE 8 ]><link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/base_ie8.css?_v=f37b1ac6b88dd8a3f1be486d1336693c"><![endif]-->
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/header.pc.css?_v=34c478f6f2c27c2e298d65416f54fa33">
+    <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/v3/lpass/index.css?_v=2f4732933805d61c3607e13724eeb13f">
+</head>
+<body>
+<header class="g-topbar">
+    <div class="l-container clearfix">
+        <div class="l-left">
+            <div class="g-service">
+                <div style="display:inline-block;width:280px;">
+                    <span style="vertical-align:top;">客服电话 400-807-8000</span>
+                    <span class="tel">（工作日 9:00-22:00）</span>
+                </div>
+                <span class="iconfont g-topbar-social weibo" id="weibo_account">&#xe601;</span>
+                <span class="iconfont g-topbar-social weixin" id="weixin_account">&#xe619;</span>
+            </div>
+            <div class="g-topbar-social-account weibo" id="weibo_account_info">
+                欢迎关注懒投资官方微博</br>
+                <a href="http://weibo.com/lantouzicom" target="_blank" title="懒投资官方微博" rel="nofollow">@懒投资</a>
+            </div>
+            <div class="g-topbar-social-account weixin" id="weixin_account_info">
+                扫一扫关注懒投资微信
+                <img src="https://s1.lantouzi.com/img/201612/a5e738531668ada69144888e315221ce.png" width="150px" height="150px" title="微信号:lantouzicom" />
+                <p>微信号：lantouzicom</p>
+            </div>
+        </div>
+        <!--  未登录 -->
+        <div class="l-right" id="meilogin" th:if="${session.loginUser}==null"}>
+            <p class="g-topbar-nav">
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">登录</a>
+                <a href="/hwj/toregister" class="g-topbar-nav-link tongji" data-category="注册" data-label="header"
+                   rel="nofollow">注册</a>
+                <a href="top/vip.html" class="g-topbar-nav-link">VIP会员</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="top/security.html" class="g-topbar-nav-link">安全保障</a>
+                <a href="top/information.html" class="g-topbar-nav-link">信息披露</a>
+                <a href="top/help.html" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+
+        <!-- 已登录 -->
+        <div class="l-right" th:if="${session.loginUser}!=null">
+            <p class="g-topbar-nav">
+                <a href="#" class="g-topbar-nav-link" rel="nofollow">欢迎，<span th:text="${session.loginUser.userName}"
+                ></span></a>
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">[退出]</a>
+                <a href="top/vip.html" class="g-topbar-nav-link">VIP会员</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="top/security.html" class="g-topbar-nav-link">安全保障</a>
+                <a href="top/information.html" class="g-topbar-nav-link">信息披露</a>
+                <a href="top/help.html" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+    </div>
+</header>
+<header class="g-header">
+    <div class="l-container clearfix">
+        <a href="https://lantouzi.com/" class="g-header-logo" title="懒投资">
+            <img src="https://s1.lantouzi.com/img/201612/53ef617a4124fb2da54ab79c27945889.png" alt="懒投资" />
+            <h1 class="l-hide">懒投资</h1>
+        </a>
+        <nav class="g-header-nav">
+            <a class="g-header-nav-link on">首页</a>
+            <a class="g-header-nav-link " href="/fs/lanRen">懒人计划</a>
+            <a class="g-header-nav-link " href="#">零钱计划</a>
+            <!--<a class="g-header-nav-link " href="@{/wrx/selectInvest}">变现计划</a>-->
+            <a th:href="@{/wrx/selectInvest}" class="g-header-nav-link ">变现计划</a>
+
+            <a class="g-header-nav-link " href="#">享乐计划
+                <!-- <i class="beta" style="width:24px;">新</i> --></a>
+            <a class="g-header-nav-link " href="#">群星计划</a>
+            <a class="g-header-nav-link " href="/rcy/toMyAccount" rel="nofollow">我的账户</a>
+        </nav>
+    </div>
+</header>
+
+<div class="sec-1">
+    <div class="inner">
+        <div class="shape"></div>
+        <div class="lpass-status">
+            <a href="login.html" class="lan-wrapper">
+                <div class="lan">
+                    <i class="mv01"></i>
+                    <i class="mv02"></i>
+                </div>
+                <div class="lan-info">
+                    <div class="log">请先登录</div>
+                    <div class="desc">查看会员等级</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="sec-2">
+    <div class="inner">
+        <div class="sec-name">
+            <span class="square square-s"></span>
+            <span class="square square-m"></span>
+            <span class="square square-l"></span>
+            会员等级说明
+            <span class="square square-l"></span>
+            <span class="square square-m"></span>
+            <span class="square square-s"></span>
+        </div>
+        <div class="level-img no-login"></div>
+        <div class="level-note">
+            <p>＊升级：同时满足「定期累计投资额」和「在投金额」条件，将于次日升级。</p>
+            <p>＊降级：若连续15天不满足当前等级对应条件，将于次日降级。</p>
+            <p>＊成功变现的变现计划和群星计划资产，将从「定期累计投资额」和「在投金额」中扣除。</p>
+        </div>
+    </div>
+</div>
+<div class="sec-3">
+    <div class="inner">
+        <div class="shape"></div>
+        <div class="sec-name">
+            <span class="square square-s"></span>
+            <span class="square square-m"></span>
+            <span class="square square-l"></span>
+            等级变动记录
+            <span class="square square-l"></span>
+            <span class="square square-m"></span>
+            <span class="square square-s"></span>
+        </div>
+        <a class="l-btn" href="https://lantouzi.com/login">马上登录</a>
+    </div>
+</div>
+<div class="sec-4">
+    <div class="inner">
+        <div class="shape"></div>
+        <div class="shape-2"></div>
+        <div class="sec-name">
+            <span class="square square-s"></span>
+            <span class="square square-m"></span>
+            <span class="square square-l"></span>
+            会员权益说明
+            <span class="square square-l"></span>
+            <span class="square square-m"></span>
+            <span class="square square-s"></span>
+        </div>
+        <ul id="user-rights">
+            <li class="profit-tab on" data-idx="0">
+                <div class="hexagon">
+                    <span class="iconfont" style="font-size:60px;">&#xe63d;</span>
+                </div>
+                投资礼包
+            </li>
+            <li class="profit-tab" data-idx="1">
+                <div class="hexagon">
+                    <span class="iconfont" style="font-size:50px;">&#xe640;</span>
+                </div>
+                零钱计划<div class="font-spe-new">新</div>
+            </li>
+            <li class="profit-tab" data-idx="2">
+                <div class="hexagon">
+                    <span class="iconfont" style="font-size:35px;">&#xe63e;</span>
+                </div>
+                积分特权
+            </li>
+            <li class="profit-tab" data-idx="3">
+                <div class="hexagon">
+                    <span class="iconfont" style="font-size:45px;">&#xe63f;</span>
+                </div>
+                活动尊享
+            </li>
+            <li class="profit-tab" data-idx="4">
+                <div class="hexagon">
+                    <span class="iconfont" style="font-size:45px;">&#xe641;</span>
+                </div>
+                生日福利<!-- <span class="font-spe-new">新</span> -->
+            </li>
+            <li class="profit-tab" data-idx="5">
+                <div class="hexagon">
+                    <span class="iconfont" style="font-size:45px;">&#xe63b;</span>
+                </div>
+                其它权益
+            </li>
+        </ul>
+        <ul>
+            <li class="profit-detail profit-detail-0">
+                <table class="table-profit">
+                    <thead>
+                    <tr>
+                        <th rowspan="2">
+                            <span class="iconfont">&#xe63c;</span>
+                            会员等级
+                        </th>
+                        <th colspan="2">投资券大礼包</th>
+                    </tr>
+                    <tr>
+                        <th>每月送满减券</th>
+                        <th>每月送加息券</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr >
+                        <td>普卡</td>
+                        <td>/</td>
+                        <td>/</td>
+                    </tr>
+                    <tr >
+                        <td>银卡</td>
+                        <td>任选1张</td>
+                        <td>/</td>
+                    </tr>
+                    <tr >
+                        <td>金卡</td>
+                        <td>任选1张</td>
+                        <td>/</td>
+                    </tr>
+                    <tr >
+                        <td>铂金卡</td>
+                        <td>任选1张</td>
+                        <td>/</td>
+                    </tr>
+                    <tr >
+                        <td>钻石卡</td>
+                        <td>任选2张</td>
+                        <td>任选1张</td>
+                    </tr>
+                    <tr >
+                        <td>玉玺卡</td>
+                        <td>任选2张</td>
+                        <td>任选1张</td>
+                    </tr>
+                    <tr >
+                        <td>黑金卡</td>
+                        <td>任选2张</td>
+                        <td>任选1张</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="profit-note">＊满减券和加息券由会员自行领取。<a href="https://lantouzi.com/user/coupon?type=1" target="_blank">查看我的投资券 &gt;</a></div>
+            </li>
+            <li class="profit-detail profit-detail-1">
+                <table class="table-profit">
+                    <thead>
+                    <tr>
+                        <th rowspan="2">
+                            <span class="iconfont">&#xe63c;</span>
+                            会员等级
+                        </th>
+                        <th colspan="5">零钱计划权益</th>
+                    </tr>
+                    <tr>
+                        <th>投资上限</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr >
+                        <td>普卡</td>
+                        <td>8万</td>
+                    </tr>
+                    <tr >
+                        <td>银卡</td>
+                        <td>15万</td>
+                    </tr>
+                    <tr >
+                        <td>金卡</td>
+                        <td>50万</td>
+                    </tr>
+                    <tr >
+                        <td>铂金卡</td>
+                        <td>80万</td>
+                    </tr>
+                    <tr >
+                        <td>钻石卡</td>
+                        <td>100万</td>
+                    </tr>
+                    <tr >
+                        <td>玉玺卡</td>
+                        <td>200万</td>
+                    </tr>
+                    <tr >
+                        <td>黑金卡</td>
+                        <td>300万</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li class="profit-detail profit-detail-2">
+                <table class="table-profit">
+                    <thead>
+                    <tr>
+                        <th rowspan="2">
+                            <span class="iconfont">&#xe63c;</span>
+                            会员等级
+                        </th>
+                        <th colspan="2">积分特权</th>
+                    </tr>
+                    <tr>
+                        <th>积分加速</th>
+                        <th>积分换会员</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr >
+                        <td>普卡</td>
+                        <td>x1.0倍</td>
+                        <td>50积分体验7天银卡</td>
+                    </tr>
+                    <tr >
+                        <td>银卡</td>
+                        <td>x1.1倍</td>
+                        <td>150积分体验7天金卡</td>
+                    </tr>
+                    <tr >
+                        <td>金卡</td>
+                        <td>x1.2倍</td>
+                        <td>300积分体验7天铂金卡</td>
+                    </tr>
+                    <tr >
+                        <td>铂金卡</td>
+                        <td>x1.3倍</td>
+                        <td>/</td>
+                    </tr>
+                    <tr >
+                        <td>钻石卡</td>
+                        <td>x1.4倍</td>
+                        <td>/</td>
+                    </tr>
+                    <tr >
+                        <td>玉玺卡</td>
+                        <td>x1.5倍</td>
+                        <td>/</td>
+                    </tr>
+                    <tr >
+                        <td>黑金卡</td>
+                        <td>x1.6倍</td>
+                        <td>/</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="profit-note">
+                    <p>＊积分加速的倍数，根据还款当日的会员等级计算。还可以使用积分兑换会员，<a class="js-jifen-tryout">马上兑换 &gt;</a></p>
+                    <p>＊韬映投资额对应的懒投资积分，将在基金备案完成后随净值更新按周发放。<a class="js-towering">立即查看 &gt;</a></p>
+                </div>
+            </li>
+            <li class="profit-detail profit-detail-3">
+                <table class="table-profit">
+                    <thead>
+                    <tr>
+                        <th rowspan="2">
+                            <span class="iconfont">&#xe63c;</span>
+                            会员等级
+                        </th>
+                        <th colspan="3">活动尊享</th>
+                    </tr>
+                    <tr>
+                        <th>斗牛优先购买</th>
+                        <th>新品提前体验</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr >
+                        <td>普卡</td>
+                        <td>/</td>
+                        <td>/</td>
+                    </tr>
+                    <tr >
+                        <td>银卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    <tr >
+                        <td>金卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    <tr >
+                        <td>铂金卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    <tr >
+                        <td>钻石卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    <tr >
+                        <td>玉玺卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    <tr >
+                        <td>黑金卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="profit-note">＊根据 LPASS 会员等级享受不同活动特权。</div>
+            </li>
+            <li class="profit-detail profit-detail-4">
+                <table class="table-profit">
+                    <thead>
+                    <tr>
+                        <th rowspan="2">
+                            <span class="iconfont">&#xe63c;</span>
+                            会员等级
+                        </th>
+                        <th colspan="3">生日福利</th>
+                    </tr>
+                    <tr>
+                        <th>影音套餐</th>
+                        <th>双倍积分<span class="font-spe-new">新</span></th>
+                        <th>其它福利</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr >
+                        <td>普卡</td>
+                        <td>/</td>
+                        <td>/</td>
+                        <td rowspan="7" style="line-height:28px;color:#a17342;background:#faefdf;">敬请期待<br>更多接入中<br>...</td>
+                    </tr>
+                    <tr >
+                        <td>银卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    <tr >
+                        <td>金卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    <tr >
+                        <td>铂金卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    <tr >
+                        <td>钻石卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    <tr >
+                        <td>玉玺卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    <tr >
+                        <td>黑金卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="profit-note" style="height:44px;margin-top:13px;padding-bottom:10px;">
+                    <p>＊生日当天投资懒人计划，可享受双倍积分，附赠的积分将在项目满标后一次性发放。</p>
+                    <p>注：懒投资的各类积分加倍活动不叠加。生日当天投资双倍积分项目时，以生日双倍积分的形式发放积分。</p>
+                </div>
+            </li>
+            <li class="profit-detail profit-detail-5">
+                <table class="table-profit">
+                    <thead>
+                    <tr>
+                        <th rowspan="2">
+                            <span class="iconfont">&#xe63c;</span>
+                            会员等级
+                        </th>
+                        <th colspan="3">其它权益</th>
+                    </tr>
+                    <tr>
+                        <th>客服优先接听</th>
+                        <th>专属客服</th>
+                        <th>更多权益</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr >
+                        <td>普卡</td>
+                        <td>/</td>
+                        <td>/</td>
+                        <td rowspan="7" style="line-height:28px;color:#a17342;background:#faefdf;">敬请期待<br>更多接入中<br>...</td>
+                    </tr>
+                    <tr >
+                        <td>银卡</td>
+                        <td>有</td>
+                        <td>/</td>
+                    </tr>
+                    <tr >
+                        <td>金卡</td>
+                        <td>有</td>
+                        <td>/</td>
+                    </tr>
+                    <tr >
+                        <td>铂金卡</td>
+                        <td>有</td>
+                        <td>/</td>
+                    </tr>
+                    <tr >
+                        <td>钻石卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    <tr >
+                        <td>玉玺卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    <tr >
+                        <td>黑金卡</td>
+                        <td>有</td>
+                        <td>有</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="profit-note">＊更多会员福利接入中，敬请期待。</div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="sec-5">
+    <div class="inner">
+        <div class="sec-name">
+            <span class="square square-s"></span>
+            <span class="square square-m"></span>
+            <span class="square square-l"></span>
+            会员礼包
+            <span class="square square-l"></span>
+            <span class="square square-m"></span>
+            <span class="square square-s"></span>
+        </div>
+        <div class="coupon-list">
+            <div class="level-info">
+                会员投资礼包已移至懒投资APP积分商城，领取步骤如下
+            </div>
+            <img class="coupon-steps" src="https://s1.lantouzi.com/img/20173/f98f3798cae2fd43dbe7da50a8e6976e.png">
+            <div class="coupon-note">
+                ＊每月1日起可领取当月礼包，满减券和加息券均由会员自行领取，当月有效（自然月），次月失效。<br><a href="https://lantouzi.com/post/881">查看VIP会员投资礼包更新说明&gt;</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sec-6">
+    <div class="inner">
+        <div class="sec-name">
+            <span class="square square-s"></span>
+            <span class="square square-m"></span>
+            <span class="square square-l"></span>
+            影音套餐
+            <span class="square square-l"></span>
+            <span class="square square-m"></span>
+            <span class="square square-s"></span>
+        </div>
+        <div class="ticket-wrapper">
+            <div class="status">
+				<span class="info">
+											您当前未登录，请<a href="https://lantouzi.com/login">登录</a>后领取
+									</span>
+                <b></b>
+            </div>
+            <div class="gift-list hover"><!--当前不是可领状态的话加一个hover的class-->
+                <div class="gift js-login" data-id="1">
+                    <img class="icon" src="https://s1.lantouzi.com/app/vip/Bitmap1.png">
+                    <div class="name"><span>1个月虾米音乐会员</span></div>
+                    <div class="sub-tit">更多高品质好歌</div>
+                    <div class="hover"><span>马上登录</span></div>
+                </div>
+                <div class="gift js-login" data-id="2">
+                    <img class="icon" src="https://s1.lantouzi.com/app/vip/Bitmap.png">
+                    <div class="name"><span>1个月腾讯好莱坞会员</span></div>
+                    <div class="sub-tit">院线新片抢先看</div>
+                    <div class="hover"><span>马上登录</span></div>
+                </div>
+                <div class="gift js-login" data-id="3">
+                    <img class="icon" src="https://s1.lantouzi.com/app/vip/youkulogo.png">
+                    <div class="name"><span>3个月优酷土豆会员</span></div>
+                    <div class="sub-tit">热播电视剧抢先看</div>
+                    <div class="hover"><span>马上登录</span></div>
+                </div>
+                <div class="gift js-login" data-id="4">
+                    <img class="icon" src="https://s1.lantouzi.com/app/vip/Bitmap2.png">
+                    <div class="name"><span>3个月爱奇艺会员</span></div>
+                    <div class="sub-tit">院线大片全免费</div>
+                    <div class="hover"><span>马上登录</span></div>
+                </div>
+                <div class="gift js-login" data-id="9">
+                    <img class="icon" src="https://s1.lantouzi.com/app/vip/Bitmap.png">
+                    <div class="name"><span>6个月腾讯好莱坞会员</span></div>
+                    <div class="sub-tit">院线新片抢先看</div>
+                    <div class="hover"><span>马上登录</span></div>
+                </div>
+                <div class="gift js-login" data-id="12">
+                    <img class="icon" src="https://s1.lantouzi.com/app/vip/Bitmap2.png">
+                    <div class="name"><span>6个月爱奇艺会员</span></div>
+                    <div class="sub-tit">院线大片全免费</div>
+                    <div class="hover"><span>马上登录</span></div>
+                </div>
+            </div>
+            <div class="ticket-rules">
+                <div class="tit">＊使用说明：</div>
+                1. LPASS银卡及以上用户，可在生日月领取影音套餐；（生日月以实名认证时的身份证信息为准）<br>
+                2. 处于体验期的LPASS会员（即使用积分兑换的会员），按照实际等级领取影音套餐；<br>
+                3. 领取成功后，可查看领取记录或短信，请及时使用。
+            </div>
+        </div>
+    </div>
+</div>
+<div id="tmpl-level-up" class="l-hide">
+    <div class="dg_wrapper dia-level-up" style="height:auto">
+        <div class="hd">升级条件</div>
+        <div class="bd">
+            <table>
+                <thead>
+                <tr>
+                    <th>定期累计投资额（元）：</th>
+                    <th>在投金额（元）：</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                </tr>
+                </tbody>
+            </table>
+            <p class="level-up-tips">*以上统计截止到昨日，定期累计投资为1年内数据</p>
+            <div class="level-desc">可升级到LPASS${next_level_name}，需满足条件如下：</div>
+
+            <div class="methods">
+                定期累计投资额&#8805;${invest_done_amount}元，且在投金额&#8805;${invest_doing_amount}元
+                <div class="${cls}">或前往APP会员中心，使用50积分体验7天银卡</div>
+            </div>
+            <a class="g-btn g-btn-medium-major" href="https://lantouzi.com/project">马上投资</a>
+            <a class="g-btn g-btn-medium-minor" href="https://lantouzi.com/mobile/download" target="_blank">下载APP</a>
+        </div>
+        <span class="js-close close iconfont">&#xe63a;</span>
+    </div>
+</div>
+
+
+<footer class="g-footer">
+    <div class="l-container">
+        <div class="clearfix">
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">关于懒投资</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/index" class="g-footer-link" rel="nofollow">公司介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/team" class="g-footer-link" rel="nofollow">团队介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/contact" class="g-footer-link"  rel="nofollow">联系我们</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/joinus" class="g-footer-link"  rel="nofollow">加入我们</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">产品服务</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/product" class="g-footer-link" rel="nofollow">产品介绍</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/security" class="g-footer-link" rel="nofollow">安全保障</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/news" class="g-footer-link" rel="nofollow">媒体报道</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/links" class="g-footer-link">友情链接</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section">
+                <h3 class="g-footer-title">帮助中心</h3>
+                <nav>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/post" class="g-footer-link">网站公告</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/help" class="g-footer-link" rel="nofollow">常见问题</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/risk_reminder" class="g-footer-link" rel="nofollow">网贷教室</a>
+                    </li>
+                    <li class="g-footer-list">
+                        <a href="https://lantouzi.com/about/baoli" class="g-footer-link">保理业务介绍</a>
+                    </li>
+                </nav>
+            </div>
+            <div class="g-footer-section wide">
+                <h3 class="g-footer-title">联系我们</h3>
+                <section>
+                    <p>客服电话：400-807-8000&nbsp;（工作日 9:00-22:00）</p>
+                    <p>客服邮箱：<a href="mailto:kefu@lantouzi.com" class="g-footer-link" rel="nofollow">kefu@lantouzi.com</a></p>
+                    <p>公司地址：北京市朝阳区三里屯SOHO 办公B座15层</p>
+                    <p>我要合作：<a href="mailto:bd@lantouzi.com" class="g-footer-link" rel="nofollow">bd@lantouzi.com</a></p>
+                </section>
+            </div>
+            <div class="g-footer-wx-qrcode">
+                <div class="img-wrap">
+                    <img src="https://s1.lantouzi.com/img/201612/a5e738531668ada69144888e315221ce.png" width="120px" height="120px" title="微信号:lantouzicom"/>
+                </div>
+                <p>投资有风险，选择需谨慎</p>
+            </div>
+        </div>
+        <!-- 	<div class="g-footer-links">
+                <section class="container clearfix" id="g-footer-links"></section>
+                <div class="g-footer-links-icon" title="展开/收起">
+                    <i class="iconfont">&#xe67d;</i>
+                </div>
+                <div class="g-footer-links-more">
+                    <a href="https://lantouzi.com/links">全部</a>
+                </div>
+            </div> -->
+        <div class="g-footer-safeguard clearfix">
+            <a href="http://www.xmccb.com" class="safe-yeepay" target="_blank" rel="nofollow"></a>
+            <a href="http://www.geotrust.com/" class="safe-geotrust" target="_blank" rel="nofollow"></a>
+            <a href="http://webscan.360.cn/" class="safe-360" target="_blank" rel="nofollow"></a>
+            <a href="https://www.sobug.com/" class="safe-sobug" target="_blank" rel="nofollow"></a>
+            <a href="http://si.trustutn.org/info?sn=813161019000540855329" class="safe-trustutn" target="_blank" rel="nofollow"></a>
+        </div>
+        <div class="g-footer-copyright">
+            <p class="g-footer-copyright-line">
+                京ICP备14023229号 京ICP证150240号
+            </p>
+            <p class="g-footer-copyright-line">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502030465">
+                    <span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAEoUlEQVQ4jX3UW2xTdQDH8e85PT097dq1Xbt2zYoEGBmbXIaA1wm6mAyUTS4JgpooBoPRKPHCg6IRozH6QsAQIiExEcKDigkJTBSXISCLkBgQWGAbY3O0bGztejltT9vT0+OLLuDQ//vvk//D//8V+J9jmoM1uYGe9hM/nnu5oJXkZa1N+3zzFh4WhNmR/9oId4W0Xx7vO975Svex3nZT61duFBxYvB6m+xW0mKPU3DLzSEPbmq8Epenov7fS1FuZSteuF7q2fdrLc0+aLHRaaBVuYVNUUg81cz7mkDZt/nn1h0N9q03TVARBKNy+F+/E4uHC+W0/7TqYYsOmmbwYTuPe20O81yA+YJBa+SVPG5fYsn89+77XMXt3fmeag8pdwYI51DB8dNvA0pWXlnrqgrzmv8TgwTTiNA+GWoRCGaHaQ/frZ1jnOE/wkYU8sbKjbfzXfdfHr+6snwLKuQ7nkV6XfO7mYlYsVslcSCMOpxA8NmwTBvkzt7DO8KFkNGJfn2VNa5Gua40cOG2E3GLSfgcY/+NE2Dh3YkdZsIOUo1K9SXoUrIYOE3mEWQ7kRR7EkSwyZWKDGrVVBRAEEhkRa7W8w9SSMybByPUf1urRaLPXKUPJhhkK4W+uIYOJ+rAPY0MY50dNOLbMR6x2EFjkJ5srgmkSCjggcuHx+MjJlybBigpvQ1rVmVmdB8XH8bMOpJZK4m3TMaIqwsUsuY5b6INJ5K3NVL25gEP7E0AFTfMksgNj5IevhydBY2KkLZ2QmBtWCd8vs+dABSc/i9C0JITb4SLXk6A8ViB/KYErmuTyx318sd9GsMnDvNoUsWiBUuJK8yQoSlmPmhapHO9jXatBSXeiHx3F983viLVWitUWygEJf0uIUNd1Yvsuky1aWNNuxRXvR01LWFwW6+TDtjvu6RTrh9qNYC0bH1DZUVvNnmgD+o0efPF+RLcdrSeBWhcg6g3xrWiHSg8bHxyj5ArjuVfA7g133PZThICZNrk5oDK3YZBP3lnE+1uXclSdB2md9lycKo/IoQ4XGRyAl7deVVhS18/NfiCfw9QzCyZByaMvLrmC6KM6kbErvNFsY01nBV3HclwV57O88Rohe4zSkVqKCY1pcxy8t3yIW91D5HQFxS8jeeU58HccCpmzz8Z++/ygNlqkENMh8iezVjVhCypgxDHiEpkxDfeMKpjug0iMwcO9aC4/zplO7DUOvLM3LLN6nzo1WZtS5sLz8cs7dht5zR07PYpUYVKzrAFjQkPPZREdCkpVBYJsJd49QMmQcC+ehZ4n7ql/bL0zuLbzjtqosXw0P2rXlGDZHWypw0hlMdQ0OGQssgfZDsVkhmwkgTLdhxIOUkjmyEdVM1+bmhoHq3nq3cB9rhqrN0QhVaZsSJQNC/lxFcwyxXiKTP84gsUKgkB+JIbVLhJ8NOS3OTObp4AVtpZVqubZnYtEsrIlSWWghFXIIQs6lkISU9NwzfFTWVeJKGeQ3DKCt2a4JDV94AxMPPOPM6XYvXvf9qfHR1bk9ciy2kZ/o5E2nYpXrLLa7eTS5rA9UJWT/I0X4gOxzvqLxnFh+/by7fu/ALehBVIymXo1AAAAAElFTkSuQmCC" width="10px" height="10px" style="margin-right: 5px;"></span>京公网安备 11010502030465号
+                </a>
+            </p>
+            <p class="g-footer-copyright-line">北京大家玩科技有限公司&nbsp;&nbsp;版权所有</p>
+            <p class="g-footer-copyright-line">
+                切换至：
+                <a href="?ua=pc" class="g-footer-link" rel="nofollow">PC版</a>
+                <a href="?ua=mobile" class="g-footer-link" rel="nofollow">手机版</a>
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
