@@ -2,13 +2,14 @@ package com.zg.number.bean;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by 任彩雨 on 2017/8/5.
  */
 @Data
-public class User {
+public class User implements Serializable{
     private int userId;
     private String userName;//用户名
     private String phone;//手机号
